@@ -12,3 +12,12 @@ This repository contains Jupyter notebooks that showcase [COMBINE](http://co.mbi
 - [CellML](https://github.com/cellml/libcellml): Used to store and exchange computer-based mathematical models.
 - Synthetic Biology Open Language ([SBOL](https://github.com/SynBioDex/pySBOL3)): Used for description and the exchange of synthetic biological parts, devices, and systems.
 - [NeuroML](https://github.com/NeuroML/pyNeuroML): Used for XML based description language that provides a common data format for defining and exchanging descriptions of neuronal cell and network models.
+
+## Setup/Installation
+
+To work with the notebooks create a virtual environment and install the dependencies
+
+``` 
+mkvirtualenv combine-notebooks --python=python3.9
+pip install -r requirements.txt
+```
