@@ -12,6 +12,24 @@
       <species sboTerm="SBO:0000250" id="Y" name="TetR mRNA" compartment="cell" initialAmount="20" hasOnlySubstanceUnits="true"/>
       <species sboTerm="SBO:0000250" id="Z" name="cl mRNA" compartment="cell" initialAmount="0" hasOnlySubstanceUnits="true"/>
     </listOfSpecies>
+    <listOfParameters>
+      <parameter id="tau_mRNA" name="mRNA half life" value="2" constant="true"/>
+      <parameter sboTerm="SBO:0000356" id="kd_mRNA" name="kd_mRNA" constant="false"/>
+    </listOfParameters>
+    <listOfRules>
+      <assignmentRule variable="kd_MRNA">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <ln/>
+              <cn type="integer"> 2 </cn>
+            </apply>
+            <ci> tau_mRNA </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+    </listOfRules>
     <listOfReactions>
       <reaction sboTerm="SBO:0000179" id="Reaction1" name="degradation of LacI transcripts" reversible="false">
         <listOfReactants>
@@ -27,127 +45,6 @@
           </math>
         </kineticLaw>
       </reaction>
-      <reaction sboTerm="SBO:0000179" id="Reaction2" name="degradation of TetR transcripts" reversible="false">
-        <listOfReactants>
-          <speciesReference species="Y"/>
-        </listOfReactants>
-        <kineticLaw sboTerm="SBO:0000049">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kd_mRNA </ci>
-              <ci> Y </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction sboTerm="SBO:0000179" id="Reaction3" name="degradation of CI transcripts" reversible="false">
-        <listOfReactants>
-          <speciesReference species="Z"/>
-        </listOfReactants>
-        <kineticLaw sboTerm="SBO:0000049">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kd_mRNA </ci>
-              <ci> Z </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction sboTerm="SBO:0000184" id="Reaction4" name="translation of LacI" reversible="false">
-        <listOfProducts>
-          <speciesReference species="PX"/>
-        </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference sboTerm="SBO:0000461" species="X"/>
-        </listOfModifiers>
-        <kineticLaw sboTerm="SBO:0000049">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> k_tl </ci>
-              <ci> X </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction sboTerm="SBO:0000184" id="Reaction5" name="translation of TetR" reversible="false">
-        <listOfProducts>
-          <speciesReference species="PY"/>
-        </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference sboTerm="SBO:0000461" species="Y"/>
-        </listOfModifiers>
-        <kineticLaw sboTerm="SBO:0000049">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> k_tl </ci>
-              <ci> Y </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction sboTerm="SBO:0000184" id="Reaction6" name="translation of CI" reversible="false">
-        <listOfProducts>
-          <speciesReference species="PZ"/>
-        </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference sboTerm="SBO:0000461" species="Z"/>
-        </listOfModifiers>
-        <kineticLaw sboTerm="SBO:0000049">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> k_tl </ci>
-              <ci> Z </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction sboTerm="SBO:0000179" id="Reaction7" name="degradation of LacI" reversible="false">
-        <listOfReactants>
-          <speciesReference species="PX"/>
-        </listOfReactants>
-        <kineticLaw sboTerm="SBO:0000049">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kd_prot </ci>
-              <ci> PX </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction sboTerm="SBO:0000179" id="Reaction8" name="degradation of TetR" reversible="false">
-        <listOfReactants>
-          <speciesReference species="PY"/>
-        </listOfReactants>
-        <kineticLaw sboTerm="SBO:0000049">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kd_prot </ci>
-              <ci> PY </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction sboTerm="SBO:0000179" id="Reaction9" name="degradation of CI" reversible="false">
-        <listOfReactants>
-          <speciesReference species="PZ"/>
-        </listOfReactants>
-        <kineticLaw sboTerm="SBO:0000049">
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> kd_prot </ci>
-              <ci> PZ </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
       <reaction sboTerm="SBO:0000183" id="Reaction10" name="transcription of LacI" reversible="false">
         <listOfProducts>
           <speciesReference species="X"/>
@@ -155,30 +52,7 @@
         <listOfModifiers>
           <modifierSpeciesReference sboTerm="SBO:0000536" species="PZ"/>
         </listOfModifiers>
-        <kineticLaw>
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-            <apply>
-              <times/>
-              <ci> cytosol </ci>
-            </apply>
-          </math>
-        </kineticLaw>
-      </reaction>
-      <reaction sboTerm="SBO:0000183" id="Reaction11" name="transcription of TetR" reversible="false">
-        <listOfProducts>
-          <speciesReference species="Y"/>
-        </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference sboTerm="SBO:0000536" species="PX"/>
-        </listOfModifiers>
-      </reaction>
-      <reaction sboTerm="SBO:0000183" id="Reaction12" name="transcription of CI" reversible="false">
-        <listOfProducts>
-          <speciesReference species="Z"/>
-        </listOfProducts>
-        <listOfModifiers>
-          <modifierSpeciesReference sboTerm="SBO:0000536" species="PY"/>
-        </listOfModifiers>
+        <kineticLaw/>
       </reaction>
     </listOfReactions>
   </model>
