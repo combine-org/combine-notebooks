@@ -236,9 +236,6 @@ def create_repressilator():
     kinetic_law = r10.createKineticLaw()
     math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('a0_tr + (a_tr * power(KM, 2) / (power(KM, 2) + power(PZ, 2))', model)
 
-
-    #
-    #
     # r11 = model.createReaction()
     # r11.setId('Reaction11'),  # set reaction id
     # r11.setSBOTerm("SBO:0000183")
