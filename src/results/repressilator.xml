@@ -15,6 +15,17 @@
     <listOfParameters>
       <parameter id="tau_mRNA" name="mRNA half life" value="2" constant="true"/>
       <parameter sboTerm="SBO:0000356" id="kd_mRNA" name="kd_mRNA" constant="false"/>
+      <parameter sboTerm="SBO:0000016" id="k_tl" name="k_tl" constant="false"/>
+      <parameter id="eff" name="translation efficiency" value="20" constant="true"/>
+      <parameter sboTerm="SBO:0000348" id="t_ave" name="average mRNA life time" constant="false"/>
+      <parameter sboTerm="SBO:0000356" id="kd_prot" name="kd_prot" constant="false"/>
+      <parameter id="tau_prot" name="protien half life" value="10" constant="true"/>
+      <parameter sboTerm="SBO:0000485" id="a0_tr" name="a0_tr" constant="false"/>
+      <parameter id="ps_0" name="tps_repr" value="0.0005" constant="true"/>
+      <parameter sboTerm="SBO:0000186" id="a_tr" name="a_tr" constant="false"/>
+      <parameter id="ps_a" name="tps_active" value="0.5" constant="true"/>
+      <parameter id="KM" name="KM" value="40" constant="true"/>
+      <parameter id="n" name="n" value="2" constant="true"/>
     </listOfParameters>
     <listOfRules>
       <assignmentRule variable="kd_MRNA">
@@ -26,6 +37,61 @@
               <cn type="integer"> 2 </cn>
             </apply>
             <ci> tau_mRNA </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="t_ave">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> tau_mRNA </ci>
+            <apply>
+              <ln/>
+              <cn type="integer"> 2 </cn>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="k_tl">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> eff </ci>
+            <ci> t_ave </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="kd_prot">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <apply>
+              <ln/>
+              <cn type="integer"> 2 </cn>
+            </apply>
+            <ci> tau_prot </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="a0_tr">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <ci> ps_0 </ci>
+            <cn type="integer"> 60 </cn>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="a_tr">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <times/>
+            <apply>
+              <minus/>
+              <ci> ps_a </ci>
+              <ci> ps_0 </ci>
+            </apply>
+            <cn type="integer"> 60 </cn>
           </apply>
         </math>
       </assignmentRule>
@@ -45,6 +111,127 @@
           </math>
         </kineticLaw>
       </reaction>
+      <reaction sboTerm="SBO:0000179" id="Reaction2" name="degradation of TetR transcripts" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Y"/>
+        </listOfReactants>
+        <kineticLaw sboTerm="SBO:0000049">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kd_mRNA </ci>
+              <ci> Y </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000179" id="Reaction3" name="degradation of CI transcripts" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Z"/>
+        </listOfReactants>
+        <kineticLaw sboTerm="SBO:0000049">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kd_mRNA </ci>
+              <ci> Z </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000184" id="Reaction4" name="translation of LacI" reversible="false">
+        <listOfProducts>
+          <speciesReference species="PX"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference sboTerm="SBO:0000461" species="X"/>
+        </listOfModifiers>
+        <kineticLaw sboTerm="SBO:0000049">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_tl </ci>
+              <ci> X </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000184" id="Reaction5" name="translation of TetR" reversible="false">
+        <listOfProducts>
+          <speciesReference species="PY"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference sboTerm="SBO:0000461" species="Y"/>
+        </listOfModifiers>
+        <kineticLaw sboTerm="SBO:0000049">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_tl </ci>
+              <ci> Y </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000184" id="Reaction6" name="translation of CI" reversible="false">
+        <listOfProducts>
+          <speciesReference species="PZ"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference sboTerm="SBO:0000461" species="Z"/>
+        </listOfModifiers>
+        <kineticLaw sboTerm="SBO:0000049">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_tl </ci>
+              <ci> Z </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000179" id="Reaction7" name="degradation of LacI" reversible="false">
+        <listOfReactants>
+          <speciesReference species="PX"/>
+        </listOfReactants>
+        <kineticLaw sboTerm="SBO:0000049">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kd_prot </ci>
+              <ci> PX </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000179" id="Reaction8" name="degradation of TetR" reversible="false">
+        <listOfReactants>
+          <speciesReference species="PY"/>
+        </listOfReactants>
+        <kineticLaw sboTerm="SBO:0000049">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kd_prot </ci>
+              <ci> PY </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000179" id="Reaction9" name="degradation of CI" reversible="false">
+        <listOfReactants>
+          <speciesReference species="PZ"/>
+        </listOfReactants>
+        <kineticLaw sboTerm="SBO:0000049">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> kd_prot </ci>
+              <ci> PZ </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
       <reaction sboTerm="SBO:0000183" id="Reaction10" name="transcription of LacI" reversible="false">
         <listOfProducts>
           <speciesReference species="X"/>
@@ -52,7 +239,121 @@
         <listOfModifiers>
           <modifierSpeciesReference sboTerm="SBO:0000536" species="PZ"/>
         </listOfModifiers>
-        <kineticLaw/>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <plus/>
+              <ci> a0_tr </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> a_tr </ci>
+                  <apply>
+                    <power/>
+                    <ci> KM </ci>
+                    <ci> n </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <power/>
+                    <ci> KM </ci>
+                    <ci> n </ci>
+                  </apply>
+                  <apply>
+                    <power/>
+                    <ci> PZ </ci>
+                    <ci> n </ci>
+                  </apply>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000183" id="Reaction11" name="transcription of TetR" reversible="false">
+        <listOfProducts>
+          <speciesReference species="Y"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference sboTerm="SBO:0000536" species="PX"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <plus/>
+              <ci> a0_tr </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> a_tr </ci>
+                  <apply>
+                    <power/>
+                    <ci> KM </ci>
+                    <ci> n </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <power/>
+                    <ci> KM </ci>
+                    <ci> n </ci>
+                  </apply>
+                  <apply>
+                    <power/>
+                    <ci> PX </ci>
+                    <ci> n </ci>
+                  </apply>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000183" id="Reaction12" name="transcription of CI" reversible="false">
+        <listOfProducts>
+          <speciesReference species="Z"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference sboTerm="SBO:0000536" species="PY"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <plus/>
+              <ci> a0_tr </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> a_tr </ci>
+                  <apply>
+                    <power/>
+                    <ci> KM </ci>
+                    <ci> n </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <power/>
+                    <ci> KM </ci>
+                    <ci> n </ci>
+                  </apply>
+                  <apply>
+                    <power/>
+                    <ci> PY </ci>
+                    <ci> n </ci>
+                  </apply>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
       </reaction>
     </listOfReactions>
   </model>

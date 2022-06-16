@@ -92,6 +92,83 @@ def create_repressilator():
     p2.setSBOTerm("SBO:0000356")
     p2.setConstant(False)
 
+    # <parameter metaid="metaid_0000233" sboTerm="SBO:0000016" id="k_tl" name="k_tl" constant="false">
+    p3: libsbml.Parameter = model.createParameter()
+    p3.setId("k_tl")
+    p3.setName("k_tl")
+    p3.setSBOTerm("SBO:0000016")
+    p3.setConstant(False)
+
+    # <parameter metaid="metaid_0000025" id="eff" name="translation efficiency" value="20">
+    p4: libsbml.Parameter = model.createParameter()
+    p4.setId("eff")
+    p4.setName("translation efficiency")
+    p4.setConstant(True)
+    p4.setValue(20)
+
+    # <parameter metaid="metaid_0000032" sboTerm="SBO:0000348" id="t_ave" name="average mRNA life time" constant="false"/>
+    p5: libsbml.Parameter = model.createParameter()
+    p5.setId("t_ave")
+    p5.setName("average mRNA life time")
+    p5.setSBOTerm("SBO:0000348")
+    p5.setConstant(False)
+
+    # <parameter metaid="metaid_0000133" sboTerm="SBO:0000356" id="kd_prot" name="kd_prot" constant="false">
+    p6: libsbml.Parameter = model.createParameter()
+    p6.setId("kd_prot")
+    p6.setName("kd_prot")
+    p6.setSBOTerm("SBO:0000356")
+    p6.setConstant(False)
+
+    # <parameter metaid="metaid_0000128" sboTerm="SBO:0000332" id="tau_prot" name="protein half life" value="10"/>
+    p7: libsbml.Parameter = model.createParameter()
+    p7.setId("tau_prot")
+    p7.setName("protien half life")
+    p7.setConstant(True)
+    p7.setValue(10)
+
+    # <parameter metaid="metaid_0000234" sboTerm="SBO:0000485" id="a0_tr" name="a0_tr" constant="false">
+    p8: libsbml.Parameter = model.createParameter()
+    p8.setId("a0_tr")
+    p8.setName("a0_tr")
+    p8.setSBOTerm("SBO:0000485")
+    p8.setConstant(False)
+
+    # <parameter metaid="metaid_0500235" sboTerm="SBO:0000485" id="ps_0" name="tps_repr" value="0.0005">
+    p9: libsbml.Parameter = model.createParameter()
+    p9.setId("ps_0")
+    p9.setName("tps_repr")
+    p9.setConstant(True)
+    p9.setValue(0.0005)
+
+    # <parameter metaid="metaid_0900235" sboTerm="SBO:0000186" id="a_tr" name="a_tr" constant="false">
+    p10: libsbml.Parameter = model.createParameter()
+    p10.setId("a_tr")
+    p10.setName("a_tr")
+    p10.setSBOTerm("SBO:0000186")
+    p10.setConstant(False)
+
+    # <parameter metaid="metaid_0800235" sboTerm="SBO:0000186" id="ps_a" name="tps_active" value="0.5">
+    p11: libsbml.Parameter = model.createParameter()
+    p11.setId("ps_a")
+    p11.setName("tps_active")
+    p11.setConstant(True)
+    p11.setValue(0.5)
+
+    # <parameter metaid="metaid_0000027" sboTerm="SBO:0000288" id="KM" name="KM" value="40">
+    p12: libsbml.Parameter = model.createParameter()
+    p12.setId("KM")
+    p12.setName("KM")
+    p12.setConstant(True)
+    p12.setValue(40)
+
+    # <parameter metaid="metaid_0000026" sboTerm="SBO:0000190" id="n" name="n" value="2">
+    p13: libsbml.Parameter = model.createParameter()
+    p13.setId("n")
+    p13.setName("n")
+    p13.setConstant(True)
+    p13.setValue(2.0)
+
     # TODO: a0_tr, a_tr, n, KM
 
     # --- rules ---
@@ -99,6 +176,31 @@ def create_repressilator():
     a1.setVariable("kd_MRNA")
     math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('ln(2) / tau_mRNA', model)
     a1.setMath(math_ast)
+
+    a2: libsbml.AssignmentRule = model.createAssignmentRule()
+    a2.setVariable("t_ave")
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('tau_mRNA / ln(2)', model)
+    a2.setMath(math_ast)
+
+    a3: libsbml.AssignmentRule = model.createAssignmentRule()
+    a3.setVariable("k_tl")
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('eff / t_ave', model)
+    a3.setMath(math_ast)
+
+    a4: libsbml.AssignmentRule = model.createAssignmentRule()
+    a4.setVariable("kd_prot")
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('ln(2) / tau_prot', model)
+    a4.setMath(math_ast)
+
+    a5: libsbml.AssignmentRule = model.createAssignmentRule()
+    a5.setVariable("a0_tr")
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('ps_0 * 60', model)
+    a5.setMath(math_ast)
+
+    a6: libsbml.AssignmentRule = model.createAssignmentRule()
+    a6.setVariable("a_tr")
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('(ps_a - ps_0) * 60', model)
+    a6.setMath(math_ast)
 
     # --- reaction ---
     # X -> None
@@ -108,7 +210,6 @@ def create_repressilator():
     r1.setName("degradation of LacI transcripts")
     r1.setReversible(False)
 
-
     species_ref1: libsbml.SpeciesReference = r1.createReactant()
     species_ref1.setSpecies('X')  # assign reactant species
 
@@ -117,146 +218,178 @@ def create_repressilator():
     kinetic_law.setSBOTerm("SBO:0000049")
     kinetic_law.setMath(math_ast)
 
+    r2 = model.createReaction()
+    r2.setId('Reaction2'),  # set reaction id
+    r2.setSBOTerm("SBO:0000179")
+    r2.setName("degradation of TetR transcripts")
+    r2.setReversible(False)
 
-    # r2 = model.createReaction()
-    # r2.setId('Reaction2'),  # set reaction id
-    # r2.setSBOTerm("SBO:0000179")
-    # r2.setName("degradation of TetR transcripts")
-    # r2.setReversible(False)
-    # species_ref2 = r2.createReactant()
-    # species_ref2.setSpecies('Y')  # assign reactant species
-    # math_ast = libsbml.parseL3Formula('kd_mRNA * Y')
-    # kinetic_law = r2.createKineticLaw()
-    # kinetic_law.setSBOTerm("SBO:0000049")
-    # kinetic_law.setMath(math_ast)
-    #
-    # r3 = model.createReaction()
-    # r3.setId('Reaction3'),  # set reaction id
-    # r3.setSBOTerm("SBO:0000179")
-    # r3.setName("degradation of CI transcripts")
-    # r3.setReversible(False)
-    # species_ref3 = r3.createReactant()
-    # species_ref3.setSpecies('Z')  # assign reactant species
-    # math_ast = libsbml.parseL3Formula('kd_mRNA * Z')
-    # kinetic_law = r3.createKineticLaw()
-    # kinetic_law.setSBOTerm("SBO:0000049")
-    # kinetic_law.setMath(math_ast)
-    #
-    # r4 = model.createReaction()
-    # r4.setId('Reaction4'),  # set reaction id
-    # r4.setSBOTerm("SBO:0000184")
-    # r4.setName("translation of LacI")
-    # r4.setReversible(False)
-    # species_ref4 = r4.createProduct()
-    # species_ref4.setSpecies('PX')  # assign product species
-    # species_ref_4 = r4.createModifier()
-    # species_ref_4.setSpecies('X')
-    # species_ref_4.setSBOTerm("SBO:0000461")
-    # math_ast = libsbml.parseL3Formula('k_tl * X')
-    # kinetic_law = r4.createKineticLaw()
-    # kinetic_law.setSBOTerm("SBO:0000049")
-    # kinetic_law.setMath(math_ast)
-    #
-    # r5 = model.createReaction()
-    # r5.setId('Reaction5'),  # set reaction id
-    # r5.setSBOTerm("SBO:0000184")
-    # r5.setName("translation of TetR")
-    # r5.setReversible(False)
-    # species_ref5 = r5.createProduct()
-    # species_ref5.setSpecies('PY')  # assign product species
-    # species_ref_5 = r5.createModifier()
-    # species_ref_5.setSpecies('Y')
-    # species_ref_5.setSBOTerm("SBO:0000461")
-    # math_ast = libsbml.parseL3Formula('k_tl * Y')
-    # kinetic_law = r5.createKineticLaw()
-    # kinetic_law.setSBOTerm("SBO:0000049")
-    # kinetic_law.setMath(math_ast)
-    #
-    # r6 = model.createReaction()
-    # r6.setId('Reaction6'),  # set reaction id
-    # r6.setSBOTerm("SBO:0000184")
-    # r6.setName("translation of CI")
-    # r6.setReversible(False)
-    # species_ref6 = r6.createProduct()
-    # species_ref6.setSpecies('PZ')  # assign product species
-    # species_ref_6 = r6.createModifier()
-    # species_ref_6.setSpecies('Z')
-    # species_ref_6.setSBOTerm("SBO:0000461")
-    # math_ast = libsbml.parseL3Formula('k_tl * Z')
-    # kinetic_law = r6.createKineticLaw()
-    # kinetic_law.setSBOTerm("SBO:0000049")
-    # kinetic_law.setMath(math_ast)
-    #
-    # r7 = model.createReaction()
-    # r7.setId('Reaction7'),  # set reaction id
-    # r7.setSBOTerm("SBO:0000179")
-    # r7.setName("degradation of LacI")
-    # r7.setReversible(False)
-    # species_ref7 = r7.createReactant()
-    # species_ref7.setSpecies('PX')  # assign reactant species
-    # math_ast = libsbml.parseL3Formula('kd_prot * PX')
-    # kinetic_law = r7.createKineticLaw()
-    # kinetic_law.setSBOTerm("SBO:0000049")
-    # kinetic_law.setMath(math_ast)
-    #
-    # r8 = model.createReaction()
-    # r8.setId('Reaction8'),  # set reaction id
-    # r8.setSBOTerm("SBO:0000179")
-    # r8.setName("degradation of TetR")
-    # r8.setReversible(False)
-    # species_ref8 = r8.createReactant()
-    # species_ref8.setSpecies('PY')  # assign reactant species
-    # math_ast = libsbml.parseL3Formula('kd_prot * PY')
-    # kinetic_law = r8.createKineticLaw()
-    # kinetic_law.setSBOTerm("SBO:0000049")
-    # kinetic_law.setMath(math_ast)
-    #
-    # r9 = model.createReaction()
-    # r9.setId('Reaction9'),  # set reaction id
-    # r9.setSBOTerm("SBO:0000179")
-    # r9.setName("degradation of CI")
-    # r9.setReversible(False)
-    # species_ref9 = r9.createReactant()
-    # species_ref9.setSpecies('PZ')  # assign reactant species
-    # math_ast = libsbml.parseL3Formula('kd_prot * PZ')
-    # kinetic_law = r9.createKineticLaw()
-    # kinetic_law.setSBOTerm("SBO:0000049")
-    # kinetic_law.setMath(math_ast)
-    #
+    species_ref2 = r2.createReactant()
+    species_ref2.setSpecies('Y')  # assign reactant species
+
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('kd_mRNA * Y', model)
+    kinetic_law = r2.createKineticLaw()
+    kinetic_law.setSBOTerm("SBO:0000049")
+    kinetic_law.setMath(math_ast)
+
+    r3 = model.createReaction()
+    r3.setId('Reaction3'),  # set reaction id
+    r3.setSBOTerm("SBO:0000179")
+    r3.setName("degradation of CI transcripts")
+    r3.setReversible(False)
+
+    species_ref3 = r3.createReactant()
+    species_ref3.setSpecies('Z')  # assign reactant species
+
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('kd_mRNA * Z', model)
+    kinetic_law = r3.createKineticLaw()
+    kinetic_law.setSBOTerm("SBO:0000049")
+    kinetic_law.setMath(math_ast)
+
+    r4 = model.createReaction()
+    r4.setId('Reaction4'),  # set reaction id
+    r4.setSBOTerm("SBO:0000184")
+    r4.setName("translation of LacI")
+    r4.setReversible(False)
+
+    species_ref4 = r4.createProduct()
+    species_ref4.setSpecies('PX')  # assign product species
+
+    species_ref_4 = r4.createModifier()
+    species_ref_4.setSpecies('X')
+    species_ref_4.setSBOTerm("SBO:0000461")
+
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('k_tl * X', model)
+    kinetic_law = r4.createKineticLaw()
+    kinetic_law.setSBOTerm("SBO:0000049")
+    kinetic_law.setMath(math_ast)
+
+    r5 = model.createReaction()
+    r5.setId('Reaction5'),  # set reaction id
+    r5.setSBOTerm("SBO:0000184")
+    r5.setName("translation of TetR")
+    r5.setReversible(False)
+
+    species_ref5 = r5.createProduct()
+    species_ref5.setSpecies('PY')  # assign product species
+    species_ref_5 = r5.createModifier()
+    species_ref_5.setSpecies('Y')
+    species_ref_5.setSBOTerm("SBO:0000461")
+
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('k_tl * Y', model)
+    kinetic_law = r5.createKineticLaw()
+    kinetic_law.setSBOTerm("SBO:0000049")
+    kinetic_law.setMath(math_ast)
+
+    r6 = model.createReaction()
+    r6.setId('Reaction6'),  # set reaction id
+    r6.setSBOTerm("SBO:0000184")
+    r6.setName("translation of CI")
+    r6.setReversible(False)
+
+    species_ref6 = r6.createProduct()
+    species_ref6.setSpecies('PZ')  # assign product species
+    species_ref_6 = r6.createModifier()
+    species_ref_6.setSpecies('Z')
+    species_ref_6.setSBOTerm("SBO:0000461")
+
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('k_tl * Z', model)
+    kinetic_law = r6.createKineticLaw()
+    kinetic_law.setSBOTerm("SBO:0000049")
+    kinetic_law.setMath(math_ast)
+
+    r7 = model.createReaction()
+    r7.setId('Reaction7'),  # set reaction id
+    r7.setSBOTerm("SBO:0000179")
+    r7.setName("degradation of LacI")
+    r7.setReversible(False)
+
+    species_ref7 = r7.createReactant()
+    species_ref7.setSpecies('PX')  # assign reactant species
+
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('kd_prot * PX', model)
+    kinetic_law = r7.createKineticLaw()
+    kinetic_law.setSBOTerm("SBO:0000049")
+    kinetic_law.setMath(math_ast)
+
+    r8 = model.createReaction()
+    r8.setId('Reaction8'),  # set reaction id
+    r8.setSBOTerm("SBO:0000179")
+    r8.setName("degradation of TetR")
+    r8.setReversible(False)
+
+    species_ref8 = r8.createReactant()
+    species_ref8.setSpecies('PY')  # assign reactant species
+
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('kd_prot * PY', model)
+    kinetic_law = r8.createKineticLaw()
+    kinetic_law.setSBOTerm("SBO:0000049")
+    kinetic_law.setMath(math_ast)
+
+    r9 = model.createReaction()
+    r9.setId('Reaction9'),  # set reaction id
+    r9.setSBOTerm("SBO:0000179")
+    r9.setName("degradation of CI")
+    r9.setReversible(False)
+
+    species_ref9 = r9.createReactant()
+    species_ref9.setSpecies('PZ')  # assign reactant species
+
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('kd_prot * PZ', model)
+    kinetic_law = r9.createKineticLaw()
+    kinetic_law.setSBOTerm("SBO:0000049")
+    kinetic_law.setMath(math_ast)
+
     r10 = model.createReaction()
     r10.setId('Reaction10'),  # set reaction id
     r10.setSBOTerm("SBO:0000183")
     r10.setName("transcription of LacI")
     r10.setReversible(False)
+
     species_ref10 = r10.createProduct()
     species_ref10.setSpecies('X')  # assign product species
     species_ref_10 = r10.createModifier()
     species_ref_10.setSpecies('PZ')
     species_ref_10.setSBOTerm("SBO:0000536")
-    kinetic_law = r10.createKineticLaw()
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel('a0_tr + (a_tr * power(KM, 2) / (power(KM, 2) + power(PZ, 2))', model)
 
-    # r11 = model.createReaction()
-    # r11.setId('Reaction11'),  # set reaction id
-    # r11.setSBOTerm("SBO:0000183")
-    # r11.setName("transcription of TetR")
-    # r11.setReversible(False)
-    # species_ref11 = r11.createProduct()
-    # species_ref11.setSpecies('Y')  # assign product species
-    # species_ref_11 = r11.createModifier()
-    # species_ref_11.setSpecies('PX')
-    # species_ref_11.setSBOTerm("SBO:0000536")
-    #
-    # r12 = model.createReaction()
-    # r12.setId('Reaction12'),  # set reaction id
-    # r12.setSBOTerm("SBO:0000183")
-    # r12.setName("transcription of CI")
-    # r12.setReversible(False)
-    # species_ref12 = r12.createProduct()
-    # species_ref12.setSpecies('Z')  # assign product species
-    # species_ref_12 = r12.createModifier()
-    # species_ref_12.setSpecies('PY')
-    # species_ref_12.setSBOTerm("SBO:0000536")
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
+        'a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))', model)
+    kinetic_law = r10.createKineticLaw()
+    kinetic_law.setMath(math_ast)
+
+    r11 = model.createReaction()
+    r11.setId('Reaction11'),  # set reaction id
+    r11.setSBOTerm("SBO:0000183")
+    r11.setName("transcription of TetR")
+    r11.setReversible(False)
+
+    species_ref11 = r11.createProduct()
+    species_ref11.setSpecies('Y')  # assign product species
+    species_ref_11 = r11.createModifier()
+    species_ref_11.setSpecies('PX')
+    species_ref_11.setSBOTerm("SBO:0000536")
+
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
+        'a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PX, n))', model)
+    kinetic_law = r11.createKineticLaw()
+    kinetic_law.setMath(math_ast)
+
+    r12 = model.createReaction()
+    r12.setId('Reaction12'),  # set reaction id
+    r12.setSBOTerm("SBO:0000183")
+    r12.setName("transcription of CI")
+    r12.setReversible(False)
+
+    species_ref12 = r12.createProduct()
+    species_ref12.setSpecies('Z')  # assign product species
+    species_ref_12 = r12.createModifier()
+    species_ref_12.setSpecies('PY')
+    species_ref_12.setSBOTerm("SBO:0000536")
+
+    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
+        'a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PY, n))', model)
+    kinetic_law = r12.createKineticLaw()
+    kinetic_law.setMath(math_ast)
 
     print("-" * 80)
     print(libsbml.writeSBMLToString(doc))
