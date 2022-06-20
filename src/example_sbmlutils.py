@@ -82,19 +82,40 @@ model = Model(
                 Parameter(sid="a_tr", name="a_tr", constant=False, sboTerm="SBO:0000186"),
                 ],
 
-    rules=[
-
-    ],
+    rules=[AssignmentRule(sid="kd_mRNA", value="ln(2) / tau_mRNA", name="kd_MRNA", sboTerm=None),
+           AssignmentRule(sid="t_ave",value= "tau_mRNA / ln(2)", name="t_ave",sboTerm=None),
+           AssignmentRule(sid="k_tl",value= "eff / t_ave", name="k_tl",sboTerm=None),
+           AssignmentRule(sid="kd_prot",value= "ln(2) / tau_prot", name="kd_prot",sboTerm=None),
+           AssignmentRule(sid="a0_tr",value= "ps_0 * 60", name="a0_tr",sboTerm=None),
+           AssignmentRule(sid="a_tr",value= "(ps_a - ps_0) * 60", name="a_tr",sboTerm=None),
+           ],
 
     reactions=[
+
         Reaction(sid="Reaction1", sboTerm="SBO:0000179", name="degradation of LacI transcripts",
                  reversible=False, equation="X -> ", formula=("kd_mRNA * X", None)),
-Reaction(sid="Reaction2", sboTerm="SBO:0000179", name="degradation of TetR transcripts",
+        Reaction(sid="Reaction2", sboTerm="SBO:0000179", name="degradation of TetR transcripts",
                  reversible=False, equation="Y -> ", formula=("kd_mRNA * Y", None)),
-Reaction(sid="Reaction3", sboTerm="SBO:0000179", name="degradation of CI transcripts",
+        Reaction(sid="Reaction3", sboTerm="SBO:0000179", name="degradation of CI transcripts",
                  reversible=False, equation="Z -> ", formula=("kd_mRNA * Z", None)),
-Reaction(sid="Reaction4", sboTerm="SBO:0000184", name="translation of LacI",
+        Reaction(sid="Reaction4", sboTerm="SBO:0000184", name="translation of LacI",
                  reversible=False, equation=" -> PX", formula=("k_tl * X", None)),
+        Reaction(sid="Reaction5", sboTerm="SBO:0000184", name="translation of TetR",
+                         reversible=False, equation=" -> PY", formula=("k_tl * Y", None)),
+        Reaction(sid="Reaction6", sboTerm="SBO:0000184", name="translation of CI",
+                         reversible=False, equation=" -> PZ", formula=("k_tl *Z", None)),
+        Reaction(sid="Reaction7", sboTerm="SBO:0000179", name="degradation of LacI",
+                         reversible=False, equation="PX -> ", formula=("kd_prot * PX", None)),
+        Reaction(sid="Reaction8", sboTerm="SBO:0000179", name="degradation of TetR",
+                         reversible=False, equation="PY -> ", formula=("kd_prot * PY", None)),
+        Reaction(sid="Reaction9", sboTerm="SBO:0000179", name="degradation of CI",
+                         reversible=False, equation="PZ -> ", formula=("kd_prot * PZ", None)),
+        Reaction(sid="Reaction10", sboTerm="SBO:0000183", name="transcription of LacI",
+                         reversible=False, equation=" -> X", formula=("a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))", None)),
+        Reaction(sid="Reaction11", sboTerm="SBO:0000183", name="transcription of TetR",
+                         reversible=False, equation=" -> Y", formula=("a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PX, n))", None)),
+        Reaction(sid="Reaction12", sboTerm="SBO:0000184", name="transcription of CI",
+                         reversible=False, equation=" -> Z", formula=("a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PY, n))", None)),
     ],
 )
 
@@ -104,8 +125,8 @@ with tempfile.TemporaryDirectory() as tmp_path:
         output_dir=Path(tmp_path),
         tmp=False,
         units_consistency=False,
-        sbml_level=3,
-        sbml_version=1,
+        sbml_level=2,
+        sbml_version=3,
     )
     # show level and version and print SBML
     doc = read_sbml(source=results.sbml_path, validate=False)
