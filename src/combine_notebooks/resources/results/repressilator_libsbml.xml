@@ -28,7 +28,7 @@
       <parameter id="n" name="n" value="2" constant="true"/>
     </listOfParameters>
     <listOfRules>
-      <assignmentRule variable="kd_MRNA">
+      <assignmentRule variable="kd_mRNA">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
           <apply>
             <divide/>

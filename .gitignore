@@ -1,2 +1,9 @@
 .idea
 .DS_Store
+wheels
+__pycache__
+.coverage
+.eggs
+.tox
+coverage.xml
+src/combine_notebooks.egg-info/

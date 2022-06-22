@@ -18,6 +18,6 @@ This repository contains Jupyter notebooks that showcase [COMBINE](http://co.mbi
 To work with the notebooks create a virtual environment and install the dependencies
 
 ``` 
-mkvirtualenv combine-notebooks --python=python3.9
-pip install -r requirements.txt
+mkvirtualenv combine_notebooks --python=python3.9
+pip install -e .[development] --upgrade
 ```

@@ -1,4 +1,0 @@
-python-libsbml>=5.19.5
-sbmlutils
-wheel >= 0.37.1
-setuptools >= 44.0.0
