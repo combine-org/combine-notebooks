@@ -1,8 +1,8 @@
 """
 Create the repressilator step by step.
+
 See on biomodels.
 """
-
 from pathlib import Path
 from typing import List
 
@@ -11,6 +11,7 @@ from libsbml import *
 
 
 def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
+    """Create repressilator."""
     print("Create SBML model")
     # create a new document
 
@@ -75,10 +76,6 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     s6.setHasOnlySubstanceUnits(True)
 
     # --- parameters ---
-    parameters_info = [
-        {"id": "tau_mRNA", "name": "mRNA half life"},
-    ]
-
     # <parameter id="kd_mRNA" constant="false" name="kd_mRNA" sboTerm="SBO:0000356">
     p1: libsbml.Parameter = model.createParameter()
     p1.setId("tau_mRNA")
@@ -175,41 +172,41 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     # --- rules ---
     a1: libsbml.AssignmentRule = model.createAssignmentRule()
     a1.setVariable("kd_mRNA")
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
+    math_ast1: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
         "ln(2) / tau_mRNA", model
     )
-    a1.setMath(math_ast)
+    a1.setMath(math_ast1)
 
     a2: libsbml.AssignmentRule = model.createAssignmentRule()
     a2.setVariable("t_ave")
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
+    math_ast2: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
         "tau_mRNA / ln(2)", model
     )
-    a2.setMath(math_ast)
+    a2.setMath(math_ast2)
 
     a3: libsbml.AssignmentRule = model.createAssignmentRule()
     a3.setVariable("k_tl")
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("eff / t_ave", model)
-    a3.setMath(math_ast)
+    math_ast3: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("eff / t_ave", model)
+    a3.setMath(math_ast3)
 
     a4: libsbml.AssignmentRule = model.createAssignmentRule()
     a4.setVariable("kd_prot")
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
+    math_ast4: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
         "ln(2) / tau_prot", model
     )
-    a4.setMath(math_ast)
+    a4.setMath(math_ast4)
 
     a5: libsbml.AssignmentRule = model.createAssignmentRule()
     a5.setVariable("a0_tr")
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("ps_0 * 60", model)
-    a5.setMath(math_ast)
+    math_ast5: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("ps_0 * 60", model)
+    a5.setMath(math_ast5)
 
     a6: libsbml.AssignmentRule = model.createAssignmentRule()
     a6.setVariable("a_tr")
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
+    math_ast6: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
         "(ps_a - ps_0) * 60", model
     )
-    a6.setMath(math_ast)
+    a6.setMath(math_ast6)
 
     # --- reaction ---
     # X -> None
@@ -222,10 +219,10 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     species_ref1: libsbml.SpeciesReference = r1.createReactant()
     species_ref1.setSpecies("X")  # assign reactant species
 
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("kd_mRNA * X", model)
+    math_ast7: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("kd_mRNA * X", model)
     kinetic_law = r1.createKineticLaw()
     kinetic_law.setSBOTerm("SBO:0000049")
-    kinetic_law.setMath(math_ast)
+    kinetic_law.setMath(math_ast7)
 
     r2 = model.createReaction()
     r2.setId("Reaction2"),  # set reaction id
@@ -236,10 +233,10 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     species_ref2 = r2.createReactant()
     species_ref2.setSpecies("Y")  # assign reactant species
 
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("kd_mRNA * Y", model)
+    math_ast8: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("kd_mRNA * Y", model)
     kinetic_law = r2.createKineticLaw()
     kinetic_law.setSBOTerm("SBO:0000049")
-    kinetic_law.setMath(math_ast)
+    kinetic_law.setMath(math_ast8)
 
     r3 = model.createReaction()
     r3.setId("Reaction3"),  # set reaction id
@@ -250,10 +247,10 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     species_ref3 = r3.createReactant()
     species_ref3.setSpecies("Z")  # assign reactant species
 
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("kd_mRNA * Z", model)
+    math_ast9: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("kd_mRNA * Z", model)
     kinetic_law = r3.createKineticLaw()
     kinetic_law.setSBOTerm("SBO:0000049")
-    kinetic_law.setMath(math_ast)
+    kinetic_law.setMath(math_ast9)
 
     r4 = model.createReaction()
     r4.setId("Reaction4"),  # set reaction id
@@ -268,10 +265,10 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     species_ref_4.setSpecies("X")
     species_ref_4.setSBOTerm("SBO:0000461")
 
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("k_tl * X", model)
+    math_ast10: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("k_tl * X", model)
     kinetic_law = r4.createKineticLaw()
     kinetic_law.setSBOTerm("SBO:0000049")
-    kinetic_law.setMath(math_ast)
+    kinetic_law.setMath(math_ast10)
 
     r5 = model.createReaction()
     r5.setId("Reaction5"),  # set reaction id
@@ -285,10 +282,10 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     species_ref_5.setSpecies("Y")
     species_ref_5.setSBOTerm("SBO:0000461")
 
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("k_tl * Y", model)
+    math_ast11: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("k_tl * Y", model)
     kinetic_law = r5.createKineticLaw()
     kinetic_law.setSBOTerm("SBO:0000049")
-    kinetic_law.setMath(math_ast)
+    kinetic_law.setMath(math_ast11)
 
     r6 = model.createReaction()
     r6.setId("Reaction6"),  # set reaction id
@@ -302,10 +299,10 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     species_ref_6.setSpecies("Z")
     species_ref_6.setSBOTerm("SBO:0000461")
 
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("k_tl * Z", model)
+    math_ast12: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("k_tl * Z", model)
     kinetic_law = r6.createKineticLaw()
     kinetic_law.setSBOTerm("SBO:0000049")
-    kinetic_law.setMath(math_ast)
+    kinetic_law.setMath(math_ast12)
 
     r7 = model.createReaction()
     r7.setId("Reaction7"),  # set reaction id
@@ -316,10 +313,10 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     species_ref7 = r7.createReactant()
     species_ref7.setSpecies("PX")  # assign reactant species
 
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("kd_prot * PX", model)
+    math_ast13: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("kd_prot * PX", model)
     kinetic_law = r7.createKineticLaw()
     kinetic_law.setSBOTerm("SBO:0000049")
-    kinetic_law.setMath(math_ast)
+    kinetic_law.setMath(math_ast13)
 
     r8 = model.createReaction()
     r8.setId("Reaction8"),  # set reaction id
@@ -330,10 +327,10 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     species_ref8 = r8.createReactant()
     species_ref8.setSpecies("PY")  # assign reactant species
 
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("kd_prot * PY", model)
+    math_ast14: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("kd_prot * PY", model)
     kinetic_law = r8.createKineticLaw()
     kinetic_law.setSBOTerm("SBO:0000049")
-    kinetic_law.setMath(math_ast)
+    kinetic_law.setMath(math_ast14)
 
     r9 = model.createReaction()
     r9.setId("Reaction9"),  # set reaction id
@@ -344,10 +341,10 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     species_ref9 = r9.createReactant()
     species_ref9.setSpecies("PZ")  # assign reactant species
 
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("kd_prot * PZ", model)
+    math_ast15: libsbml.ASTNode = libsbml.parseL3FormulaWithModel("kd_prot * PZ", model)
     kinetic_law = r9.createKineticLaw()
     kinetic_law.setSBOTerm("SBO:0000049")
-    kinetic_law.setMath(math_ast)
+    kinetic_law.setMath(math_ast15)
 
     r10 = model.createReaction()
     r10.setId("Reaction10"),  # set reaction id
@@ -361,11 +358,11 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     species_ref_10.setSpecies("PZ")
     species_ref_10.setSBOTerm("SBO:0000536")
 
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
+    math_ast16: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
         "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))", model
     )
     kinetic_law = r10.createKineticLaw()
-    kinetic_law.setMath(math_ast)
+    kinetic_law.setMath(math_ast16)
 
     r11 = model.createReaction()
     r11.setId("Reaction11"),  # set reaction id
@@ -379,11 +376,11 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     species_ref_11.setSpecies("PX")
     species_ref_11.setSBOTerm("SBO:0000536")
 
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
+    math_ast17: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
         "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PX, n))", model
     )
     kinetic_law = r11.createKineticLaw()
-    kinetic_law.setMath(math_ast)
+    kinetic_law.setMath(math_ast17)
 
     r12 = model.createReaction()
     r12.setId("Reaction12"),  # set reaction id
@@ -397,11 +394,11 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     species_ref_12.setSpecies("PY")
     species_ref_12.setSBOTerm("SBO:0000536")
 
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
+    math_ast18: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(
         "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PY, n))", model
     )
     kinetic_law = r12.createKineticLaw()
-    kinetic_law.setMath(math_ast)
+    kinetic_law.setMath(math_ast18)
 
     print("-" * 80)
     print(libsbml.writeSBMLToString(doc))
@@ -417,7 +414,7 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
 
 
 def validate_sbml(doc: libsbml.SBMLDocument, units_consistency: bool = False):
-
+    """Validate sbml."""
     # set the unit checking, similar for the other settings
     doc.setConsistencyChecks(libsbml.LIBSBML_CAT_UNITS_CONSISTENCY, units_consistency)
     doc.checkConsistency()

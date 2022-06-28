@@ -1,7 +1,7 @@
 """Example script for creating SBML repressilator with sbmlutils."""
 import tempfile
 from pathlib import Path
-
+import sbmlutils
 from sbmlutils.factory import *
 from sbmlutils.io import read_sbml, validate_sbml, write_sbml
 from sbmlutils.metadata import *
@@ -211,6 +211,12 @@ model = Model(
         ),
     ],
 )
+
+
+def create_model(models, output_dir, tmp, units_consistency, sbml_level, sbml_version):
+    """Create model."""
+    pass
+
 
 if __name__ == "__main__":
     results_dir: Path = Path(__file__).parent / "results"
