@@ -7,7 +7,6 @@ from pathlib import Path
 from typing import List
 
 import libsbml
-from libsbml import *
 
 
 def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
@@ -413,7 +412,7 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     return doc
 
 
-def validate_sbml(doc: libsbml.SBMLDocument, units_consistency: bool = False):
+def validate_sbml(doc: libsbml.SBMLDocument, units_consistency: bool = False) -> None:
     """Validate sbml."""
     # set the unit checking, similar for the other settings
     doc.setConsistencyChecks(libsbml.LIBSBML_CAT_UNITS_CONSISTENCY, units_consistency)

@@ -1,9 +1,19 @@
 """Example script for creating SBML repressilator with sbmlutils."""
-import tempfile
 from pathlib import Path
-import sbmlutils
+
 from sbmlutils.factory import *
-from sbmlutils.io import read_sbml, validate_sbml, write_sbml
+from sbmlutils.factory import (
+    AssignmentRule,
+    Compartment,
+    FactoryResult,
+    Model,
+    ModelUnits,
+    Parameter,
+    Reaction,
+    Species,
+    Units,
+    create_model,
+)
 from sbmlutils.metadata import *
 
 
@@ -213,25 +223,20 @@ model = Model(
 )
 
 
-def create_model(models, output_dir, tmp, units_consistency, sbml_level, sbml_version):
-    """Create model."""
-    pass
+def create_repressilator(sbml_path: Path) -> FactoryResult:
+    """Create the repressilator model in the results_dir."""
+    results = create_model(
+        models=model,
+        output_dir=sbml_path.parent,
+        filename=sbml_path.name,
+        tmp=False,
+        units_consistency=False,
+        sbml_level=2,
+        sbml_version=3,
+    )
+    return results
 
 
 if __name__ == "__main__":
-    results_dir: Path = Path(__file__).parent / "results"
-
-    with tempfile.TemporaryDirectory() as tmp_path:
-        results = create_model(
-            models=model,
-            output_dir=results_dir,
-            tmp=False,
-            units_consistency=False,
-            sbml_level=2,
-            sbml_version=3,
-        )
-
-        # show level and version and print SBML
-        # doc = read_sbml(source=results.sbml_path, validate=False)
-        # sbml = write_sbml(doc)
-        # print(sbml)
+    from combine_notebooks import RESULTS_DIR
+    create_repressilator(sbml_path=RESULTS_DIR / "repressilator_sbmlutils.xml")
