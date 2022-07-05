@@ -13,17 +13,12 @@ from pathlib import Path
 import libcellml
 from cellml_utilities import print_model
 
+
 def create_model(cellml_path: Path) -> libcellml.Model:
     """Create CellML repressilator and save to Path."""
     model = libcellml.Model()
     model.setName("repressilator")
 
-    #
-
-
-    #  1.b
-    #      Create a component to use as an integrator, set its attributes and
-    #      add it to the model.
     comp_parameters = libcellml.Component()
     comp_parameters.setName("parameters")
     model.addComponent(comp_parameters)
