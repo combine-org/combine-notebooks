@@ -241,4 +241,5 @@ if __name__ == "__main__":
     # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
     # RESULTS_DIR: Path = RESOURCES_DIR / "results"
     from combine_notebooks import RESULTS_DIR
+
     create_repressilator(sbml_path=RESULTS_DIR / "repressilator_sbmlutils.xml")

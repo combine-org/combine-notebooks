@@ -76,9 +76,11 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     validate_sbml(doc)
     return doc
 
+
 if __name__ == "__main__":
     # print(model)
     # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
     # RESULTS_DIR: Path = RESOURCES_DIR / "results"
     from combine_notebooks import RESULTS_DIR
+
     create_repressilator(sbml_path=RESULTS_DIR / "repressilator_antimony.xml")
