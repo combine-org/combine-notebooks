@@ -21,3 +21,10 @@ def test_create_repressilator_sbmlutils(tmp_path: Path) -> None:
     results: FactoryResult = example_sbmlutils.create_repressilator(sbml_path)
     assert results
     assert results.sbml_path.exists()
+
+def test_create_repressilator_antimony(tmp_path: Path) -> None:
+    """Test creation of repressilator with antimony."""
+    sbml_path: Path = tmp_path / "test.xml"
+    doc = example_antimony.create_repressilator(sbml_path)
+    assert doc
+    assert sbml_path.exists()

@@ -7,4 +7,3 @@ __pycache__
 .tox
 coverage.xml
 src/combine_notebooks.egg-info/
-combine_notebooks/
