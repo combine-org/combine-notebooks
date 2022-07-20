@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map language="process description">
+        <bbox w="363." h="253." x="0." y="0."/>
+        <glyph class="source and sink" id="glyph3">
+            <bbox w="36." h="36." x="530." y="25."/>
+        </glyph>
+        <glyph class="source and sink" id="glyph2">
+            <bbox w="36." h="36." x="180." y="25."/>
+        </glyph>
+        <glyph class="source and sink" id="glyph11">
+            <bbox w="36." h="36." x="455." y="265."/>
+        </glyph>
+        <glyph class="source and sink" id="glyph12">
+            <bbox w="36." h="36." x="625." y="125."/>
+        </glyph>
+        <glyph class="process" id="glyph5">
+            <bbox w="20." h="20." x="273." y="33."/>
+            <port id="glyph5.1" x="263." y="43."/>
+            <port id="glyph5.2" x="303." y="43."/>
+        </glyph>
+        <glyph class="source and sink" id="glyph10">
+            <bbox w="36." h="36." x="545." y="378.617279999999994"/>
+        </glyph>
+        <glyph class="source and sink" id="glyph15">
+            <bbox w="36." h="36." x="800." y="125."/>
+        </glyph>
+        <glyph class="source and sink" id="glyph25">
+            <bbox w="36." h="36." x="800." y="450."/>
+        </glyph>
+        <glyph class="process" id="glyph16">
+            <bbox w="20." h="20." x="808." y="228."/>
+            <port id="glyph16.1" x="818." y="218."/>
+            <port id="glyph16.2" x="818." y="258."/>
+        </glyph>
+        <glyph class="macromolecule" id="glyph8">
+            <label text="Laclp"/>
+            <bbox w="72." h="45." x="342." y="20.5"/>
+        </glyph>
+        <glyph class="source and sink" id="glyph30">
+            <bbox w="36." h="36." x="275." y="625."/>
+        </glyph>
+        <glyph class="process" id="glyph14">
+            <bbox w="20." h="20." x="283." y="558."/>
+            <port id="glyph14.2" x="293." y="588."/>
+            <port id="glyph14.1" x="293." y="548."/>
+        </glyph>
+        <glyph class="source and sink" id="glyph17">
+            <bbox w="36." h="36." x="115." y="480."/>
+        </glyph>
+        <glyph class="source and sink" id="glyph19">
+            <bbox w="36." h="36." x="350." y="378.617279999999994"/>
+        </glyph>
+        <glyph class="source and sink" id="glyph18">
+            <bbox w="36." h="36." x="20." y="378.617000000000019"/>
+        </glyph>
+        <glyph class="macromolecule" id="glyph27">
+            <label text="Clp"/>
+            <bbox w="72." h="45." x="782." y="280.5"/>
+        </glyph>
+        <glyph class="macromolecule" id="glyph24">
+            <label text="Tetp"/>
+            <bbox w="72." h="45." x="257." y="475.5"/>
+        </glyph>
+        <glyph class="process" id="glyph13">
+            <label text="Laclp"/>
+            <bbox w="20." h="20." x="618." y="386.617279999999994"/>
+            <port id="glyph13.1" x="608." y="396.617279999999994"/>
+            <port id="glyph13.2" x="648." y="396.617279999999994"/>
+        </glyph>
+        <glyph class="process" id="glyph26">
+            <label text="Laclp"/>
+            <bbox w="20." h="20." x="808." y="386.617279999999994"/>
+            <port id="glyph26.1" x="818." y="376.617279999999994"/>
+            <port id="glyph26.2" x="818." y="416.617279999999994"/>
+        </glyph>
+        <glyph class="source and sink" id="glyph22">
+            <bbox w="36." h="36." x="700." y="528.666699999999992"/>
+        </glyph>
+        <glyph class="nucleic acid feature" id="glyph21">
+            <label text="Clm"/>
+            <bbox w="72." h="45." x="682." y="374.117000000000019"/>
+        </glyph>
+        <glyph class="process" id="glyph28">
+            <bbox w="20." h="20." x="708." y="456.666699999999992"/>
+            <port id="glyph28.2" x="718." y="486.666699999999992"/>
+            <port id="glyph28.1" x="718." y="446.666699999999992"/>
+        </glyph>
+        <glyph class="process" id="glyph32">
+            <bbox w="20." h="20." x="288." y="386.617279999999994"/>
+            <port id="glyph32.2" x="318." y="396.617279999999994"/>
+            <port id="glyph32.1" x="278." y="396.617279999999994"/>
+        </glyph>
+        <glyph class="process" id="glyph9">
+            <bbox w="20." h="20." x="110." y="386.617279999999994"/>
+            <port id="glyph9.1" x="100." y="396.617279999999994"/>
+            <port id="glyph9.2" x="140." y="396.617279999999994"/>
+        </glyph>
+        <glyph class="nucleic acid feature" id="glyph1">
+            <label text="Tetm"/>
+            <bbox w="72." h="45." x="167." y="374.117000000000019"/>
+        </glyph>
+        <glyph class="process" id="glyph23">
+            <bbox w="20." h="20." x="194." y="488."/>
+            <port id="glyph23.1" x="184." y="498."/>
+            <port id="glyph23.2" x="224." y="498."/>
+        </glyph>
+        <glyph class="process" id="glyph4">
+            <bbox w="20." h="20." x="463." y="33."/>
+            <port id="glyph4.2" x="493." y="43."/>
+            <port id="glyph4.1" x="453." y="43."/>
+        </glyph>
+        <glyph class="process" id="glyph7">
+            <label text="Tetm"/>
+            <bbox w="20." h="20." x="463." y="208."/>
+            <port id="glyph7.2" x="473." y="238."/>
+            <port id="glyph7.1" x="473." y="198."/>
+        </glyph>
+        <glyph class="nucleic acid feature" id="glyph20">
+            <label text="Laclm"/>
+            <bbox w="72." h="45." x="437." y="120.5"/>
+        </glyph>
+        <glyph class="process" id="glyph6">
+            <label text="Tetm"/>
+            <bbox w="20." h="20." x="553." y="133."/>
+            <port id="glyph6.2" x="583." y="143."/>
+            <port id="glyph6.1" x="543." y="143."/>
+        </glyph>
+        <glyph class="process" id="glyph6">
+            <label text="Tetm"/>
+            <bbox w="20." h="20." x="553." y="133."/>
+        </glyph>
+        <arc class="consumption" id="arc1" source="glyph3" target="glyph4.2">
+            <start x="530." y="43."/>
+            <end x="493." y="43."/>
+        </arc>
+        <arc class="production" id="arc4" source="glyph5.1" target="glyph2">
+            <start x="263." y="43."/>
+            <end x="216." y="43."/>
+        </arc>
+        <arc class="consumption" id="arc6" source="glyph11" target="glyph7.2">
+            <start x="473." y="265."/>
+            <end x="473." y="238."/>
+        </arc>
+        <arc class="production" id="arc9" source="glyph6.2" target="glyph12">
+            <start x="583." y="143."/>
+            <end x="625." y="143."/>
+        </arc>
+        <arc class="consumption" id="arc3" source="glyph8" target="glyph5.2">
+            <start x="342." y="43."/>
+            <end x="303." y="43."/>
+        </arc>
+        <arc class="consumption" id="arc19" source="glyph10" target="glyph13.1">
+            <start x="581." y="396.617279999999994"/>
+            <end x="608." y="396.617279999999994"/>
+        </arc>
+        <arc class="production" id="arc22" source="glyph4.1" target="glyph8">
+            <start x="453." y="43."/>
+            <end x="414." y="43."/>
+        </arc>
+        <arc class="consumption" id="arc24" source="glyph16.1" target="glyph15">
+            <start x="818." y="218."/>
+            <end x="818." y="161."/>
+        </arc>
+        <arc class="production" id="arc10" source="glyph26.1" target="glyph27">
+            <start x="818." y="376.617279999999994"/>
+            <end x="818." y="325.5"/>
+        </arc>
+        <arc class="consumption" id="arc11" source="glyph25" target="glyph26.2">
+            <start x="818." y="450."/>
+            <end x="818." y="416.617279999999994"/>
+        </arc>
+        <arc class="consumption" id="arc13" source="glyph27" target="glyph16.2">
+            <start x="818." y="280.5"/>
+            <end x="818." y="258."/>
+        </arc>
+        <arc class="inhibition" id="arc15" source="glyph8" target="glyph32">
+            <start x="353.746770000000026" y="65.5"/>
+            <end x="297.89154000000002" y="386.617279999999994"/>
+        </arc>
+        <arc class="production" id="arc16" source="glyph14.2" target="glyph30">
+            <start x="293." y="588."/>
+            <end x="293." y="625."/>
+        </arc>
+        <arc class="consumption" id="arc17" source="glyph24" target="glyph14.1">
+            <start x="293." y="520.5"/>
+            <end x="293." y="548."/>
+        </arc>
+        <arc class="consumption" id="arc20" source="glyph17" target="glyph23.1">
+            <start x="151." y="498."/>
+            <end x="184." y="498."/>
+        </arc>
+        <arc class="production" id="arc21" source="glyph23.2" target="glyph24">
+            <start x="224." y="498."/>
+            <end x="257." y="498."/>
+        </arc>
+        <arc class="consumption" id="arc25" source="glyph19" target="glyph32.2">
+            <start x="350." y="396.617279999999994"/>
+            <end x="318." y="396.617279999999994"/>
+        </arc>
+        <arc class="production" id="arc28" source="glyph9.1" target="glyph18">
+            <start x="100." y="396.617279999999994"/>
+            <end x="56." y="396.617000000000019"/>
+        </arc>
+        <arc class="inhibition" id="arc2" source="glyph27" target="glyph7">
+            <start x="791.870999999999981" y="280.5"/>
+            <end x="483." y="217.662450000000007"/>
+        </arc>
+        <arc class="inhibition" id="arc23" source="glyph24" target="glyph13">
+            <start x="329." y="498.770629999999983"/>
+            <end x="627.261899999999969" y="406.617279999999994"/>
+        </arc>
+        <arc class="production" id="arc5" source="glyph13.2" target="glyph21">
+            <start x="648." y="396.617279999999994"/>
+            <end x="682." y="396.617000000000019"/>
+        </arc>
+        <arc class="necessary stimulation" id="arc7" source="glyph21" target="glyph26">
+            <start x="754." y="396.617000000000019"/>
+            <end x="808." y="396.617279999999994"/>
+        </arc>
+        <arc class="production" id="arc8" source="glyph28.2" target="glyph22">
+            <start x="718." y="486.666699999999992"/>
+            <end x="718." y="528.666699999999992"/>
+        </arc>
+        <arc class="consumption" id="arc12" source="glyph21" target="glyph28.1">
+            <start x="718." y="419.117000000000019"/>
+            <end x="718." y="446.666699999999992"/>
+        </arc>
+        <arc class="production" id="arc14" source="glyph32.1" target="glyph1">
+            <start x="278." y="396.617279999999994"/>
+            <end x="239." y="396.617000000000019"/>
+        </arc>
+        <arc class="consumption" id="arc18" source="glyph1" target="glyph9.2">
+            <start x="167." y="396.617000000000019"/>
+            <end x="140." y="396.617279999999994"/>
+        </arc>
+        <arc class="necessary stimulation" id="arc26" source="glyph1" target="glyph23">
+            <start x="203.221920000000011" y="419.117000000000019"/>
+            <end x="203.901369999999986" y="488."/>
+        </arc>
+        <arc class="necessary stimulation" id="arc27" source="glyph20" target="glyph4">
+            <start x="473." y="120.5"/>
+            <end x="473." y="53."/>
+        </arc>
+        <arc class="production" id="arc29" source="glyph7.1" target="glyph20">
+            <start x="473." y="198."/>
+            <end x="473." y="165.5"/>
+        </arc>
+        <arc class="consumption" id="arc30" source="glyph20" target="glyph6.1">
+            <start x="509." y="143."/>
+            <end x="543." y="143."/>
+        </arc>
+    </map>
+</sbgn>
