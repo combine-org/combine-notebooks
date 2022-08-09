@@ -10,14 +10,16 @@ https://github.com/NeuroML/Documentation/blob/master/source/Userdocs/NML2_exampl
 # TODO: create Hudgkin-Huxley model, this is standard Neuron model
 """
 from pathlib import Path
+
 import pyneuroml
 from neuroml import NeuroMLDocument
+
 
 # create a neuroml document
 nml_doc = NeuroMLDocument(id="repressilator")
 
-#compartment
-#species
-#parameters
-#rules
-#reactions
+# compartment
+# species
+# parameters
+# rules
+# reactions

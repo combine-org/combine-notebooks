@@ -2,6 +2,7 @@ import string
 
 from libcellml import Issue
 
+
 def print_model(model, include_maths=False):
 
     if model is None:
@@ -24,7 +25,7 @@ def print_model(model, include_maths=False):
             print(f"' in '{model.units(u).importSource().url()}'", end="")
 
         print()
-    
+
     print(spacer + "COMPONENTS: {n} components".format(n=model.componentCount()))
     for c in range(0, model.componentCount()):
         component = model.component(c)
@@ -48,30 +49,30 @@ def print_component_to_terminal(component, c, spacer, include_maths=False):
     # Print variables in this component
     for v in range(0, component.variableCount()):
         print(spacer + local + local, end="")
-        print("[{}]: {}".format(v, component.variable(v).name()), end='')
+        print("[{}]: {}".format(v, component.variable(v).name()), end="")
         if component.variable(v).units() is not None:
-            print(" [{}]".format(component.variable(v).units().name()), end='')
-        if (component.variable(v).initialValue() != ""):
-            print(", initial = {}".format(component.variable(v).initialValue()), end='')
+            print(" [{}]".format(component.variable(v).units().name()), end="")
+        if component.variable(v).initialValue() != "":
+            print(", initial = {}".format(component.variable(v).initialValue()), end="")
         print()
         if component.variable(v).equivalentVariableCount() > 0:
-            print(spacer + local + local + local, end='')
+            print(spacer + local + local + local, end="")
             con = "  └──> "
-            for e in range(0,component.variable(v).equivalentVariableCount()):
+            for e in range(0, component.variable(v).equivalentVariableCount()):
                 ev = component.variable(v).equivalentVariable(e)
                 if ev is None:
                     print("WHOOPS! Null equivalent variable!")
                     continue
-                
+
                 ev_parent = ev.parent()
                 if ev_parent is None:
                     print("WHOOPS! Null parent component for equivalent variable!")
                     continue
-                
-                print("{}{}:{}".format(con,ev_parent.name(),ev.name()), end='')
+
+                print("{}{}:{}".format(con, ev_parent.name(), ev.name()), end="")
                 if ev.units() is not None:
-                    print(" [{}]".format(ev.units().name()), end='')
-                
+                    print(" [{}]".format(ev.units().name()), end="")
+
                 con = ", "
             print()
     if include_maths and component.math():
@@ -80,7 +81,9 @@ def print_component_to_terminal(component, c, spacer, include_maths=False):
 
     # Print the encapsulated components inside this one
     if component.componentCount() > 0:
-        print(f"{spacer}{local}COMPONENT {component.name()} has {component.componentCount()} child components:")
+        print(
+            f"{spacer}{local}COMPONENT {component.name()} has {component.componentCount()} child components:"
+        )
 
         for c2 in range(0, component.componentCount()):
             child = component.component(c2)
@@ -91,7 +94,7 @@ def print_component_to_terminal(component, c, spacer, include_maths=False):
 level_as_string = {
     Issue.Level.ERROR: "an ERROR",
     Issue.Level.WARNING: "a WARNING",
-    Issue.Level.MESSAGE: "a MESSAGE"
+    Issue.Level.MESSAGE: "a MESSAGE",
 }
 
 # def print_issues(item):

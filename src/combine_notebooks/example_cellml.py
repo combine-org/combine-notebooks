@@ -50,7 +50,7 @@ def validate_model(model: libcellml.Model) -> None:
     validator = libcellml.Validator()
     validator.validateModel(model)
     num_validation_issues = validator.issueCount()
-    print(f'The validator has found {num_validation_issues} issues!')
+    print(f"The validator has found {num_validation_issues} issues!")
     #      Retrieve the issues, and print their description, url, reference, and
     #      type of item stored to the terminal.  The type of stored item is
     #      available as an enum, which can be turned into a string for output using
@@ -59,12 +59,12 @@ def validate_model(model: libcellml.Model) -> None:
     for e in range(0, num_validation_issues):
         issue = validator.issue(e)
         reference = issue.referenceHeading()
-        print('  Validator issue[{}]:'.format(e))
-        print('     Description: {}'.format(issue.description()))
+        print("  Validator issue[{}]:".format(e))
+        print("     Description: {}".format(issue.description()))
         # print('     Type of item stored: {}'.format(cellmlElementTypeAsString(issue.item().type())))
-        print('     URL: {}'.format(issue.url()))
-        if reference != '':
-            print('    See section {} in the CellML specification.'.format(reference))
+        print("     URL: {}".format(issue.url()))
+        if reference != "":
+            print("    See section {} in the CellML specification.".format(reference))
 
 
 if __name__ == "__main__":

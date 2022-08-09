@@ -13,6 +13,7 @@ import sys
 
 from libcellml import Parser, Printer
 
+
 if __name__ == "__main__":
 
     print("----------------------------------------------")
@@ -22,7 +23,7 @@ if __name__ == "__main__":
     model_file = "tutorial1.cellml"
     if len(sys.argv) > 1:
         model_file = sys.argv[1]
-    
+
     print("Opening the CellML file")
     # ----------------------------------------------------------------------------
     #  STEP 1:   Create a CellML Model from the contents of a CellML file
@@ -32,7 +33,7 @@ if __name__ == "__main__":
     with open(model_file) as f:
         content = f.read()
 
-    #  1.b   
+    #  1.b
     #     Create a libCellML Parser, and use it to parse the file
     #     string contents and convert it into a CellML Model structure
     parser = Parser()
@@ -53,9 +54,10 @@ if __name__ == "__main__":
     #  2.b
     #     Return the number of components contained in the model, and print to the screen.
     number_of_components = model.componentCount()
-    print("The '{m}' model has {n} component(s):".format(
-        m=model_name,
-        n=number_of_components)
+    print(
+        "The '{m}' model has {n} component(s):".format(
+            m=model_name, n=number_of_components
+        )
     )
 
     #  2.c
@@ -69,14 +71,19 @@ if __name__ == "__main__":
     #  2.d
     #     Retrieve the number of variables in the component, and print to the screen.
     number_of_variables = component.variableCount()
-    print("  The '{c}' component has {n} variable(s):".format(
-        c=component_name,
-        n=number_of_variables)
+    print(
+        "  The '{c}' component has {n} variable(s):".format(
+            c=component_name, n=number_of_variables
+        )
     )
     #  2.e
     #     Loop through the variables in the component, and print their names to the terminal.
     for v in range(0, number_of_variables):
-        print("    Variable[{v}] has name: {n}".format(v=v, n=component.variable(v).name()))
+        print(
+            "    Variable[{v}] has name: {n}".format(
+                v=v, n=component.variable(v).name()
+            )
+        )
 
     #  2.f
     #     Investigate the maths which connects the variables in this component.  Note that

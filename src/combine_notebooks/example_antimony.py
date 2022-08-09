@@ -70,10 +70,9 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     print(sbml_str)
     print(antimony.getSBMLWarnings())
 
-
-
     # validation
     import libsbml
+
     doc = libsbml.readSBMLFromString(sbml_str)
     validate_sbml(doc)
 
