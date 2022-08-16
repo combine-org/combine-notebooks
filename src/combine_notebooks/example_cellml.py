@@ -19,6 +19,37 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     model = libcellml.Model()
     model.setName("repressilator")
 
+    '''
+    <units name="minute">
+      <unit units="second" multiplier="60"/>
+    </units>
+    <units name="first_order_rate_constant">
+        <unit units="minute" exponent="-1"/>
+    </units>
+    '''
+    minute = libcellml.Units("minute")
+    minute.addUnit("second", 1, 60)  
+    model.addUnits(minute)
+
+    # first_order_rate_constant = libcellml.Units("minute")
+    # first_order_rate_constant.addUnit("minute")
+    # model.addUnits(first_order_rate_constant)
+
+    '''
+    <component name="environment">
+      <variable units="minute" public_interface="out" name="time" cmeta:id="environment_time"/>
+    </component>
+    '''
+    comp_env = libcellml.Component()
+    comp_env.setName("environment")
+    model.addComponent(comp_env)
+    
+    var_n = libcellml.Variable()
+    var_n.setName("time")
+    # var_n.setInterfaceType("out")
+    var_n.setUnits("minute")
+    comp_env.addVariable(var_n)
+
     comp_parameters = libcellml.Component()
     comp_parameters.setName("parameters")
     model.addComponent(comp_parameters)
@@ -30,6 +61,56 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     var_n.setUnits("dimensionless")
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_n)
+
+    var_alpha_0 = libcellml.Variable()
+    var_alpha_0.setName("alpha_0")
+    var_alpha_0.setInitialValue(0.216)
+    var_alpha_0.setUnits("dimensionless")
+    # var_n.setInterfaceType()
+    comp_parameters.addVariable(var_alpha_0)
+
+    var_alpha = libcellml.Variable()
+    var_alpha.setName("alpha")
+    var_alpha.setInitialValue(216)
+    var_alpha.setUnits("dimensionless")
+    # var_n.setInterfaceType()
+    comp_parameters.addVariable(var_alpha)
+
+    var_beta = libcellml.Variable()
+    var_beta.setName("beta")
+    var_beta.setInitialValue(0.2)
+    var_beta.setUnits("dimensionless")
+    # var_n.setInterfaceType()
+    comp_parameters.addVariable(var_beta)
+
+    var_K_m = libcellml.Variable()
+    var_K_m.setName("K_m")
+    var_K_m.setInitialValue(40)
+    var_K_m.setUnits("dimensionless")
+    # var_n.setInterfaceType()
+    comp_parameters.addVariable(var_K_m)
+
+    var_efficiency = libcellml.Variable()
+    var_efficiency.setName("efficiency")
+    var_efficiency.setInitialValue(20)
+    var_efficiency.setUnits("dimensionless")
+    # var_n.setInterfaceType()
+    comp_parameters.addVariable(var_efficiency)
+
+    var_mRNA_halflife = libcellml.Variable()
+    var_mRNA_halflife.setName("mRNA_halflife")
+    var_mRNA_halflife.setInitialValue(2)
+    var_mRNA_halflife.setUnits("minute")
+    # var_n.setInterfaceType()
+    comp_parameters.addVariable(var_mRNA_halflife)
+
+    var_t_ave = libcellml.Variable()
+    var_t_ave.setName("t_ave")
+    var_t_ave.setUnits("minute")
+    # var_n.setInterfaceType()
+    comp_parameters.addVariable(var_t_ave)
+
+
 
     #  Checking that it worked
     print_model(model)
