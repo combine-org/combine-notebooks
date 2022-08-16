@@ -80,6 +80,10 @@
         <glyph class="nucleic acid feature" id="glyph21">
             <label text="Clm"/>
             <bbox w="72." h="45." x="682." y="374.117000000000019"/>
+            <glyph class="unit of information" id="glyph21a">
+                <label text="ct:mRNA"/>
+                <bbox w="63.5" h="17.5" x="686.25" y="365.367000000000019"/>
+            </glyph>
         </glyph>
         <glyph class="process" id="glyph28">
             <bbox w="20." h="20." x="708." y="456.666699999999992"/>
@@ -99,6 +103,10 @@
         <glyph class="nucleic acid feature" id="glyph1">
             <label text="Tetm"/>
             <bbox w="72." h="45." x="167." y="374.117000000000019"/>
+            <glyph class="unit of information" id="glyph1a">
+                <label text="ct:mRNA"/>
+                <bbox w="63.5" h="17.5" x="171.25" y="365.367000000000019"/>
+            </glyph>
         </glyph>
         <glyph class="process" id="glyph23">
             <bbox w="20." h="20." x="194." y="488."/>
@@ -119,6 +127,10 @@
         <glyph class="nucleic acid feature" id="glyph20">
             <label text="Laclm"/>
             <bbox w="72." h="45." x="437." y="120.5"/>
+            <glyph class="unit of information" id="glyph20a">
+                <label text="ct:mRNA"/>
+                <bbox w="63.5" h="17.5" x="441.25" y="111.75"/>
+            </glyph>
         </glyph>
         <glyph class="process" id="glyph6">
             <label text="Tetm"/>
