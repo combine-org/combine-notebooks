@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model xmlns="http://www.cellml.org/cellml/2.0#" name="repressilator">
+  <units name="minute">
+    <unit exponent="60" prefix="1" units="second"/>
+  </units>
+  <component name="environment">
+    <variable name="time" units="minute"/>
+  </component>
   <component name="parameters">
     <variable name="n" units="dimensionless" initial_value="2"/>
+    <variable name="alpha_0" units="dimensionless" initial_value="0.216"/>
+    <variable name="alpha" units="dimensionless" initial_value="216"/>
+    <variable name="beta" units="dimensionless" initial_value="0.2"/>
+    <variable name="K_m" units="dimensionless" initial_value="40"/>
+    <variable name="efficiency" units="dimensionless" initial_value="20"/>
+    <variable name="mRNA_halflife" units="minute" initial_value="2"/>
+    <variable name="t_ave" units="minute"/>
   </component>
 </model>
