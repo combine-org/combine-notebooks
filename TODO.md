@@ -10,9 +10,9 @@
 - Download and try the example: http://sbfc.sourceforge.net/mediawiki/index.php/SBML2SBGNML (SBML 2 SBGN conversion)
 
 ## biopax
-- try to install python library
-- try to read an example file
-- MK: evaluate usage of biopax (Reactome)
+- lookat at library
+- get Java/python example for creation
+- try to add objects
 
 ## sedml
 - python-libsedml library
