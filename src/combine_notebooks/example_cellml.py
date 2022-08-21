@@ -7,6 +7,8 @@ https://libcellml.org/documentation/v0.2.0/user/tutorials/tutorial3/index
 
 opencor: https://opencor.ws/downloads/index.html
 
+Issues: https://github.com/cellml/libcellml/issues/1017
+
 """
 from pathlib import Path
 
