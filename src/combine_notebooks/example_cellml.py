@@ -15,6 +15,7 @@ from pathlib import Path
 import libcellml
 from cellml_utilities import print_model
 
+import libsbml
 
 def create_model(cellml_path: Path) -> libcellml.Model:
     """Create CellML repressilator and save to Path."""
@@ -112,8 +113,9 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_t_ave)
 
-
-
+    x = libsbml.parseL3FormulaWithModel( "eff / t_ave", model)
+    comp_parameters.appendMath('')
+    
     #  Checking that it worked
     print_model(model)
 
