@@ -22,6 +22,7 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     model = libcellml.Model()
     model.setName("repressilator")
 
+
     '''
     <units name="minute">
       <unit units="second" multiplier="60"/>
@@ -31,7 +32,7 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     </units>
     '''
     minute = libcellml.Units("minute")
-    minute.addUnit("second", 1, 60)  
+    minute.addUnit("second", 1, 60)
     model.addUnits(minute)
 
     # first_order_rate_constant = libcellml.Units("minute")
@@ -46,7 +47,7 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     comp_env = libcellml.Component()
     comp_env.setName("environment")
     model.addComponent(comp_env)
-    
+
     var_n = libcellml.Variable()
     var_n.setName("time")
     # var_n.setInterfaceType("out")
@@ -113,17 +114,37 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_t_ave)
 
-    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula( "eff / t_ave")
-    var_math_ast1 = libsbml.writeMathMLToString(math_ast1)
-    print(var_math_ast1)
-    comp_parameters.setMath(var_math_ast1)
+    var_eff = libcellml.Variable()
+    var_eff.setName("eff")
+    var_eff.setInitialValue(20)
+    var_eff.setUnits("minute")
+    comp_parameters.addVariable(var_eff)
+
+    # start with math
+    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula("eff / t_ave")
+    math_str = libsbml.writeMathMLToString(math_ast1)
+    print(math_str)
+
+    math_header = '<math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">'
+
+    #  1.g
+    #    Include the MathML strings in the component.
+    math_str = "\n".join([math_header] + math_str.split("\n")[2:])
+    print(math_str)
+
+    comp_parameters.setMath(math_str)
     
     #  Checking that it worked
+    print("-" * 80)
     print_model(model)
+    print("-" * 80)
 
     # Save model
     printer = libcellml.Printer()
     serialised_model: str = printer.printModel(model)
+    print("-" * 80)
+    print(serialised_model)
+    print("-" * 80)
 
     with open(cellml_path, "w") as f_cellml:
         f_cellml.write(serialised_model)

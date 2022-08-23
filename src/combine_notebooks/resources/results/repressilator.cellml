@@ -15,5 +15,13 @@
     <variable name="efficiency" units="dimensionless" initial_value="20"/>
     <variable name="mRNA_halflife" units="minute" initial_value="2"/>
     <variable name="t_ave" units="minute"/>
+    <variable name="eff" units="minute" initial_value="20"/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
+      <apply>
+        <divide/>
+        <ci>eff</ci>
+        <ci>t_ave</ci>
+      </apply>
+    </math>
   </component>
 </model>
