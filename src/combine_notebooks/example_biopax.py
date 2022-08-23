@@ -50,50 +50,51 @@ objects.append(p1)
 </bp:PhysicalEntity>
 
 '''
+
 p2 = Protein(uid="RIGHT_0_conversion_Reaction5_PY", displayName="PY")
 objects.append(p2)
-
-'''
-<bp:Stoichiometry rdf:about="LEFT_0_conversion_Reaction2_Y_STOICHIOMETRY">
- <bp:physicalEntity rdf:resource="LEFT_0_conversion_Reaction2_Y" />
- <bp:stoichiometricCoefficient rdf:datatype = "http://www.w3.org/2001/XMLSchema#float">1.0</bp:stoichiometricCoefficient>
-</bp:Stoichiometry>
-'''
-s1 = Stoichiometry(uid="LEFT_0_conversion_Reaction2_Y_STOICHIOMETRY", stoichiometricCoefficient="1")
-objects.append(s1)
-
-'''
-<bp:Provenance rdf:about="datasource_1">
- <bp:xref rdf:resource="http://identifiers.org/biomodels.db/BIOMD0000000012" />
- <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">BioModels Database</bp:displayName>
-</bp:Provenance>
-'''
-p3 = Provenance(uid="datasource_1", displayName="BioModels Database")
-objects.append(p3)
-
-p4 = PublicationXref(uid="10659856", displayName="PubMed")
-objects.append(p4)
-
-'''
-<bp:Control rdf:about="control_Reaction4_X_0">
- <bp:controlled rdf:resource="conversion_Reaction4" />
- <bp:controlType rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">INHIBITION</bp:controlType>
- <bp:controller rdf:resource="PEP0_control_Reaction4X" />
-</bp:Control>
-'''
-c1 = Control(uid="control_Reaction4_X_0", controlType="INHIBITION")
-objects.append(c1)
-
-'''
-<bp:BiochemicalReaction rdf:about="conversion_Reaction12">
- <bp:xref rdf:resource="http://identifiers.org/obo.go/GO:0006351" />
- <bp:participantStoichiometry rdf:resource="RIGHT_0_conversion_Reaction12_Z_STOICHIOMETRY" />
- <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">transcription of CI</bp:displayName>
- <bp:right rdf:resource="RIGHT_0_conversion_Reaction12_Z" />
-</bp:BiochemicalReaction>
-'''
-b1=BiochemicalReaction(uid="conversion_Reaction12", displayName="transcription of CI")
-objects.append(b1)
+#
+# '''
+# <bp:Stoichiometry rdf:about="LEFT_0_conversion_Reaction2_Y_STOICHIOMETRY">
+#  <bp:physicalEntity rdf:resource="LEFT_0_conversion_Reaction2_Y" />
+#  <bp:stoichiometricCoefficient rdf:datatype = "http://www.w3.org/2001/XMLSchema#float">1.0</bp:stoichiometricCoefficient>
+# </bp:Stoichiometry>
+# '''
+# s1 = Stoichiometry(uid="LEFT_0_conversion_Reaction2_Y_STOICHIOMETRY", stoichiometricCoefficient="1")
+# objects.append(s1)
+#
+# '''
+# <bp:Provenance rdf:about="datasource_1">
+#  <bp:xref rdf:resource="http://identifiers.org/biomodels.db/BIOMD0000000012" />
+#  <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">BioModels Database</bp:displayName>
+# </bp:Provenance>
+# '''
+# p3 = Provenance(uid="datasource_1", displayName="BioModels Database")
+# objects.append(p3)
+#
+# p4 = PublicationXref(uid="10659856", displayName="PubMed")
+# objects.append(p4)
+#
+# '''
+# <bp:Control rdf:about="control_Reaction4_X_0">
+#  <bp:controlled rdf:resource="conversion_Reaction4" />
+#  <bp:controlType rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">INHIBITION</bp:controlType>
+#  <bp:controller rdf:resource="PEP0_control_Reaction4X" />
+# </bp:Control>
+# '''
+# c1 = Control(uid="control_Reaction4_X_0", controlType="INHIBITION")
+# objects.append(c1)
+#
+# '''
+# <bp:BiochemicalReaction rdf:about="conversion_Reaction12">
+#  <bp:xref rdf:resource="http://identifiers.org/obo.go/GO:0006351" />
+#  <bp:participantStoichiometry rdf:resource="RIGHT_0_conversion_Reaction12_Z_STOICHIOMETRY" />
+#  <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">transcription of CI</bp:displayName>
+#  <bp:right rdf:resource="RIGHT_0_conversion_Reaction12_Z" />
+# </bp:BiochemicalReaction>
+# '''
+# b1=BiochemicalReaction(uid="conversion_Reaction12", displayName="transcription of CI")
+# objects.append(b1)
 
 model = BioPaxModel(objects={o.uid: o for o in objects}, xml_base="http://www.biopax.org/release/biopax-level3.owl#")
 owl_str: str = model_to_owl_str(model)
