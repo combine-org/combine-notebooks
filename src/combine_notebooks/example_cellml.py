@@ -113,8 +113,10 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_t_ave)
 
-    x = libsbml.parseL3FormulaWithModel( "eff / t_ave", model)
-    comp_parameters.appendMath('')
+    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula( "eff / t_ave")
+    var_math_ast1 = libsbml.writeMathMLToString(math_ast1)
+    print(var_math_ast1)
+    comp_parameters.setMath(var_math_ast1)
     
     #  Checking that it worked
     print_model(model)
