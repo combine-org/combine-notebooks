@@ -1,14 +1,16 @@
-"""
-Create the repressilator step by step.
+# <markdowncell>
 
-See on biomodels.
-"""
+# Create the repressilator step by step.
+
+# See on biomodels.
+
+# <codecell>
 from pathlib import Path
 
 import libsbml
 
 from src.combine_notebooks.validation_sbml import validate_sbml
-
+# <codecell>
 
 def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     """Create repressilator."""
@@ -412,7 +414,7 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
 
     return doc
 
-
+# <codecell>
 if __name__ == "__main__":
     # from combine_notebooks import RESULTS_DIR
     RESOURCES_DIR: Path = Path(__file__).parent / "resources"

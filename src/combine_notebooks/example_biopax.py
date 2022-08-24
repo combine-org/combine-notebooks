@@ -14,7 +14,7 @@ https://github.com/indralab/pybiopax/blob/master/notebooks/tutorial.ipynb
 
 import pybiopax
 # from combine_notebooks import RESOURCES_DIR
-from pybiopax.biopax import BiochemicalReaction, Stoichiometry, Provenance, PublicationXref
+from pybiopax.biopax.model import BiochemicalReaction, Stoichiometry, Provenance, PublicationXref
 
 from pybiopax.biopax.model import BioPaxModel
 from pybiopax.biopax.base import Protein
@@ -51,26 +51,26 @@ objects.append(p1)
 
 '''
 
-p2 = Protein(uid="RIGHT_0_conversion_Reaction5_PY", displayName="PY")
+p2 = Protein(uid="RIGHT_0_conversion_Reaction5_PY", display_name="PY")
 objects.append(p2)
-#
+
 # '''
 # <bp:Stoichiometry rdf:about="LEFT_0_conversion_Reaction2_Y_STOICHIOMETRY">
 #  <bp:physicalEntity rdf:resource="LEFT_0_conversion_Reaction2_Y" />
 #  <bp:stoichiometricCoefficient rdf:datatype = "http://www.w3.org/2001/XMLSchema#float">1.0</bp:stoichiometricCoefficient>
 # </bp:Stoichiometry>
 # '''
-# s1 = Stoichiometry(uid="LEFT_0_conversion_Reaction2_Y_STOICHIOMETRY", stoichiometricCoefficient="1")
-# objects.append(s1)
-#
+s1 = Stoichiometry(uid="LEFT_0_conversion_Reaction2_Y_STOICHIOMETRY", stoichiometric_coefficient="1")
+objects.append(s1)
+
 # '''
 # <bp:Provenance rdf:about="datasource_1">
 #  <bp:xref rdf:resource="http://identifiers.org/biomodels.db/BIOMD0000000012" />
 #  <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">BioModels Database</bp:displayName>
 # </bp:Provenance>
 # '''
-# p3 = Provenance(uid="datasource_1", displayName="BioModels Database")
-# objects.append(p3)
+p3 = Provenance(uid="datasource_1", display_name="BioModels Database")
+objects.append(p3)
 #
 # p4 = PublicationXref(uid="10659856", displayName="PubMed")
 # objects.append(p4)
