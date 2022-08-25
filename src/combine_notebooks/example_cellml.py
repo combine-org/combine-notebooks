@@ -621,7 +621,7 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     comp_parameters.setMath(math_str)
 ############################################################
 
-    comp_env = libcellml.Connection()
+    comp_env = libcellml.Component()
     
     model.addComponent(comp_env)
 

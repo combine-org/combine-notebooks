@@ -152,15 +152,13 @@
       </apply>
     </math>
   </component>
-  <component name="M_tetR">
-    <variable name="M_tetR" units="dimensionless" initial_value="0"/>
-    <variable name="alpha" units="dimensionless"/>
-    <variable name="P_lacl" units="dimensionless"/>
-    <variable name="n" units="dimensionless"/>
-    <variable name="alpha_0" units="dimensionless"/>
+  <component name="P_lacl">
+    <variable name="P_lacl" units="dimensionless" initial_value="0"/>
+    <variable name="beta" units="dimensionless"/>
+    <variable name="M_lacl" units="dimensionless"/>
+    <variable name="t_ave" units="minute"/>
     <variable name="K_m" units="dimensionless"/>
     <variable name="efficiency" units="dimensionless"/>
-    <variable name="t_ave" units="minute"/>
     <variable name="time" units="minute"/>
     <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
       <apply>
@@ -194,4 +192,85 @@
       </apply>
     </math>
   </component>
+  <component name="P_tetR">
+    <variable name="P_tetR" units="dimensionless" initial_value="0"/>
+    <variable name="beta" units="dimensionless"/>
+    <variable name="M_tetR" units="dimensionless"/>
+    <variable name="t_ave" units="minute"/>
+    <variable name="K_m" units="dimensionless"/>
+    <variable name="efficiency" units="dimensionless"/>
+    <variable name="time" units="minute"/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
+      <apply>
+        <plus/>
+        <ci>a0_tr</ci>
+        <apply>
+          <divide/>
+          <apply>
+            <times/>
+            <ci>a_tr</ci>
+            <apply>
+              <power/>
+              <ci>KM</ci>
+              <ci>n</ci>
+            </apply>
+          </apply>
+          <apply>
+            <plus/>
+            <apply>
+              <power/>
+              <ci>KM</ci>
+              <ci>n</ci>
+            </apply>
+            <apply>
+              <power/>
+              <ci>PZ</ci>
+              <ci>n</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <component name="P_cl">
+    <variable name="P_cl" units="dimensionless" initial_value="0"/>
+    <variable name="beta" units="dimensionless"/>
+    <variable name="M_cl" units="dimensionless"/>
+    <variable name="t_ave" units="minute"/>
+    <variable name="K_m" units="dimensionless"/>
+    <variable name="efficiency" units="dimensionless"/>
+    <variable name="time" units="minute"/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
+      <apply>
+        <plus/>
+        <ci>a0_tr</ci>
+        <apply>
+          <divide/>
+          <apply>
+            <times/>
+            <ci>a_tr</ci>
+            <apply>
+              <power/>
+              <ci>KM</ci>
+              <ci>n</ci>
+            </apply>
+          </apply>
+          <apply>
+            <plus/>
+            <apply>
+              <power/>
+              <ci>KM</ci>
+              <ci>n</ci>
+            </apply>
+            <apply>
+              <power/>
+              <ci>PZ</ci>
+              <ci>n</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <component/>
 </model>
