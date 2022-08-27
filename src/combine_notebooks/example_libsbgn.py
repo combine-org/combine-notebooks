@@ -1,8 +1,9 @@
-"""
-Create the repressilator from libsbgn.
+# <markdowncell>
+# Create the repressilator from libsbgn.
+#
+# See on libsbgn-python.
 
-See on libsbgn-python.
-"""
+# <codecell>
 import tempfile
 from pathlib import Path
 
@@ -16,7 +17,7 @@ from pygments.lexers import PythonLexer
 
 # from combine_notebooks import RESULTS_DIR
 
-
+# <codecell>
 def pprint_xml(xml_str):
     """Helper function for highlighted xml."""
     IPython.display.display(
@@ -33,7 +34,7 @@ def pprint_xml(xml_str):
 import libsbgnpy.libsbgn as libsbgn
 from libsbgnpy.libsbgnTypes import ArcClass, GlyphClass, Language, Orientation
 
-def create_repressilator(sbgn_path: Path) -> libsbgn.map:
+def create_repressilator() -> libsbgn.map:
 
     # create empty sbgn
     sbgn = libsbgn.sbgn()
@@ -475,6 +476,7 @@ def create_repressilator(sbgn_path: Path) -> libsbgn.map:
     Image(f_png, width=300)
     return map
 
+# <codecell>
 if __name__ == "__main__":
 
     doc: libsbgn.map = create_repressilator()

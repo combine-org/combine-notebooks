@@ -1,4 +1,6 @@
-"""Example script for creating SBML repressilator with sbmlutils."""
+# <markdowncell>
+# Example script for creating SBML repressilator with sbmlutils.
+# <codecell>
 from pathlib import Path
 
 from sbmlutils.factory import *
@@ -16,7 +18,7 @@ from sbmlutils.factory import (
 )
 from sbmlutils.metadata import *
 
-
+# <codecell>
 model = Model(
     "repressilator_sbmlutils",
     units=Units,
@@ -222,7 +224,7 @@ model = Model(
     ],
 )
 
-
+# <codecell>
 def create_repressilator(sbml_path: Path) -> FactoryResult:
     """Create the repressilator model in the results_dir."""
     results = create_model(
@@ -236,10 +238,10 @@ def create_repressilator(sbml_path: Path) -> FactoryResult:
     )
     return results
 
-
+# <codecell>
 if __name__ == "__main__":
-    # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
-    # RESULTS_DIR: Path = RESOURCES_DIR / "results"
-    from combine_notebooks import RESULTS_DIR
+    RESOURCES_DIR: Path = Path(__file__).parent / "resources"
+    RESULTS_DIR: Path = RESOURCES_DIR / "results"
+    # from combine_notebooks import RESULTS_DIR
 
     create_repressilator(sbml_path=RESULTS_DIR / "repressilator_sbmlutils.xml")

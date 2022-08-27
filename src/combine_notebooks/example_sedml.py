@@ -1,6 +1,10 @@
+# <markdowncell>
+# Create repressilator using SED-ML
+
+# <codecell>
 import libsedml
 from pathlib import Path
-
+# <codecell>
 def create_dependent_variable_example():
     # create the document
     doc = libsedml.SedDocument(1, 4)
@@ -286,6 +290,6 @@ def create_dependent_variable_example():
 
     file_name = str(RESULTS_DIR / "repressilator_sedml.xml")
     libsedml.writeSedML(doc, file_name)
-
+# <codecell>
 if __name__ == "__main__":
     create_dependent_variable_example()
