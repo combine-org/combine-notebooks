@@ -15,7 +15,7 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     print("Create SBML model")
     # create a new document
 
-    doc: libsbml.SBMLDocument = libsbml.SBMLDocument(2, 3)
+    doc: libsbml.SBMLDocument = libsbml.SBMLDocument(3, 2)
     model: libsbml.Model = doc.createModel()
 
     # --- compartments ---
@@ -45,11 +45,22 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
 
     s3: libsbml.Species = model.createSpecies()
     s3.setId("PZ")
+    s3.setMetaId("meta_PZ")
     s3.setCompartment("cell")
     s3.setName("cI protein")
     s3.setSBOTerm("SBO:0000252")
     s3.setInitialAmount(0)
     s3.setHasOnlySubstanceUnits(True)
+
+    # set annotation
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    s3_cv.setQualifierType(libsbml.BIOLOGICAL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQB_IS)
+    # example setting a model qualifier
+    # s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    # s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    s3_cv.addResource("http://identifiers.org/uniprot/P03034")
+    s3.addCVTerm(s3_cv)
 
     s4: libsbml.Species = model.createSpecies()
     s4.setId("X")
@@ -414,9 +425,9 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
 
 
 if __name__ == "__main__":
-    # from combine_notebooks import RESULTS_DIR
-    RESOURCES_DIR: Path = Path(__file__).parent / "resources"
-    RESULTS_DIR: Path = RESOURCES_DIR / "results"
+    from combine_notebooks import RESULTS_DIR
+    # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
+    # RESULTS_DIR: Path = RESOURCES_DIR / "results"
     doc: libsbml.SBMLDocument = create_repressilator(
         sbml_path=RESULTS_DIR / "repressilator_libsbml.xml"
     )

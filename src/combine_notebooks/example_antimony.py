@@ -61,6 +61,9 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
             -> X; a0_tr +a_tr *KM^n/(KM^n +PZ ^n);
             -> Y; a0_tr +a_tr *KM^n/(KM^n +PX ^n);
             -> Z; a0_tr +a_tr *KM^n/(KM^n +PY ^n);
+            
+            # annotations
+            PZ identity "http://identifiers.org/uniprot/P03034"
         end
     """
     print(model)
@@ -86,8 +89,8 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
 # <codecell>
 if __name__ == "__main__":
     # print(model)
-    RESOURCES_DIR: Path = Path(__file__).parent / "resources"
-    RESULTS_DIR: Path = RESOURCES_DIR / "results"
-    # from combine_notebooks import RESULTS_DIR
+    # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
+    # RESULTS_DIR: Path = RESOURCES_DIR / "results"
+    from combine_notebooks import RESULTS_DIR
 
     create_repressilator(sbml_path=RESULTS_DIR / "repressilator_antimony.xml")

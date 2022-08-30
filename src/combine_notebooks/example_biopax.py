@@ -24,6 +24,9 @@ from pybiopax.biopax.model import BiochemicalReaction, Stoichiometry, Provenance
 from pybiopax.biopax.model import BioPaxModel
 from pybiopax.biopax.base import Protein
 from pybiopax.api import model_to_owl_str
+
+
+
 # <codecell>
 def create_repressilator(biopax_path: Path):
     objects = []
@@ -310,6 +313,10 @@ def create_repressilator(biopax_path: Path):
     model = BioPaxModel(objects={o.uid: o for o in objects}, xml_base="http://www.biopax.org/release/biopax-level3.owl#")
     owl_str: str = model_to_owl_str(model)
 
+    with open(RESULTS_DIR / "biopax.owl", "w") as f_biopax:
+        f_biopax.write(owl_str)
+
+
     print("-" * 80)
     print(owl_str)
     print("-" * 80)
@@ -319,9 +326,9 @@ def create_repressilator(biopax_path: Path):
 # <codecell>
 if __name__ == "__main__":
     # print(model)
-    RESOURCES_DIR: Path = Path(__file__).parent / "resources"
-    RESULTS_DIR: Path = RESOURCES_DIR / "results"
-    # from combine_notebooks import RESULTS_DIR
+    # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
+    # RESULTS_DIR: Path = RESOURCES_DIR / "results"
+    from combine_notebooks import RESULTS_DIR
 
     create_repressilator(biopax_path=RESULTS_DIR / "repressilator_biopax.owl")
 

@@ -57,6 +57,7 @@
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000252"/>
+                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P03034"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>

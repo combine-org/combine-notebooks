@@ -5,4 +5,4 @@ __version__ = "0.0.1"
 
 
 RESOURCES_DIR: Path = Path(__file__).parent / "resources"
-RESULTS_DIR: Path = RESOURCES_DIR / "results"
+RESULTS_DIR: Path = Path(__file__).parent / "results"
