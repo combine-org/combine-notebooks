@@ -37,6 +37,9 @@ model = Model(
             sboTerm="SBO:0000252",
             initialAmount=0,
             hasOnlySubstanceUnits=True,
+            annotations=[
+                (BQB.IS, "uniprot/P03023")
+            ]
         ),
         Species(
             sid="PY",
@@ -45,6 +48,9 @@ model = Model(
             sboTerm="SBO:0000252",
             initialAmount=0,
             hasOnlySubstanceUnits=True,
+            annotations=[
+                (BQB.IS, "uniprot/P04483")
+            ]
         ),
         Species(
             sid="PZ",
@@ -64,6 +70,9 @@ model = Model(
             sboTerm="SBO:0000250",
             initialAmount=20,
             hasOnlySubstanceUnits=True,
+annotations=[
+                (BQB.IS, "uniprot/P03023")
+            ]
         ),
         Species(
             sid="Y",
@@ -72,6 +81,9 @@ model = Model(
             sboTerm="SBO:0000250",
             initialAmount=20,
             hasOnlySubstanceUnits=True,
+annotations=[
+                (BQB.IS, "uniprot/P04483")
+            ]
         ),
         Species(
             sid="Z",
@@ -80,6 +92,9 @@ model = Model(
             sboTerm="SBO:0000250",
             initialAmount=0,
             hasOnlySubstanceUnits=True,
+annotations=[
+                (BQB.IS, "uniprot/P03034")
+            ]
         ),
     ],
     parameters=[
@@ -126,6 +141,9 @@ model = Model(
             reversible=False,
             equation="X -> ",
             formula=("kd_mRNA * X", None),
+annotations=[
+                (BQM.IS, "uniprot/P03034")
+            ]
         ),
         Reaction(
             sid="Reaction2",
@@ -134,6 +152,9 @@ model = Model(
             reversible=False,
             equation="Y -> ",
             formula=("kd_mRNA * Y", None),
+annotations=[
+                (BQM.IS, "uniprot/P03034")
+            ]
         ),
         Reaction(
             sid="Reaction3",
@@ -142,6 +163,9 @@ model = Model(
             reversible=False,
             equation="Z -> ",
             formula=("kd_mRNA * Z", None),
+annotations=[
+                (BQM.IS, "uniprot/P03034")
+            ]
         ),
         Reaction(
             sid="Reaction4",
@@ -150,6 +174,9 @@ model = Model(
             reversible=False,
             equation=" -> PX [X]",
             formula=("k_tl * X", None),
+annotations=[
+                (BQM.IS, "uniprot/P03034")
+            ]
         ),
         Reaction(
             sid="Reaction5",
@@ -158,6 +185,9 @@ model = Model(
             reversible=False,
             equation=" -> PY [Y]",
             formula=("k_tl * Y", None),
+annotations=[
+                (BQM.IS, "uniprot/P03034")
+            ]
         ),
         Reaction(
             sid="Reaction6",
@@ -166,6 +196,9 @@ model = Model(
             reversible=False,
             equation=" -> PZ [Z]",
             formula=("k_tl *Z", None),
+annotations=[
+                (BQM.IS, "uniprot/P03034")
+            ]
         ),
         Reaction(
             sid="Reaction7",
@@ -174,6 +207,9 @@ model = Model(
             reversible=False,
             equation="PX -> ",
             formula=("kd_prot * PX", None),
+annotations=[
+                (BQM.IS, "uniprot/P03034")
+            ]
         ),
         Reaction(
             sid="Reaction8",
@@ -182,6 +218,9 @@ model = Model(
             reversible=False,
             equation="PY -> ",
             formula=("kd_prot * PY", None),
+annotations=[
+                (BQM.IS, "uniprot/P03034")
+            ]
         ),
         Reaction(
             sid="Reaction9",
@@ -190,6 +229,9 @@ model = Model(
             reversible=False,
             equation="PZ -> ",
             formula=("kd_prot * PZ", None),
+annotations=[
+                (BQM.IS, "uniprot/P03034")
+            ]
         ),
         Reaction(
             sid="Reaction10",
@@ -201,6 +243,9 @@ model = Model(
                 "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))",
                 None,
             ),
+annotations=[
+                (BQM.IS, "uniprot/P03034")
+            ]
         ),
         Reaction(
             sid="Reaction11",
@@ -212,6 +257,9 @@ model = Model(
                 "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PX, n))",
                 None,
             ),
+annotations=[
+                (BQM.IS, "uniprot/P03034")
+            ]
         ),
         Reaction(
             sid="Reaction12",
@@ -223,6 +271,9 @@ model = Model(
                 "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PY, n))",
                 None,
             ),
+annotations=[
+                (BQM.IS, "uniprot/P03034")
+            ]
         ),
     ],
 )
@@ -243,8 +294,8 @@ def create_repressilator(sbml_path: Path) -> FactoryResult:
 
 # <codecell>
 if __name__ == "__main__":
-    # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
-    # RESULTS_DIR: Path = RESOURCES_DIR / "results"
-    from combine_notebooks import RESULTS_DIR
+    RESOURCES_DIR: Path = Path(__file__).parent / "resources"
+    RESULTS_DIR: Path = RESOURCES_DIR / "results"
+    # from combine_notebooks import RESULTS_DIR
 
     create_repressilator(sbml_path=RESULTS_DIR / "repressilator_sbmlutils.xml")

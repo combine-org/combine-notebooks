@@ -24,6 +24,13 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     c1.setId("cell")
     c1.setSize(1.0)
     c1.setSBOTerm("SBO:0000290")
+    # set annotation
+    s_cv: libsbml.CVTerm = libsbml.CVTerm()
+    s_cv.setQualifierType(libsbml.BIOLOGICAL_QUALIFIER)
+    s_cv.setBiologicalQualifierType(libsbml.BQB_IS)
+    # check
+    s_cv.addResource("http://identifiers.org/uniprot/GO%3A0005623")
+    c1.addCVTerm(s_cv)
 
     # --- species ---
     # add species for the 3 mRNAs and 3 Proteins
@@ -34,6 +41,12 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     s1.setSBOTerm("SBO:0000252")
     s1.setInitialAmount(0)
     s1.setHasOnlySubstanceUnits(True)
+    # set annotation
+    s_cv: libsbml.CVTerm = libsbml.CVTerm()
+    s_cv.setQualifierType(libsbml.BIOLOGICAL_QUALIFIER)
+    s_cv.setBiologicalQualifierType(libsbml.BQB_IS)
+    s_cv.addResource("http://identifiers.org/uniprot/P03023")
+    s1.addCVTerm(s_cv)
 
     s2: libsbml.Species = model.createSpecies()
     s2.setId("PY")
@@ -42,6 +55,12 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     s2.setSBOTerm("SBO:0000252")
     s2.setInitialAmount(0)
     s2.setHasOnlySubstanceUnits(True)
+    # set annotation
+    s_cv: libsbml.CVTerm = libsbml.CVTerm()
+    s_cv.setQualifierType(libsbml.BIOLOGICAL_QUALIFIER)
+    s_cv.setBiologicalQualifierType(libsbml.BQB_IS)
+    s_cv.addResource("http://identifiers.org/uniprot/P04483")
+    s2.addCVTerm(s_cv)
 
     s3: libsbml.Species = model.createSpecies()
     s3.setId("PZ")
@@ -51,7 +70,6 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     s3.setSBOTerm("SBO:0000252")
     s3.setInitialAmount(0)
     s3.setHasOnlySubstanceUnits(True)
-
     # set annotation
     s3_cv: libsbml.CVTerm = libsbml.CVTerm()
     s3_cv.setQualifierType(libsbml.BIOLOGICAL_QUALIFIER)
@@ -65,10 +83,19 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     s4: libsbml.Species = model.createSpecies()
     s4.setId("X")
     s4.setCompartment("cell")
-    s4.setName("Lacl mRNA")
+    s4.setName("LacI mRNA")
     s4.setSBOTerm("SBO:0000250")
     s4.setInitialAmount(0)
     s4.setHasOnlySubstanceUnits(True)
+    # set annotation
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    s3_cv.setQualifierType(libsbml.BIOLOGICAL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQB_IS)
+    # example setting a model qualifier
+    # s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    # s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    s3_cv.addResource("http://identifiers.org/uniprot/P03023")
+    s4.addCVTerm(s3_cv)
 
     s5: libsbml.Species = model.createSpecies()
     s5.setId("Y")
@@ -77,6 +104,15 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     s5.setSBOTerm("SBO:0000250")
     s5.setInitialAmount(20)
     s5.setHasOnlySubstanceUnits(True)
+    # set annotation
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    s3_cv.setQualifierType(libsbml.BIOLOGICAL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQB_IS)
+    # example setting a model qualifier
+    # s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    # s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    s3_cv.addResource("http://identifiers.org/uniprot/P04483")
+    s5.addCVTerm(s3_cv)
 
     s6: libsbml.Species = model.createSpecies()
     s6.setId("Z")
@@ -85,6 +121,14 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     s6.setSBOTerm("SBO:0000250")
     s6.setInitialAmount(0)
     s6.setHasOnlySubstanceUnits(True)
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    s3_cv.setQualifierType(libsbml.BIOLOGICAL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQB_IS)
+    # example setting a model qualifier
+    # s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    # s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    s3_cv.addResource("http://identifiers.org/uniprot/P03034")
+    s6.addCVTerm(s3_cv)
 
     # --- parameters ---
     # <parameter id="kd_mRNA" constant="false" name="kd_mRNA" sboTerm="SBO:0000356">
@@ -226,6 +270,13 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     r1.setSBOTerm("SBO:0000179")
     r1.setName("degradation of LacI transcripts")
     r1.setReversible(False)
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    # example setting a model qualifier
+    s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    #check
+    s3_cv.addResource("http://identifiers.org/uniprot/3A0006402")
+    r1.addCVTerm(s3_cv)
 
     species_ref1: libsbml.SpeciesReference = r1.createReactant()
     species_ref1.setSpecies("X")  # assign reactant species
@@ -240,6 +291,13 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     r2.setSBOTerm("SBO:0000179")
     r2.setName("degradation of TetR transcripts")
     r2.setReversible(False)
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    # example setting a model qualifier
+    s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    # check
+    s3_cv.addResource("http://identifiers.org/uniprot/3A0006402")
+    r2.addCVTerm(s3_cv)
 
     species_ref2 = r2.createReactant()
     species_ref2.setSpecies("Y")  # assign reactant species
@@ -254,6 +312,13 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     r3.setSBOTerm("SBO:0000179")
     r3.setName("degradation of CI transcripts")
     r3.setReversible(False)
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    # example setting a model qualifier
+    s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    # check
+    s3_cv.addResource("http://identifiers.org/uniprot/3A0006402")
+    r3.addCVTerm(s3_cv)
 
     species_ref3 = r3.createReactant()
     species_ref3.setSpecies("Z")  # assign reactant species
@@ -268,6 +333,13 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     r4.setSBOTerm("SBO:0000184")
     r4.setName("translation of LacI")
     r4.setReversible(False)
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    # example setting a model qualifier
+    s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    # check
+    s3_cv.addResource("http://identifiers.org/uniprot/3A0006402")
+    r4.addCVTerm(s3_cv)
 
     species_ref4 = r4.createProduct()
     species_ref4.setSpecies("PX")  # assign product species
@@ -286,6 +358,13 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     r5.setSBOTerm("SBO:0000184")
     r5.setName("translation of TetR")
     r5.setReversible(False)
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    # example setting a model qualifier
+    s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    # check
+    s3_cv.addResource("http://identifiers.org/uniprot/3A0006402")
+    r5.addCVTerm(s3_cv)
 
     species_ref5 = r5.createProduct()
     species_ref5.setSpecies("PY")  # assign product species
@@ -303,6 +382,13 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     r6.setSBOTerm("SBO:0000184")
     r6.setName("translation of CI")
     r6.setReversible(False)
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    # example setting a model qualifier
+    s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    # check
+    s3_cv.addResource("http://identifiers.org/uniprot/3A0006402")
+    r6.addCVTerm(s3_cv)
 
     species_ref6 = r6.createProduct()
     species_ref6.setSpecies("PZ")  # assign product species
@@ -320,6 +406,13 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     r7.setSBOTerm("SBO:0000179")
     r7.setName("degradation of LacI")
     r7.setReversible(False)
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    # example setting a model qualifier
+    s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    # check
+    s3_cv.addResource("http://identifiers.org/uniprot/3A0006402")
+    r7.addCVTerm(s3_cv)
 
     species_ref7 = r7.createReactant()
     species_ref7.setSpecies("PX")  # assign reactant species
@@ -334,6 +427,13 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     r8.setSBOTerm("SBO:0000179")
     r8.setName("degradation of TetR")
     r8.setReversible(False)
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    # example setting a model qualifier
+    s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    # check
+    s3_cv.addResource("http://identifiers.org/uniprot/3A0006402")
+    r8.addCVTerm(s3_cv)
 
     species_ref8 = r8.createReactant()
     species_ref8.setSpecies("PY")  # assign reactant species
@@ -348,6 +448,13 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     r9.setSBOTerm("SBO:0000179")
     r9.setName("degradation of CI")
     r9.setReversible(False)
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    # example setting a model qualifier
+    s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    # check
+    s3_cv.addResource("http://identifiers.org/uniprot/3A0006402")
+    r9.addCVTerm(s3_cv)
 
     species_ref9 = r9.createReactant()
     species_ref9.setSpecies("PZ")  # assign reactant species
@@ -362,6 +469,13 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     r10.setSBOTerm("SBO:0000183")
     r10.setName("transcription of LacI")
     r10.setReversible(False)
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    # example setting a model qualifier
+    s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    # check
+    s3_cv.addResource("http://identifiers.org/uniprot/3A0006402")
+    r10.addCVTerm(s3_cv)
 
     species_ref10 = r10.createProduct()
     species_ref10.setSpecies("X")  # assign product species
@@ -380,6 +494,13 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     r11.setSBOTerm("SBO:0000183")
     r11.setName("transcription of TetR")
     r11.setReversible(False)
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    # example setting a model qualifier
+    s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    # check
+    s3_cv.addResource("http://identifiers.org/uniprot/3A0006402")
+    r11.addCVTerm(s3_cv)
 
     species_ref11 = r11.createProduct()
     species_ref11.setSpecies("Y")  # assign product species
@@ -398,6 +519,13 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     r12.setSBOTerm("SBO:0000183")
     r12.setName("transcription of CI")
     r12.setReversible(False)
+    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    # example setting a model qualifier
+    s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
+    s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
+    # check
+    s3_cv.addResource("http://identifiers.org/uniprot/3A0006402")
+    r12.addCVTerm(s3_cv)
 
     species_ref12 = r12.createProduct()
     species_ref12.setSpecies("Z")  # assign product species
@@ -425,9 +553,9 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
 
 
 if __name__ == "__main__":
-    from combine_notebooks import RESULTS_DIR
-    # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
-    # RESULTS_DIR: Path = RESOURCES_DIR / "results"
+    # from combine_notebooks import RESULTS_DIR
+    RESOURCES_DIR: Path = Path(__file__).parent / "resources"
+    RESULTS_DIR: Path = RESOURCES_DIR / "results"
     doc: libsbml.SBMLDocument = create_repressilator(
         sbml_path=RESULTS_DIR / "repressilator_libsbml.xml"
     )
