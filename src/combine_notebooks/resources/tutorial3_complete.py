@@ -15,9 +15,18 @@
       - Serialising and printing a model to a CellML file (T1).
 """
 
-from libcellml import Analyser, Component, Generator, GeneratorProfile, Model, Units, Validator, Variable
-
+from libcellml import (
+    Analyser,
+    Component,
+    Generator,
+    GeneratorProfile,
+    Model,
+    Units,
+    Validator,
+    Variable,
+)
 from utilities import print_issues, print_model
+
 
 if __name__ == "__main__":
     print("-------------------------------------------------------------")
@@ -28,12 +37,12 @@ if __name__ == "__main__":
     print("   Step 1: Create model instance and maths                   ")
     print("-------------------------------------------------------------")
 
-    #  1.a   
+    #  1.a
     #      Create a Model and name it.
     model = Model()
     model.setName("tutorial3_model")
 
-    #  1.b   
+    #  1.b
     #      Create a component to use as an integrator, set its attributes and
     #      add it to the model.
     component = Component()
@@ -44,60 +53,63 @@ if __name__ == "__main__":
     print_model(model)
 
     #  1.c
-    #      Create the MathML2 string representing the governing equations.  
-    equation1 = \
-        "  <apply><eq/>"\
-        "    <ci>c</ci>"\
-        "    <apply><plus/>"\
-        "      <ci>a</ci>"\
-        "      <cn>2.0</cn>"\
-        "    </apply>"\
+    #      Create the MathML2 string representing the governing equations.
+    equation1 = (
+        "  <apply><eq/>"
+        "    <ci>c</ci>"
+        "    <apply><plus/>"
+        "      <ci>a</ci>"
+        "      <cn>2.0</cn>"
+        "    </apply>"
         "  </apply>"
+    )
 
     #  1.d
-    equation2 = \
-        "  <apply><eq/>"\
-        "    <apply><diff/>"\
-        "      <bvar><ci>time</ci></bvar>"\
-        "      <ci>y_s</ci>"\
-        "    </apply>"\
-        "    <apply><plus/>"\
-        "      <apply><times/>"\
-        "        <ci>a</ci>"\
-        "        <ci>y_s</ci>"\
-        "      </apply>"\
-        "      <apply><times/>"\
-        "        <ci>b</ci>"\
-        "        <ci>y_s</ci>"\
-        "        <ci>y_f</ci>"\
-        "      </apply>"\
-        "    </apply>"\
+    equation2 = (
+        "  <apply><eq/>"
+        "    <apply><diff/>"
+        "      <bvar><ci>time</ci></bvar>"
+        "      <ci>y_s</ci>"
+        "    </apply>"
+        "    <apply><plus/>"
+        "      <apply><times/>"
+        "        <ci>a</ci>"
+        "        <ci>y_s</ci>"
+        "      </apply>"
+        "      <apply><times/>"
+        "        <ci>b</ci>"
+        "        <ci>y_s</ci>"
+        "        <ci>y_f</ci>"
+        "      </apply>"
+        "    </apply>"
         "  </apply>"
+    )
 
     #  1.e
-    equation3 = \
-        "  <apply><eq/>"\
-        "    <apply><diff/>"\
-        "      <bvar><ci>time</ci></bvar>"\
-        "      <ci>y_f</ci>"\
-        "    </apply>"\
-        "    <apply><plus/>"\
-        "      <apply><times/>"\
-        "        <ci>c</ci>"\
-        "        <ci>y_f</ci>"\
-        "      </apply>"\
-        "      <apply><times/>"\
-        "        <ci>d</ci>"\
-        "        <ci>y_s</ci>"\
-        "        <ci>y_f</ci>"\
-        "      </apply>"\
-        "    </apply>"\
+    equation3 = (
+        "  <apply><eq/>"
+        "    <apply><diff/>"
+        "      <bvar><ci>time</ci></bvar>"
+        "      <ci>y_f</ci>"
+        "    </apply>"
+        "    <apply><plus/>"
+        "      <apply><times/>"
+        "        <ci>c</ci>"
+        "        <ci>y_f</ci>"
+        "      </apply>"
+        "      <apply><times/>"
+        "        <ci>d</ci>"
+        "        <ci>y_s</ci>"
+        "        <ci>y_f</ci>"
+        "      </apply>"
+        "    </apply>"
         "  </apply>"
+    )
 
     #  1.f
     #    Add the header and footer strings.
     math_header = '<math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">'
-    math_footer = '</math>'
+    math_footer = "</math>"
 
     #  1.g
     #    Include the MathML strings in the component.
@@ -107,7 +119,7 @@ if __name__ == "__main__":
     component.appendMath(equation3)
     component.appendMath(math_footer)
 
-    #  1.h   
+    #  1.h
     #    Create a validator and use it to check the model so far.
     validator = Validator()
     validator.validateModel(model)
@@ -139,7 +151,7 @@ if __name__ == "__main__":
     component.addVariable(c)
     component.addVariable(d)
 
-    #  2.c  
+    #  2.c
     #      Call the validator again to check the model.
     validator.validateModel(model)
     print_issues(validator)
@@ -158,7 +170,7 @@ if __name__ == "__main__":
     #  reuse Units when you have more than one component (more on that in
     #  Tutorial 5)
 
-    #  3.a  
+    #  3.a
     #      Define the relationship between our custom units and the built-in
     #      units. There is a list of built-in units and their definitions
     #      available in section 19.2 of the CellML2 specification.
@@ -173,7 +185,7 @@ if __name__ == "__main__":
     #    month.addUnit("second", "mega", 1, 2.592)
     #    month.addUnit("second", 5, 25.92)
 
-    #  3.b  
+    #  3.b
     #      Create units which represent "per_month", which
     #      is simply the inverse of the "month" unit above.
     per_month = Units()
@@ -181,7 +193,7 @@ if __name__ == "__main__":
     per_month.addUnit("month", -1)
     model.addUnits(per_month)
 
-    #  3.c      
+    #  3.c
     #      Create the sharks and fishes base units.
     number_of_sharks = Units()
     number_of_sharks.setName("number_of_sharks")
@@ -190,7 +202,7 @@ if __name__ == "__main__":
     thousands_of_fish.setName("thousands_of_fish")
     model.addUnits(thousands_of_fish)
 
-    #  3.d  
+    #  3.d
     #      Create the combined units for the constants.  Note that each item included
     #      with the addUnit command is multiplied to create the final Units definition.
     b_units = Units()
@@ -205,7 +217,7 @@ if __name__ == "__main__":
     d_units.addUnit("thousands_of_fish", -1)
     model.addUnits(d_units)
 
-    #  3.e  
+    #  3.e
     #      Set the units to their respective variables.
     time.setUnits(month)
     sharks.setUnits(number_of_sharks)
@@ -215,32 +227,33 @@ if __name__ == "__main__":
     c.setUnits(per_month)
     d.setUnits(d_units)
 
-    #  3.f  
+    #  3.f
     #      Call the validator again to check the model.
     #      Expect one error regarding a missing unit in the MathML.
     validator.validateModel(model)
     print_issues(validator)
 
-    #  3.g  
+    #  3.g
     #      Units for constants inside the MathML must be specified at the time.
     #      This means we need to adjust equation1 to include the per_month units.
     #      We have to wipe all the existing MathML and replace it.
     component.removeMath()
     component.setMath(math_header)
-    equation1 = \
-        "  <apply><eq/>"\
-        "    <ci>c</ci>"\
-        "    <apply><plus/>"\
-        "      <ci>a</ci>"\
-        "      <cn cellml:units=\"per_month\">2.0</cn>"\
-        "    </apply>"\
+    equation1 = (
+        "  <apply><eq/>"
+        "    <ci>c</ci>"
+        "    <apply><plus/>"
+        "      <ci>a</ci>"
+        '      <cn cellml:units="per_month">2.0</cn>'
+        "    </apply>"
         "  </apply>"
+    )
     component.appendMath(equation1)
     component.appendMath(equation2)
     component.appendMath(equation3)
     component.appendMath(math_footer)
 
-    #  3.h  
+    #  3.h
     #      Validate once more, and expect there to be no errors this time.
     validator.validateModel(model)
     print_issues(validator)
@@ -251,18 +264,18 @@ if __name__ == "__main__":
     print("   Step 4: Analyse the mathematics                           ")
     print("-------------------------------------------------------------")
 
-    #  4.a 
+    #  4.a
     #     Create an Analyser instance and pass it the model using the
-    #     analyseModel function.  
+    #     analyseModel function.
     analyser = Analyser()
     analyser.analyseModel(model)
 
-    #  4.b 
+    #  4.b
     #     Check for errors found in the analyser. You should expect 6 errors,
     #     related to variables whose values are not computed or initialised.
     print_issues(analyser)
 
-    #  4.c 
+    #  4.c
     #     Add initial conditions to all variables except the base variable, time
     #     and the constant c which will be computed. Reprocess the model.
     a.setInitialValue(-0.8)
@@ -271,7 +284,7 @@ if __name__ == "__main__":
     sharks.setInitialValue(1.0)
     fish.setInitialValue(2.0)
 
-    #  4.d 
+    #  4.d
     #     Reprocess the model and check that the analyser is now free of errors.
     analyser.analyseModel(model)
     print_issues(analyser)
@@ -282,27 +295,27 @@ if __name__ == "__main__":
     print("   Step 5: Generate code and output                          ")
     print("-------------------------------------------------------------")
 
-    #  5.a  
-    #     Create a Generator instance.  Instead of giving it the Model item to process, 
-    #     the generator takes the output from the analyser.  
+    #  5.a
+    #     Create a Generator instance.  Instead of giving it the Model item to process,
+    #     the generator takes the output from the analyser.
     #     Retrieve the analysed model using the Analyser.model() function and pass it
     #     to the generator using the Generator.setModel function.
     generator = Generator()
     generator.setModel(analyser.model())
 
-    #  The generator takes the CellML model and turns it into procedural code in another 
+    #  The generator takes the CellML model and turns it into procedural code in another
     #  language.  The default is C, but Python is available too.  This language choice is
     #  called the "profile", and is stored in a GeneratorProfile item.
 
     #  The default profile has a C flavour, and it already exists inside the Generator you've just created.
     #  We need to edit that profile a little, but only to tell it the file name where they interface
     #  (header file) code will be written.  This is so that the implementation code (source file) knows
-    #  where to look when it tries to #include it.  
+    #  where to look when it tries to #include it.
 
     #  5.b
     #     Retrieve the C profile from the generator, and use its setInterfaceFileNameString function
     #     to pass in the same filename that you'll use in 5.c for the interface code.
-    generator.profile().setInterfaceFileNameString('PredatorPrey.h')
+    generator.profile().setInterfaceFileNameString("PredatorPrey.h")
 
     #  5.c
     #     First we'll use the default profile (C), so we need to output both the

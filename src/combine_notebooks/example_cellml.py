@@ -13,24 +13,23 @@ Issues: https://github.com/cellml/libcellml/issues/1017
 from pathlib import Path
 
 import libcellml
+import libsbml
 from cellml_utilities import print_model
 
-import libsbml
 
 def create_model(cellml_path: Path) -> libcellml.Model:
     """Create CellML repressilator and save to Path."""
     model = libcellml.Model()
     model.setName("repressilator")
 
-
-    '''
+    """
     <units name="minute">
       <unit units="second" multiplier="60"/>
     </units>
     <units name="first_order_rate_constant">
         <unit units="minute" exponent="-1"/>
     </units>
-    '''
+    """
     minute = libcellml.Units("minute")
     minute.addUnit("second", 1, 60)
     model.addUnits(minute)
@@ -39,11 +38,11 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # first_order_rate_constant.addUnit("minute")
     # model.addUnits(first_order_rate_constant)
     ##############################################################################################
-    '''
+    """
     <component name="environment">
       <variable units="minute" public_interface="out" name="time" cmeta:id="environment_time"/>
     </component>
-    '''
+    """
     comp_env = libcellml.Component()
     comp_env.setName("environment")
     model.addComponent(comp_env)
@@ -130,7 +129,7 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     math_str = "\n".join([math_header] + math_str.split("\n")[2:])
     print(math_str)
     comp_parameters.setMath(math_str)
-    
+
     ##############################################################################################
 
     comp_parameters = libcellml.Component()
@@ -144,8 +143,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     var_n.setUnits("dimensionless")
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_n)
-
-    
 
     var_alpha = libcellml.Variable()
     var_alpha.setName("alpha")
@@ -173,8 +170,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_alpha_0)
 
-    
-
     var_K_m = libcellml.Variable()
     var_K_m.setName("K_m")
     # var_K_m.setInitialValue(40)
@@ -188,8 +183,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     var_efficiency.setUnits("dimensionless")
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_efficiency)
-
-    
 
     var_t_ave = libcellml.Variable()
     var_t_ave.setName("t_ave")
@@ -211,7 +204,9 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # comp_parameters.addVariable(var_eff)
 
     # start with math
-    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula("a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))")
+    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula(
+        "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))"
+    )
     math_str = libsbml.writeMathMLToString(math_ast1)
     print(math_str)
     math_header = '<math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">'
@@ -233,8 +228,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     var_n.setUnits("dimensionless")
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_n)
-
-    
 
     var_alpha = libcellml.Variable()
     var_alpha.setName("alpha")
@@ -262,8 +255,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_alpha_0)
 
-    
-
     var_K_m = libcellml.Variable()
     var_K_m.setName("K_m")
     # var_K_m.setInitialValue(40)
@@ -277,8 +268,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     var_efficiency.setUnits("dimensionless")
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_efficiency)
-
-    
 
     var_t_ave = libcellml.Variable()
     var_t_ave.setName("t_ave")
@@ -300,7 +289,9 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # comp_parameters.addVariable(var_eff)
 
     # start with math
-    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula("a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))")
+    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula(
+        "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))"
+    )
     math_str = libsbml.writeMathMLToString(math_ast1)
     print(math_str)
     math_header = '<math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">'
@@ -322,8 +313,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     var_n.setUnits("dimensionless")
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_n)
-
-    
 
     var_alpha = libcellml.Variable()
     var_alpha.setName("alpha")
@@ -351,8 +340,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_alpha_0)
 
-    
-
     var_K_m = libcellml.Variable()
     var_K_m.setName("K_m")
     # var_K_m.setInitialValue(40)
@@ -366,8 +353,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     var_efficiency.setUnits("dimensionless")
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_efficiency)
-
-    
 
     var_t_ave = libcellml.Variable()
     var_t_ave.setName("t_ave")
@@ -389,7 +374,9 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # comp_parameters.addVariable(var_eff)
 
     # start with math
-    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula("a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))")
+    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula(
+        "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))"
+    )
     math_str = libsbml.writeMathMLToString(math_ast1)
     print(math_str)
     math_header = '<math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">'
@@ -398,7 +385,7 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     print(math_str)
     comp_parameters.setMath(math_str)
 
-##############################################################################################
+    ##############################################################################################
 
     comp_parameters = libcellml.Component()
     comp_parameters.setName("P_lacl")
@@ -411,8 +398,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     var_n.setUnits("dimensionless")
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_n)
-
-    
 
     var_alpha = libcellml.Variable()
     var_alpha.setName("beta")
@@ -432,7 +417,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     var_t_ave.setUnits("minute")
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_t_ave)
-    
 
     var_K_m = libcellml.Variable()
     var_K_m.setName("K_m")
@@ -448,7 +432,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_efficiency)
 
-
     var_mRNA_halflife = libcellml.Variable()
     var_mRNA_halflife.setName("time")
     # var_mRNA_halflife.setInitialValue(2)
@@ -463,7 +446,9 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # comp_parameters.addVariable(var_eff)
 
     # start with math
-    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula("a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))")
+    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula(
+        "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))"
+    )
     math_str = libsbml.writeMathMLToString(math_ast1)
     print(math_str)
     math_header = '<math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">'
@@ -472,7 +457,7 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     print(math_str)
     comp_parameters.setMath(math_str)
 
-##############################################################################################
+    ##############################################################################################
 
     comp_parameters = libcellml.Component()
     comp_parameters.setName("P_tetR")
@@ -485,8 +470,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     var_n.setUnits("dimensionless")
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_n)
-
-    
 
     var_alpha = libcellml.Variable()
     var_alpha.setName("beta")
@@ -506,7 +489,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     var_t_ave.setUnits("minute")
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_t_ave)
-    
 
     var_K_m = libcellml.Variable()
     var_K_m.setName("K_m")
@@ -522,7 +504,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_efficiency)
 
-
     var_mRNA_halflife = libcellml.Variable()
     var_mRNA_halflife.setName("time")
     # var_mRNA_halflife.setInitialValue(2)
@@ -537,7 +518,9 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # comp_parameters.addVariable(var_eff)
 
     # start with math
-    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula("a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))")
+    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula(
+        "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))"
+    )
     math_str = libsbml.writeMathMLToString(math_ast1)
     print(math_str)
     math_header = '<math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">'
@@ -546,7 +529,7 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     print(math_str)
     comp_parameters.setMath(math_str)
 
-##############################################################################################
+    ##############################################################################################
 
     comp_parameters = libcellml.Component()
     comp_parameters.setName("P_cl")
@@ -559,8 +542,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     var_n.setUnits("dimensionless")
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_n)
-
-    
 
     var_alpha = libcellml.Variable()
     var_alpha.setName("beta")
@@ -580,7 +561,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     var_t_ave.setUnits("minute")
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_t_ave)
-    
 
     var_K_m = libcellml.Variable()
     var_K_m.setName("K_m")
@@ -596,7 +576,6 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # var_n.setInterfaceType()
     comp_parameters.addVariable(var_efficiency)
 
-
     var_mRNA_halflife = libcellml.Variable()
     var_mRNA_halflife.setName("time")
     # var_mRNA_halflife.setInitialValue(2)
@@ -611,7 +590,9 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     # comp_parameters.addVariable(var_eff)
 
     # start with math
-    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula("a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))")
+    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula(
+        "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))"
+    )
     math_str = libsbml.writeMathMLToString(math_ast1)
     print(math_str)
     math_header = '<math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">'
@@ -619,10 +600,10 @@ def create_model(cellml_path: Path) -> libcellml.Model:
     math_str = "\n".join([math_header] + math_str.split("\n")[2:])
     print(math_str)
     comp_parameters.setMath(math_str)
-############################################################
+    ############################################################
 
     comp_env = libcellml.Component()
-    
+
     model.addComponent(comp_env)
 
     #  Checking that it worked
@@ -668,6 +649,7 @@ def validate_model(model: libcellml.Model) -> None:
 
 if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
+
     # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
     # RESULTS_DIR: Path = RESOURCES_DIR / "results"
 

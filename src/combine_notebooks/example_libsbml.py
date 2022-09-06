@@ -7,7 +7,7 @@ from pathlib import Path
 
 import libsbml
 
-from src.combine_notebooks.validation_sbml import validate_sbml
+from combine_notebooks.validation_sbml import validate_sbml
 
 
 def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
@@ -274,7 +274,7 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     # example setting a model qualifier
     s3_cv.setQualifierType(libsbml.MODEL_QUALIFIER)
     s3_cv.setBiologicalQualifierType(libsbml.BQM_IS)
-    #check
+    # check
     s3_cv.addResource("http://identifiers.org/uniprot/3A0006402")
     r1.addCVTerm(s3_cv)
 
@@ -554,6 +554,7 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
 
 if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
+
     # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
     # RESULTS_DIR: Path = RESOURCES_DIR / "results"
     doc: libsbml.SBMLDocument = create_repressilator(

@@ -18,6 +18,7 @@ from sbmlutils.factory import (
 )
 from sbmlutils.metadata import *
 
+
 # <codecell>
 model = Model(
     "repressilator_sbmlutils",
@@ -37,9 +38,7 @@ model = Model(
             sboTerm="SBO:0000252",
             initialAmount=0,
             hasOnlySubstanceUnits=True,
-            annotations=[
-                (BQB.IS, "uniprot/P03023")
-            ]
+            annotations=[(BQB.IS, "uniprot/P03023")],
         ),
         Species(
             sid="PY",
@@ -48,9 +47,7 @@ model = Model(
             sboTerm="SBO:0000252",
             initialAmount=0,
             hasOnlySubstanceUnits=True,
-            annotations=[
-                (BQB.IS, "uniprot/P04483")
-            ]
+            annotations=[(BQB.IS, "uniprot/P04483")],
         ),
         Species(
             sid="PZ",
@@ -59,9 +56,7 @@ model = Model(
             sboTerm="SBO:0000252",
             initialAmount=0,
             hasOnlySubstanceUnits=True,
-            annotations=[
-                (BQB.IS, "uniprot/P03034")
-            ]
+            annotations=[(BQB.IS, "uniprot/P03034")],
         ),
         Species(
             sid="X",
@@ -70,9 +65,11 @@ model = Model(
             sboTerm="SBO:0000250",
             initialAmount=20,
             hasOnlySubstanceUnits=True,
-annotations=[
-                (BQB.IS, "uniprot/P03023")
-            ]
+            annotations=[
+                (BQB.IS_VERSION_OF, "chebi/CHEBI:33699"),
+                (BQB.IS_VERSION_OF, "kegg.compound/C00046"),
+                (BQB.ENCODES, "uniprot/P03023"),
+            ],
         ),
         Species(
             sid="Y",
@@ -81,9 +78,7 @@ annotations=[
             sboTerm="SBO:0000250",
             initialAmount=20,
             hasOnlySubstanceUnits=True,
-annotations=[
-                (BQB.IS, "uniprot/P04483")
-            ]
+            annotations=[(BQB.IS, "uniprot/P04483")],
         ),
         Species(
             sid="Z",
@@ -92,9 +87,7 @@ annotations=[
             sboTerm="SBO:0000250",
             initialAmount=0,
             hasOnlySubstanceUnits=True,
-annotations=[
-                (BQB.IS, "uniprot/P03034")
-            ]
+            annotations=[(BQB.IS, "uniprot/P03034")],
         ),
     ],
     parameters=[
@@ -141,9 +134,7 @@ annotations=[
             reversible=False,
             equation="X -> ",
             formula=("kd_mRNA * X", None),
-annotations=[
-                (BQM.IS, "uniprot/P03034")
-            ]
+            annotations=[(BQM.IS, "uniprot/P03034")],
         ),
         Reaction(
             sid="Reaction2",
@@ -152,9 +143,7 @@ annotations=[
             reversible=False,
             equation="Y -> ",
             formula=("kd_mRNA * Y", None),
-annotations=[
-                (BQM.IS, "uniprot/P03034")
-            ]
+            annotations=[(BQM.IS, "uniprot/P03034")],
         ),
         Reaction(
             sid="Reaction3",
@@ -163,9 +152,7 @@ annotations=[
             reversible=False,
             equation="Z -> ",
             formula=("kd_mRNA * Z", None),
-annotations=[
-                (BQM.IS, "uniprot/P03034")
-            ]
+            annotations=[(BQM.IS, "uniprot/P03034")],
         ),
         Reaction(
             sid="Reaction4",
@@ -174,9 +161,7 @@ annotations=[
             reversible=False,
             equation=" -> PX [X]",
             formula=("k_tl * X", None),
-annotations=[
-                (BQM.IS, "uniprot/P03034")
-            ]
+            annotations=[(BQM.IS, "uniprot/P03034")],
         ),
         Reaction(
             sid="Reaction5",
@@ -185,9 +170,7 @@ annotations=[
             reversible=False,
             equation=" -> PY [Y]",
             formula=("k_tl * Y", None),
-annotations=[
-                (BQM.IS, "uniprot/P03034")
-            ]
+            annotations=[(BQM.IS, "uniprot/P03034")],
         ),
         Reaction(
             sid="Reaction6",
@@ -196,9 +179,7 @@ annotations=[
             reversible=False,
             equation=" -> PZ [Z]",
             formula=("k_tl *Z", None),
-annotations=[
-                (BQM.IS, "uniprot/P03034")
-            ]
+            annotations=[(BQM.IS, "uniprot/P03034")],
         ),
         Reaction(
             sid="Reaction7",
@@ -207,9 +188,7 @@ annotations=[
             reversible=False,
             equation="PX -> ",
             formula=("kd_prot * PX", None),
-annotations=[
-                (BQM.IS, "uniprot/P03034")
-            ]
+            annotations=[(BQM.IS, "uniprot/P03034")],
         ),
         Reaction(
             sid="Reaction8",
@@ -218,9 +197,7 @@ annotations=[
             reversible=False,
             equation="PY -> ",
             formula=("kd_prot * PY", None),
-annotations=[
-                (BQM.IS, "uniprot/P03034")
-            ]
+            annotations=[(BQM.IS, "uniprot/P03034")],
         ),
         Reaction(
             sid="Reaction9",
@@ -229,9 +206,7 @@ annotations=[
             reversible=False,
             equation="PZ -> ",
             formula=("kd_prot * PZ", None),
-annotations=[
-                (BQM.IS, "uniprot/P03034")
-            ]
+            annotations=[(BQM.IS, "uniprot/P03034")],
         ),
         Reaction(
             sid="Reaction10",
@@ -243,9 +218,7 @@ annotations=[
                 "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))",
                 None,
             ),
-annotations=[
-                (BQM.IS, "uniprot/P03034")
-            ]
+            annotations=[(BQM.IS, "uniprot/P03034")],
         ),
         Reaction(
             sid="Reaction11",
@@ -257,9 +230,7 @@ annotations=[
                 "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PX, n))",
                 None,
             ),
-annotations=[
-                (BQM.IS, "uniprot/P03034")
-            ]
+            annotations=[(BQM.IS, "uniprot/P03034")],
         ),
         Reaction(
             sid="Reaction12",
@@ -271,9 +242,7 @@ annotations=[
                 "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PY, n))",
                 None,
             ),
-annotations=[
-                (BQM.IS, "uniprot/P03034")
-            ]
+            annotations=[(BQM.IS, "uniprot/P03034")],
         ),
     ],
 )
@@ -291,6 +260,7 @@ def create_repressilator(sbml_path: Path) -> FactoryResult:
         sbml_version=3,
     )
     return results
+
 
 # <codecell>
 if __name__ == "__main__":

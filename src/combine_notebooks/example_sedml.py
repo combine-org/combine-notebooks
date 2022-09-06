@@ -1,9 +1,12 @@
 # <markdowncell>
 # Create repressilator using SED-ML
 
+from pathlib import Path
+
 # <codecell>
 import libsedml
-from pathlib import Path
+
+
 # <codecell>
 def create_dependent_variable_example():
     # create the document
@@ -11,13 +14,13 @@ def create_dependent_variable_example():
 
     # create a first model referencing an sbml file
 
-    '''
+    """
     <listOfSimulations>
         <uniformTimeCourse id="sim1" initialTime="0" outputStartTime="0" outputEndTime="1000" numberOfPoints="1000">
           <algorithm kisaoID="KISAO:0000019"/>
         </uniformTimeCourse>
       </listOfSimulations>
-    '''
+    """
     # create simulation
     tc = doc.createUniformTimeCourse()
     tc.setId("sim1")
@@ -29,7 +32,7 @@ def create_dependent_variable_example():
     alg = tc.createAlgorithm()
     alg.setKisaoID("KISAO:0000019")
 
-    '''
+    """
     <listOfModels>
     <model id="model1" language="urn:sedml:language:sbml.level-3.version-1" source="https://www.ebi.ac.uk/biomodels/model/download/BIOMD0000000012?filename=BIOMD0000000012_url.xml"/>
     <model id="model2" language="urn:sedml:language:sbml.level-3.version-1" source="#model1">
@@ -39,11 +42,13 @@ def create_dependent_variable_example():
       </listOfChanges>
     </model>
     </listOfModels>
-    '''
+    """
     # create a first model referencing an sbml file
     model = doc.createModel()
     model.setId("model1")
-    model.setSource("https://www.ebi.ac.uk/biomodels/model/download/BIOMD0000000012?filename=BIOMD0000000012_url.xml")
+    model.setSource(
+        "https://www.ebi.ac.uk/biomodels/model/download/BIOMD0000000012?filename=BIOMD0000000012_url.xml"
+    )
     model.setLanguage("urn:sedml:language:sbml.level-3.version-1")
 
     # create a second model modifying a variable of that other sbml file
@@ -53,19 +58,23 @@ def create_dependent_variable_example():
     model.setLanguage("urn:sedml:language:sbml.level-3.version-1")
 
     change = model.createChangeAttribute()
-    change.setTarget("/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id='ps_0']/@value")
+    change.setTarget(
+        "/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id='ps_0']/@value"
+    )
     change.setNewValue("1.3e-05")
 
     change = model.createChangeAttribute()
-    change.setTarget("/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id='ps_a']/@value")
+    change.setTarget(
+        "/sbml:sbml/sbml:model/sbml:listOfParameters/sbml:parameter[@id='ps_a']/@value"
+    )
     change.setNewValue("0.013")
 
-    '''
+    """
     <listOfTasks>
     <task id="task1" modelReference="model1" simulationReference="sim1"/>
     <task id="task2" modelReference="model2" simulationReference="sim1"/>
     </listOfTasks>
-    '''
+    """
     # create a task that uses the simulation and the model above
     task = doc.createTask()
     task.setId("task1")
@@ -78,7 +87,7 @@ def create_dependent_variable_example():
     task.setModelReference("model2")
     task.setSimulationReference("sim1")
 
-    '''
+    """
     <dataGenerator id="dg_0_0_0" name="task1.time">
       <listOfVariables>
         <variable id="task1_____time" symbol="urn:sedml:symbol:time" taskReference="task1"/>
@@ -87,7 +96,7 @@ def create_dependent_variable_example():
         <ci> task1_____time </ci>
       </math>
     </dataGenerator>
-    '''
+    """
     # add a DataGenerator to hold the output for time
     dg = doc.createDataGenerator()
     dg.setId("dg_0_0_0")
@@ -291,6 +300,8 @@ def create_dependent_variable_example():
 
     file_name = str(RESULTS_DIR / "repressilator_sedml.xml")
     libsedml.writeSedML(doc, file_name)
+
+
 # <codecell>
 if __name__ == "__main__":
     create_dependent_variable_example()

@@ -10,7 +10,8 @@ from pathlib import Path
 import antimony
 import libsbml
 
-from src.combine_notebooks.validation_sbml import validate_sbml
+from combine_notebooks.validation_sbml import validate_sbml
+
 
 # <codecell>
 def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
@@ -76,8 +77,6 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     print(antimony.getSBMLWarnings())
 
     # validation
-    import libsbml
-
     doc = libsbml.readSBMLFromString(sbml_str)
     validate_sbml(doc)
 
@@ -86,11 +85,9 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
 
     return doc
 
+
 # <codecell>
 if __name__ == "__main__":
-    # print(model)
-    # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
-    # RESULTS_DIR: Path = RESOURCES_DIR / "results"
     from combine_notebooks import RESULTS_DIR
 
     create_repressilator(sbml_path=RESULTS_DIR / "repressilator_antimony.xml")

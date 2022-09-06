@@ -17,6 +17,7 @@ from pygments.lexers import PythonLexer
 
 from combine_notebooks import RESULTS_DIR
 
+
 # <codecell>
 def pprint_xml(xml_str):
     """Helper function for highlighted xml."""
@@ -33,6 +34,7 @@ def pprint_xml(xml_str):
 # import libsbgn and important SBGN types
 import libsbgnpy.libsbgn as libsbgn
 from libsbgnpy.libsbgnTypes import ArcClass, GlyphClass, Language, Orientation
+
 
 def create_repressilator() -> libsbgn.map:
 
@@ -148,12 +150,12 @@ def create_repressilator() -> libsbgn.map:
     g = libsbgn.glyph(class_=GlyphClass.NUCLEIC_ACID_FEATURE, id="glyph21")
     g.set_label(libsbgn.label(text="Clm"))
     g.set_bbox(libsbgn.bbox(y="374.117", x="682.0", h="45.0", w="72.0"))
-    '''
+    """
     <glyph id="glyph21a" class="unit of information">
                     <label text="ct:mRNA"/>
                     <bbox y="365.367" x="686.25" h="17.5" w="63.5"/>
                 </glyph>
-    '''
+    """
     g1 = libsbgn.glyph(id="glyph21a", class_=GlyphClass.UNIT_OF_INFORMATION)
 
     g1.set_label(libsbgn.label(text="ct:mRNA"))
@@ -185,12 +187,12 @@ def create_repressilator() -> libsbgn.map:
 
     g1.set_label(libsbgn.label(text="ct:mRNA"))
     g1.set_bbox(libsbgn.bbox(y="365.367", x="171.25", h="17.5", w="63.5"))
-    '''
+    """
     <glyph id="glyph1a" class="unit of information">
                     <label text="ct:mRNA"/>
                     <bbox y="365.367" x="171.25" h="17.5" w="63.5"/>
                 </glyph>
-    '''
+    """
     map.add_glyph(g)
     g.add_glyph(g1)
 
@@ -213,8 +215,7 @@ def create_repressilator() -> libsbgn.map:
     g.add_port(libsbgn.port(y="198.0", x="473.0", id="glyph7.1"))
     map.add_glyph(g)
 
-
-    '''
+    """
     <glyph id="glyph20" class="nucleic acid feature">
         <label text="Laclm"/>
         <bbox y="120.5" x="437.0" h="45.0" w="72.0"/>
@@ -223,7 +224,7 @@ def create_repressilator() -> libsbgn.map:
             <bbox y="111.75" x="441.25" h="17.5" w="63.5"/>
         </glyph>
     </glyph>
-    '''
+    """
 
     g = libsbgn.glyph(class_=GlyphClass.NUCLEIC_ACID_FEATURE, id="glyph20")
     g.set_label(libsbgn.label(text="Laclm"))
@@ -231,12 +232,11 @@ def create_repressilator() -> libsbgn.map:
     g1 = libsbgn.glyph(id="glyph20a", class_=GlyphClass.UNIT_OF_INFORMATION)
 
     g1.set_label(libsbgn.label(text="ct:mRNA"))
-    g1.set_bbox(libsbgn.bbox(y="111.75", x="441.25", h="17.5" ,w="63.5"))
+    g1.set_bbox(libsbgn.bbox(y="111.75", x="441.25", h="17.5", w="63.5"))
     # TODO: add nested glyphs
     # g.add_glyph()
     map.add_glyph(g)
     g.add_glyph(g1)
-
 
     g = libsbgn.glyph(class_=GlyphClass.PROCESS, id="glyph6")
     g.set_label(libsbgn.label(text="Tetm"))
@@ -398,7 +398,10 @@ def create_repressilator() -> libsbgn.map:
     map.add_arc(a)
 
     a = libsbgn.arc(
-        class_=ArcClass.NECESSARY_STIMULATION, target="glyph26", source="glyph21", id="arc7"
+        class_=ArcClass.NECESSARY_STIMULATION,
+        target="glyph26",
+        source="glyph21",
+        id="arc7",
     )
     a.set_start(libsbgn.startType(y="396.617", x="754.0"))
     a.set_end(libsbgn.endType(y="396.61728", x="808.0"))
@@ -433,14 +436,20 @@ def create_repressilator() -> libsbgn.map:
     map.add_arc(a)
 
     a = libsbgn.arc(
-        class_=ArcClass.NECESSARY_STIMULATION, target="glyph23", source="glyph1", id="arc26"
+        class_=ArcClass.NECESSARY_STIMULATION,
+        target="glyph23",
+        source="glyph1",
+        id="arc26",
     )
     a.set_start(libsbgn.startType(y="419.117", x="203.22192"))
     a.set_end(libsbgn.endType(y="488.0", x="203.90137"))
     map.add_arc(a)
 
     a = libsbgn.arc(
-        class_=ArcClass.NECESSARY_STIMULATION, target="glyph4", source="glyph20", id="arc27"
+        class_=ArcClass.NECESSARY_STIMULATION,
+        target="glyph4",
+        source="glyph20",
+        id="arc27",
     )
     a.set_start(libsbgn.startType(y="120.5", x="473.0"))
     a.set_end(libsbgn.endType(y="53.0", x="473.0"))
@@ -470,11 +479,11 @@ def create_repressilator() -> libsbgn.map:
     # render SBGN
     from libsbgnpy import render
 
-
     f_png = str(RESULTS_DIR / "libsbgn_image.png")
     render.render_sbgn(sbgn, image_file=f_png, file_format="png")
     Image(f_png, width=300)
     return map
+
 
 # <codecell>
 if __name__ == "__main__":

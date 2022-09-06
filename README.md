@@ -22,3 +22,21 @@ To work with the notebooks create a virtual environment and install the dependen
 mkvirtualenv combine_notebooks --python=python3.9
 pip install -e .[development] --upgrade
 ```
+
+## Code formating
+To format code use
+```
+./fcode.sh 
+```
+This should be executed before commiting code.
+
+## Run tests
+Run all tests
+```bash
+tox -p
+```
+
+Run single test, i.e. `flake8`, `mypy`, `py38`, `py39`
+```bash
+tox -e flake8
+```

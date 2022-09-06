@@ -1,4 +1,4 @@
-"""Import creation of repressilator in SBML."""
+"""Test SBML functionality."""
 from pathlib import Path
 
 import pytest

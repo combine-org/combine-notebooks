@@ -9,8 +9,11 @@ from pathlib import Path
 
 import libsbml
 
-from src.combine_notebooks.validation_sbml import validate_sbml
+from combine_notebooks.validation_sbml import validate_sbml
+
+
 # <codecell>
+
 
 def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     """Create repressilator."""
@@ -413,6 +416,7 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     validate_sbml(doc, units_consistency=False)
 
     return doc
+
 
 # <codecell>
 if __name__ == "__main__":
