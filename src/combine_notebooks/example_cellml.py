@@ -667,9 +667,9 @@ def validate_model(model: libcellml.Model) -> None:
 
 
 if __name__ == "__main__":
-    # from combine_notebooks import RESULTS_DIR
-    RESOURCES_DIR: Path = Path(__file__).parent / "resources"
-    RESULTS_DIR: Path = RESOURCES_DIR / "results"
+    from combine_notebooks import RESULTS_DIR
+    # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
+    # RESULTS_DIR: Path = RESOURCES_DIR / "results"
 
     cellml_path: Path = RESULTS_DIR / "repressilator.cellml"
     model = create_model(cellml_path)

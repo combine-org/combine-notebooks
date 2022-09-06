@@ -15,7 +15,7 @@ from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import PythonLexer
 
-# from combine_notebooks import RESULTS_DIR
+from combine_notebooks import RESULTS_DIR
 
 # <codecell>
 def pprint_xml(xml_str):
@@ -461,8 +461,8 @@ def create_repressilator() -> libsbgn.map:
     map.add_arc(a)
 
     # write SBGN to file
-    RESOURCES_DIR: Path = Path(__file__).parent / "resources"
-    RESULTS_DIR: Path = RESOURCES_DIR / "results"
+    # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
+    # RESULTS_DIR: Path = RESOURCES_DIR / "results"
 
     f_out = str(RESULTS_DIR / "repressilator_sbgn.sbgn")
     sbgn.write_file(f_out)

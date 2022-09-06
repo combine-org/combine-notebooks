@@ -285,8 +285,9 @@ def create_dependent_variable_example():
     curve.setYDataReference("dg_2_1_0")
 
     # write doc
-    RESOURCES_DIR: Path = Path(__file__).parent / "resources"
-    RESULTS_DIR: Path = RESOURCES_DIR / "results"
+    # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
+    # RESULTS_DIR: Path = RESOURCES_DIR / "results"
+    from combine_notebooks import RESULTS_DIR
 
     file_name = str(RESULTS_DIR / "repressilator_sedml.xml")
     libsedml.writeSedML(doc, file_name)
