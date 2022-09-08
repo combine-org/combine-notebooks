@@ -314,7 +314,7 @@ if __name__ == "__main__":
 
     #  5.b
     #     Retrieve the C profile from the generator, and use its setInterfaceFileNameString function
-    #     to pass in the same filename that you'll use in 5.c for the interface code.
+    #     to pass in the same filename.ipynb that you'll use in 5.c for the interface code.
     generator.profile().setInterfaceFileNameString("PredatorPrey.h")
 
     #  5.c
