@@ -22,6 +22,7 @@ from combine_notebooks import RESULTS_DIR
 
 
 
+
 # <codecell>
 def pprint_xml(xml_str):
     """Helper function creates highlighted xml."""
@@ -34,7 +35,7 @@ def pprint_xml(xml_str):
         )
     )
 
-def create_repressilator() -> libsbgn.map:
+def create_repressilator(sbgn_path: Path) -> libsbgn.map:
     """Create repressilator using SBGN."""
     # create empty sbgn
     sbgn = libsbgn.sbgn()
