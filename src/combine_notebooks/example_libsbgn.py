@@ -21,6 +21,7 @@ from pygments.lexers import PythonLexer
 from combine_notebooks import RESULTS_DIR
 
 
+
 # <codecell>
 def pprint_xml(xml_str):
     """Helper function creates highlighted xml."""
@@ -236,16 +237,16 @@ def create_repressilator() -> libsbgn.map:
     g.add_glyph(g1)
 
     g = libsbgn.glyph(class_=GlyphClass.PROCESS, id="glyph6")
-    g.set_label(libsbgn.label(text="Tetm"))
+
     g.set_bbox(libsbgn.bbox(y="133.0", x="553.0", h="20.0", w="20.0"))
     g.add_port(libsbgn.port(y="143.0", x="583.0", id="glyph6.2"))
     g.add_port(libsbgn.port(y="143.0", x="543.0", id="glyph6.1"))
     map.add_glyph(g)
 
-    g = libsbgn.glyph(class_=GlyphClass.PROCESS, id="glyph6")
-    g.set_label(libsbgn.label(text="Tetm"))
-    g.set_bbox(libsbgn.bbox(y="133.0", x="553.0", h="20.0", w="20.0"))
-    map.add_glyph(g)
+    # g = libsbgn.glyph(class_=GlyphClass.PROCESS, id="glyph6")
+    # g.set_label(libsbgn.label(text="Tetm"))
+    # g.set_bbox(libsbgn.bbox(y="133.0", x="553.0", h="20.0", w="20.0"))
+    # map.add_glyph(g)
 
     a = libsbgn.arc(
         class_=ArcClass.CONSUMPTION, target="glyph4.2", source="glyph3", id="arc1"

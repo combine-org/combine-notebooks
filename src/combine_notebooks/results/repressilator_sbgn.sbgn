@@ -133,14 +133,9 @@
             </glyph>
         </glyph>
         <glyph class="process" id="glyph6">
-            <label text="Tetm"/>
             <bbox w="20." h="20." x="553." y="133."/>
             <port id="glyph6.2" x="583." y="143."/>
             <port id="glyph6.1" x="543." y="143."/>
-        </glyph>
-        <glyph class="process" id="glyph6">
-            <label text="Tetm"/>
-            <bbox w="20." h="20." x="553." y="133."/>
         </glyph>
         <arc class="consumption" id="arc1" source="glyph3" target="glyph4.2">
             <start x="530." y="43."/>
