@@ -3,7 +3,6 @@
 # <codecell>
 from pathlib import Path
 
-from sbmlutils.factory import *
 from sbmlutils.factory import (
     AssignmentRule,
     Compartment,
@@ -14,10 +13,9 @@ from sbmlutils.factory import (
     Reaction,
     Species,
     Units,
-    create_model,
+    create_model
 )
 from sbmlutils.metadata import *
-
 
 # <codecell>
 model = Model(
@@ -248,6 +246,7 @@ model = Model(
 )
 
 # <codecell>
+
 def create_repressilator(sbml_path: Path) -> FactoryResult:
     """Create the repressilator model in the results_dir."""
     results = create_model(

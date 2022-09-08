@@ -44,5 +44,7 @@ def validate_sedml(doc: libsedml.SedDocument) -> None:
 if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
 
-    doc: libsedml.SedDocument = libsedml.readSedMLFromFile(str(RESULTS_DIR / "repressilator_sedml.xml"))
+    doc: libsedml.SedDocument = libsedml.readSedMLFromFile(
+        str(RESULTS_DIR / "repressilator_sedml.xml")
+    )
     validate_sedml(doc)

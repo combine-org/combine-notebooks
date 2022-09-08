@@ -39,25 +39,17 @@ from pybiopax.biopax.model import (
 
 
 # <codecell>
-def create_repressilator(biopax_path: Path):
+def create_repressilator(biopax_path: Path)->None:
+    """Create repressilator using biopax."""
     objects = []
     """
     <bp:Protein rdf:about="PX">
      <bp:xref rdf:resource="http://identifiers.org/uniprot/P03023" />
      <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">LacI protein</bp:displayName>
-    </bp:Protein>
-    
+    </bp:Protein>    
     Protein(LacI protein)
     {'_controller_of': set(), 'xref': [<pybiopax.biopax.util.UnificationXref object at 0x7fe1eb423160>], 
-    'display_name': 'LacI protein', 
-    'standard_name': None, 
-    '_name': [], 'evidence': [], 
-    'uid': 'PX', 'comment': [], 'availability': None, 'data_source': [], 
-    '_participant_of': set(), 'feature': [], 
-    'not_feature': [], 'member_physical_entity': [], 
-    'cellular_location': None, '_component_of': set(), 
-    '_member_physical_entity_of': {PhysicalEntity(PX), PhysicalEntity(PX), PhysicalEntity(PX)}, 'entity_reference': None}
-    
+    'display_name': 'LacI protein', 'standard_name': None, '_name': [], 'evidence': [], 'uid': 'PX', 'comment': [], 'availability': None, 'data_source': [], '_participant_of': set(), 'feature': [], 'not_feature': [], 'member_physical_entity': [], 'cellular_location': None, '_component_of': set(), '_member_physical_entity_of': {PhysicalEntity(PX), PhysicalEntity(PX), PhysicalEntity(PX)}, 'entity_reference': None} 
     """
     # p1 = Protein(uid="PX", display_name="LacI protein")
     # objects.append(p1)
@@ -68,7 +60,6 @@ def create_repressilator(biopax_path: Path):
      <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">PY</bp:displayName>
      <bp:memberPhysicalEntity rdf:resource="PY" />
     </bp:PhysicalEntity>
-    
     """
 
     p1 = PhysicalEntity(

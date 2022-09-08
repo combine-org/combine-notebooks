@@ -6,6 +6,9 @@
 # <codecell>
 import tempfile
 from pathlib import Path
+# import libsbgn and important SBGN types
+import libsbgnpy.libsbgn as libsbgn
+from libsbgnpy.libsbgnTypes import ArcClass, GlyphClass, Language, Orientation
 
 import IPython
 import libsbml
@@ -20,7 +23,7 @@ from combine_notebooks import RESULTS_DIR
 
 # <codecell>
 def pprint_xml(xml_str):
-    """Helper function for highlighted xml."""
+    """Helper function creates highlighted xml."""
     IPython.display.display(
         HTML(
             '<style type="text/css">{}</style>{}'.format(
@@ -30,14 +33,8 @@ def pprint_xml(xml_str):
         )
     )
 
-
-# import libsbgn and important SBGN types
-import libsbgnpy.libsbgn as libsbgn
-from libsbgnpy.libsbgnTypes import ArcClass, GlyphClass, Language, Orientation
-
-
 def create_repressilator() -> libsbgn.map:
-
+    """Create repressilator using SBGN."""
     # create empty sbgn
     sbgn = libsbgn.sbgn()
 

@@ -8,7 +8,8 @@ import libsedml
 
 
 # <codecell>
-def create_dependent_variable_example():
+def create_dependent_variable_example()-> None:
+    """Create repressilator using SED-ML."""
     # create the document
     doc = libsedml.SedDocument(1, 4)
 
