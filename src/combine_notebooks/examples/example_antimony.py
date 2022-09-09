@@ -10,7 +10,7 @@ from pathlib import Path
 import antimony
 import libsbml
 
-from combine_notebooks.validation_sbml import validate_sbml
+from combine_notebooks.validation.validation_sbml import validate_sbml
 
 
 # <codecell>

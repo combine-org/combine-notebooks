@@ -14,7 +14,8 @@ from pathlib import Path
 
 import libcellml
 import libsbml
-from cellml_utilities import print_model
+
+from combine_notebooks.cellml_utilities import print_model
 
 
 def create_model(cellml_path: Path) -> libcellml.Model:

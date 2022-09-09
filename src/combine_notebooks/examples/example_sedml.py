@@ -3,12 +3,13 @@
 # <codecell>
 from pathlib import Path
 
-
 import libsedml
+
 from combine_notebooks import RESULTS_DIR
 
+
 # <codecell>
-def create_dependent_variable_example()-> None:
+def create_dependent_variable_example() -> None:
     """Create repressilator using SED-ML."""
     # create the document
     doc = libsedml.SedDocument(1, 4)
@@ -297,7 +298,6 @@ def create_dependent_variable_example()-> None:
     # write doc
     # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
     # RESULTS_DIR: Path = RESOURCES_DIR / "results"
-
 
     file_name = str(RESULTS_DIR / "repressilator_sedml.xml")
     libsedml.writeSedML(doc, file_name)

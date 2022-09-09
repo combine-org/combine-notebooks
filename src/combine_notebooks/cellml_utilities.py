@@ -1,3 +1,5 @@
+"""Helpers for cellml."""
+
 import string
 
 from libcellml import Issue
@@ -32,7 +34,7 @@ def print_model(model, include_maths=False):
         print_component_to_terminal(component, c, spacer + spacer, include_maths)
 
 
-def print_component_to_terminal(component, c, spacer, include_maths=False)->None:
+def print_component_to_terminal(component, c, spacer, include_maths=False) -> None:
     """Function prints document to terminal."""
     local = "    "
     # Print this component

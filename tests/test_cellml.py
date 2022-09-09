@@ -1,10 +1,7 @@
 """Test CellML functionality."""
 from pathlib import Path
 
-import pytest
-from sbmlutils.factory import FactoryResult
-
-from combine_notebooks import example_cellml
+from combine_notebooks.examples import example_cellml
 
 
 def test_create_repressilator_cellml(tmp_path: Path) -> None:

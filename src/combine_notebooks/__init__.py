@@ -3,6 +3,7 @@ from pathlib import Path
 
 __version__ = "0.0.1"
 
-
-RESOURCES_DIR: Path = Path(__file__).parent / "resources"
-RESULTS_DIR: Path = Path(__file__).parent / "results"
+BASE_DIR: Path = Path(__file__).parent.parent.parent
+RESULTS_DIR: Path = BASE_DIR / "results"
+NOTEBOOK_DIR: Path = BASE_DIR / "notebooks"
+EXAMPLE_DIR: Path = Path(__file__).parent / "examples"

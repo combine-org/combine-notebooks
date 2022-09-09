@@ -2,9 +2,8 @@
 from pathlib import Path
 
 import pytest
-from sbmlutils.factory import FactoryResult
 
-from combine_notebooks import example_biopax
+from combine_notebooks.examples import example_biopax
 
 
 def test_create_repressilator_biopax(tmp_path: Path) -> None:

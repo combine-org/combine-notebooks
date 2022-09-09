@@ -3,8 +3,6 @@
 # <codecell>
 from pathlib import Path
 
-
-from combine_notebooks import RESULTS_DIR
 from sbmlutils.factory import (
     AssignmentRule,
     Compartment,
@@ -15,9 +13,12 @@ from sbmlutils.factory import (
     Reaction,
     Species,
     Units,
-    create_model
+    create_model,
 )
 from sbmlutils.metadata import *
+
+from combine_notebooks import RESULTS_DIR
+
 
 # <codecell>
 model = Model(
@@ -29,9 +30,15 @@ model = Model(
         extent=Units.mole,
         volume=Units.litre,
     ),
-    compartments=[Compartment(sid="cell", value=1.0, sboTerm="SBO:0000290",
-                              annotations=[(BQB.IS, "obo.go/GO:0005623")])],
-                                # obo.go/GO:3A0005623
+    compartments=[
+        Compartment(
+            sid="cell",
+            value=1.0,
+            sboTerm="SBO:0000290",
+            annotations=[(BQB.IS, "obo.go/GO:0005623")],
+        )
+    ],
+    # obo.go/GO:3A0005623
     species=[
         Species(
             sid="PX",
@@ -80,10 +87,11 @@ model = Model(
             sboTerm="SBO:0000250",
             initialAmount=20,
             hasOnlySubstanceUnits=True,
-            annotations=[(BQB.IS_VERSION_OF, "chebi/CHEBI:33699"),
+            annotations=[
+                (BQB.IS_VERSION_OF, "chebi/CHEBI:33699"),
                 (BQB.IS_VERSION_OF, "kegg.compound/C00046"),
-                (BQB.ENCODES, "uniprot/P04483")
-                         ],
+                (BQB.ENCODES, "uniprot/P04483"),
+            ],
         ),
         Species(
             sid="Z",
@@ -92,9 +100,11 @@ model = Model(
             sboTerm="SBO:0000250",
             initialAmount=0,
             hasOnlySubstanceUnits=True,
-            annotations=[(BQB.IS_VERSION_OF, "chebi/CHEBI:33699"),
+            annotations=[
+                (BQB.IS_VERSION_OF, "chebi/CHEBI:33699"),
                 (BQB.IS_VERSION_OF, "kegg.compound/C00046"),
-                (BQB.ENCODES, "uniprot/P03034")],
+                (BQB.ENCODES, "uniprot/P03034"),
+            ],
         ),
     ],
     parameters=[
@@ -256,6 +266,7 @@ model = Model(
 
 # <codecell>
 
+
 def create_repressilator(sbml_path: Path) -> FactoryResult:
     """Create the repressilator model in the results_dir."""
     results = create_model(
@@ -274,6 +285,5 @@ def create_repressilator(sbml_path: Path) -> FactoryResult:
 if __name__ == "__main__":
     # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
     # RESULTS_DIR: Path = RESOURCES_DIR / "results"
-
 
     create_repressilator(sbml_path=RESULTS_DIR / "repressilator_sbmlutils.xml")

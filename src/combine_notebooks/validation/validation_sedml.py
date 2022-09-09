@@ -2,6 +2,7 @@
 from typing import List
 
 import libsedml
+
 from combine_notebooks import RESULTS_DIR
 
 
@@ -43,7 +44,6 @@ def validate_sedml(doc: libsedml.SedDocument) -> None:
 
 
 if __name__ == "__main__":
-
 
     doc: libsedml.SedDocument = libsedml.readSedMLFromFile(
         str(RESULTS_DIR / "repressilator_sedml.xml")

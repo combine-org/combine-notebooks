@@ -1,10 +1,7 @@
 """Test SBGN functionality."""
 from pathlib import Path
 
-import pytest
-from sbmlutils.factory import FactoryResult
-
-from combine_notebooks import example_libsbgn
+from combine_notebooks.examples import example_libsbgn
 
 
 def test_create_repressilator_libsbgn(tmp_path: Path) -> None:

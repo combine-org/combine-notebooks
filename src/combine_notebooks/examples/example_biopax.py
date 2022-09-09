@@ -39,7 +39,7 @@ from pybiopax.biopax.model import (
 
 
 # <codecell>
-def create_repressilator(biopax_path: Path)->None:
+def create_repressilator(biopax_path: Path) -> None:
     """Create repressilator using biopax."""
     objects = []
     """

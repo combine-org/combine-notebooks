@@ -6,21 +6,20 @@
 # <codecell>
 import tempfile
 from pathlib import Path
-# import libsbgn and important SBGN types
-import libsbgnpy.libsbgn as libsbgn
-from libsbgnpy.libsbgnTypes import ArcClass, GlyphClass, Language, Orientation
 
 import IPython
+
+# import libsbgn and important SBGN types
+import libsbgnpy.libsbgn as libsbgn
 import libsbml
 from IPython.core.display import HTML
 from IPython.display import Image
+from libsbgnpy.libsbgnTypes import ArcClass, GlyphClass, Language, Orientation
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import PythonLexer
 
 from combine_notebooks import RESULTS_DIR
-
-
 
 
 # <codecell>
@@ -34,6 +33,7 @@ def pprint_xml(xml_str):
             )
         )
     )
+
 
 def create_repressilator(sbgn_path: Path) -> libsbgn.map:
     """Create repressilator using SBGN."""

@@ -1,10 +1,13 @@
 """Test SBML functionality."""
 from pathlib import Path
 
-import pytest
 from sbmlutils.factory import FactoryResult
 
-from combine_notebooks import example_antimony, example_libsbml, example_sbmlutils
+from combine_notebooks.examples import (
+    example_antimony,
+    example_libsbml,
+    example_sbmlutils,
+)
 
 
 def test_create_repressilator_libsbml(tmp_path: Path) -> None:
