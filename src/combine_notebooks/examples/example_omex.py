@@ -16,6 +16,7 @@ from pymetadata.omex import EntryFormat, ManifestEntry, Omex
 
 # <codecell>
 
+
 def create_omex(omex_path: Path, results_dir: Path):
     """Creates OMEX archive of resources."""
     omex = Omex()
@@ -57,20 +58,26 @@ def create_omex(omex_path: Path, results_dir: Path):
 
     omex.add_entry(
         entry=ManifestEntry(
-            location="./biopax/repressilator_biopax.owl", format=EntryFormat.BIOPAX, master=False
+            location="./biopax/repressilator_biopax.owl",
+            format=EntryFormat.BIOPAX,
+            master=False,
         ),
         entry_path=results_dir / "repressilator_biopax.owl",
     )
 
     omex.add_entry(
         entry=ManifestEntry(
-            location="./sbgn/repressilator_sbgn.sbgn", format=EntryFormat.SBGN, master=False
+            location="./sbgn/repressilator_sbgn.sbgn",
+            format=EntryFormat.SBGN,
+            master=False,
         ),
         entry_path=results_dir / "repressilator_sbgn.sbgn",
     )
     omex.add_entry(
         entry=ManifestEntry(
-            location="./sbgn/repressilator_sbgn.png", format=EntryFormat.PNG, master=False
+            location="./sbgn/repressilator_sbgn.png",
+            format=EntryFormat.PNG,
+            master=False,
         ),
         entry_path=results_dir / "repressilator_sbgn.png",
     )
@@ -91,4 +98,5 @@ def create_omex(omex_path: Path, results_dir: Path):
 
 if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
+
     create_omex(omex_path=RESULTS_DIR / "combine.omex", results_dir=RESULTS_DIR)

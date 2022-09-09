@@ -7,7 +7,6 @@
 from pathlib import Path
 
 import IPython
-
 import libsbgnpy.libsbgn as libsbgn
 from IPython.core.display import HTML
 from IPython.display import Image
@@ -469,7 +468,6 @@ def create_repressilator(sbgn_path: Path) -> libsbgn.sbgn:
     # render SBGN
     from libsbgnpy import render
 
-
     f_png: str = str(sbgn_path.parent / f"{sbgn_path.stem}.png")
     render.render_sbgn(sbgn, image_file=f_png, file_format="png")
     Image(f_png, width=300)
@@ -479,5 +477,8 @@ def create_repressilator(sbgn_path: Path) -> libsbgn.sbgn:
 # <codecell>
 if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
+
     RESULTS_DIR
-    sbgn: libsbgn.sbgn = create_repressilator(sbgn_path=RESULTS_DIR / "repressilator.sbgn")
+    sbgn: libsbgn.sbgn = create_repressilator(
+        sbgn_path=RESULTS_DIR / "repressilator.sbgn"
+    )

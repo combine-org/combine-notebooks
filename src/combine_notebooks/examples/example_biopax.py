@@ -18,7 +18,6 @@ from pathlib import Path
 
 import pybiopax
 from pybiopax.api import model_to_owl_str
-
 from pybiopax.biopax import (
     BioSource,
     CellularLocationVocabulary,

@@ -303,4 +303,5 @@ def create_repressilator(sedml_path: Path) -> libsedml.SedDocument:
 # <codecell>
 if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
+
     create_repressilator(sedml_path=RESULTS_DIR / "repressilator_sedml.xml")
