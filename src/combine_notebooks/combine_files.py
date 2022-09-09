@@ -17,7 +17,7 @@ from combine_notebooks.examples.example_sbml_sbmlutils import (
 from combine_notebooks.examples.example_sedml import create_repressilator as sedml
 
 
-def create_combine_files(output_dir: Path):
+def create_combine_files(output_dir: Path) -> None:
     """Create all the COMBINE files."""
     biopax(biopax_path=output_dir / "repressilator_biopax.owl")
     cellml(cellml_path=output_dir / "repressilator_cellml.cellml")

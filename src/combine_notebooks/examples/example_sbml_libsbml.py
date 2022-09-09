@@ -374,7 +374,7 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     r5.setSBOTerm("SBO:0000184")
     r5.setName("translation of TetR")
     r5.setReversible(False)
-    s3_cv: libsbml.CVTerm = libsbml.CVTerm()
+    s3_cv = libsbml.CVTerm()
     # set annotation
     r5_cv: libsbml.CVTerm = libsbml.CVTerm()
     r5_cv.setQualifierType(libsbml.BIOLOGICAL_QUALIFIER)

@@ -205,7 +205,7 @@ def create_repressilator(cellml_path: Path) -> libcellml.Model:
     # comp_parameters.addVariable(var_eff)
 
     # start with math
-    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula(
+    math_ast1 = libsbml.parseL3Formula(
         "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))"
     )
     math_str = libsbml.writeMathMLToString(math_ast1)
@@ -290,7 +290,7 @@ def create_repressilator(cellml_path: Path) -> libcellml.Model:
     # comp_parameters.addVariable(var_eff)
 
     # start with math
-    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula(
+    math_ast1 = libsbml.parseL3Formula(
         "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))"
     )
     math_str = libsbml.writeMathMLToString(math_ast1)
@@ -375,7 +375,7 @@ def create_repressilator(cellml_path: Path) -> libcellml.Model:
     # comp_parameters.addVariable(var_eff)
 
     # start with math
-    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula(
+    math_ast1 = libsbml.parseL3Formula(
         "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))"
     )
     math_str = libsbml.writeMathMLToString(math_ast1)
@@ -447,7 +447,7 @@ def create_repressilator(cellml_path: Path) -> libcellml.Model:
     # comp_parameters.addVariable(var_eff)
 
     # start with math
-    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula(
+    math_ast1 = libsbml.parseL3Formula(
         "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))"
     )
     math_str = libsbml.writeMathMLToString(math_ast1)
@@ -519,7 +519,7 @@ def create_repressilator(cellml_path: Path) -> libcellml.Model:
     # comp_parameters.addVariable(var_eff)
 
     # start with math
-    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula(
+    math_ast1 = libsbml.parseL3Formula(
         "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))"
     )
     math_str = libsbml.writeMathMLToString(math_ast1)
@@ -591,7 +591,7 @@ def create_repressilator(cellml_path: Path) -> libcellml.Model:
     # comp_parameters.addVariable(var_eff)
 
     # start with math
-    math_ast1: libsbml.ASTNode = libsbml.parseL3Formula(
+    math_ast1 = libsbml.parseL3Formula(
         "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))"
     )
     math_str = libsbml.writeMathMLToString(math_ast1)

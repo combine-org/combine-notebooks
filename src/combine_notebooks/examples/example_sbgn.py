@@ -17,7 +17,7 @@ from pygments.lexers import PythonLexer
 
 
 # <codecell>
-def pprint_xml(xml_str):
+def pprint_xml(xml_str: str) -> None:
     """Create highlighted xml."""
     IPython.display.display(
         HTML(

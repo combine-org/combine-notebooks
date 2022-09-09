@@ -2,10 +2,11 @@
 
 import string
 
+import libcellml
 from libcellml import Issue
 
 
-def print_model(model, include_maths=False):
+def print_model(model: libcellml.Model, include_maths: bool = False) -> None:
     """Print model."""
     if model is None:
         print("No model passed to this function.")
@@ -34,7 +35,9 @@ def print_model(model, include_maths=False):
         print_component_to_terminal(component, c, spacer + spacer, include_maths)
 
 
-def print_component_to_terminal(component, c, spacer, include_maths=False) -> None:
+def print_component_to_terminal(
+    component: libcellml.Component, c: int, spacer: str, include_maths: bool = False
+) -> None:
     """Print document to terminal."""
     local = "    "
     # Print this component

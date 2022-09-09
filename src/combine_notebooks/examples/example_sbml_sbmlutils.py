@@ -15,8 +15,8 @@ from sbmlutils.factory import (
     Units,
     create_model,
 )
-from sbmlutils.metadata import BQB
 from sbmlutils.metadata import *
+from sbmlutils.metadata import BQB
 
 from combine_notebooks import RESULTS_DIR
 
