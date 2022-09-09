@@ -4,10 +4,12 @@ Create the repressilator step by step.
 See on biomodels.
 """
 from pathlib import Path
+RESOURCES_DIR: Path = Path(__file__).parent
+RESULTS_DIR: Path = RESOURCES_DIR / "results"
 
 import libsbml
 
-from combine_notebooks.validation_sbml import validate_sbml
+from src.combine_notebooks.validation_sbml import validate_sbml
 
 
 def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
@@ -553,7 +555,7 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
 
 
 if __name__ == "__main__":
-    from combine_notebooks import RESULTS_DIR
+    # from combine_notebooks import RESULTS_DIR
 
     # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
     # RESULTS_DIR: Path = RESOURCES_DIR / "results"

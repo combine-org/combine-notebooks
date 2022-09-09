@@ -2,6 +2,8 @@
 # Example script for creating SBML repressilator with sbmlutils.
 # <codecell>
 from pathlib import Path
+
+
 from combine_notebooks import RESULTS_DIR
 from sbmlutils.factory import (
     AssignmentRule,
@@ -27,7 +29,9 @@ model = Model(
         extent=Units.mole,
         volume=Units.litre,
     ),
-    compartments=[Compartment(sid="cell", value=1.0, sboTerm="SBO:0000290")],
+    compartments=[Compartment(sid="cell", value=1.0, sboTerm="SBO:0000290",
+                              annotations=[(BQB.IS, "obo.go/GO:0005623")])],
+                                # obo.go/GO:3A0005623
     species=[
         Species(
             sid="PX",
@@ -76,7 +80,10 @@ model = Model(
             sboTerm="SBO:0000250",
             initialAmount=20,
             hasOnlySubstanceUnits=True,
-            annotations=[(BQB.IS, "uniprot/P04483")],
+            annotations=[(BQB.IS_VERSION_OF, "chebi/CHEBI:33699"),
+                (BQB.IS_VERSION_OF, "kegg.compound/C00046"),
+                (BQB.ENCODES, "uniprot/P04483")
+                         ],
         ),
         Species(
             sid="Z",
@@ -85,7 +92,9 @@ model = Model(
             sboTerm="SBO:0000250",
             initialAmount=0,
             hasOnlySubstanceUnits=True,
-            annotations=[(BQB.IS, "uniprot/P03034")],
+            annotations=[(BQB.IS_VERSION_OF, "chebi/CHEBI:33699"),
+                (BQB.IS_VERSION_OF, "kegg.compound/C00046"),
+                (BQB.ENCODES, "uniprot/P03034")],
         ),
     ],
     parameters=[
@@ -132,7 +141,7 @@ model = Model(
             reversible=False,
             equation="X -> ",
             formula=("kd_mRNA * X", None),
-            annotations=[(BQM.IS, "uniprot/P03034")],
+            annotations=[(BQB.IS_VERSION_OF, "obo.go/GO:0006402")],
         ),
         Reaction(
             sid="Reaction2",
@@ -141,7 +150,7 @@ model = Model(
             reversible=False,
             equation="Y -> ",
             formula=("kd_mRNA * Y", None),
-            annotations=[(BQM.IS, "uniprot/P03034")],
+            annotations=[(BQB.IS_VERSION_OF, "obo.go/GO:0006402")],
         ),
         Reaction(
             sid="Reaction3",
@@ -150,7 +159,7 @@ model = Model(
             reversible=False,
             equation="Z -> ",
             formula=("kd_mRNA * Z", None),
-            annotations=[(BQM.IS, "uniprot/P03034")],
+            annotations=[(BQB.IS_VERSION_OF, "obo.go/GO:0006402")],
         ),
         Reaction(
             sid="Reaction4",
@@ -159,7 +168,7 @@ model = Model(
             reversible=False,
             equation=" -> PX [X]",
             formula=("k_tl * X", None),
-            annotations=[(BQM.IS, "uniprot/P03034")],
+            annotations=[(BQB.IS_VERSION_OF, "obo.go/GO:0006412")],
         ),
         Reaction(
             sid="Reaction5",
@@ -168,7 +177,7 @@ model = Model(
             reversible=False,
             equation=" -> PY [Y]",
             formula=("k_tl * Y", None),
-            annotations=[(BQM.IS, "uniprot/P03034")],
+            annotations=[(BQB.IS_VERSION_OF, "obo.go/GO:0006412")],
         ),
         Reaction(
             sid="Reaction6",
@@ -177,7 +186,7 @@ model = Model(
             reversible=False,
             equation=" -> PZ [Z]",
             formula=("k_tl *Z", None),
-            annotations=[(BQM.IS, "uniprot/P03034")],
+            annotations=[(BQB.IS_VERSION_OF, "obo.go/GO:0006412")],
         ),
         Reaction(
             sid="Reaction7",
@@ -186,7 +195,7 @@ model = Model(
             reversible=False,
             equation="PX -> ",
             formula=("kd_prot * PX", None),
-            annotations=[(BQM.IS, "uniprot/P03034")],
+            annotations=[(BQB.IS_VERSION_OF, "obo.go/GO:0030163")],
         ),
         Reaction(
             sid="Reaction8",
@@ -195,7 +204,7 @@ model = Model(
             reversible=False,
             equation="PY -> ",
             formula=("kd_prot * PY", None),
-            annotations=[(BQM.IS, "uniprot/P03034")],
+            annotations=[(BQB.IS_VERSION_OF, "obo.go/GO:0030163")],
         ),
         Reaction(
             sid="Reaction9",
@@ -204,7 +213,7 @@ model = Model(
             reversible=False,
             equation="PZ -> ",
             formula=("kd_prot * PZ", None),
-            annotations=[(BQM.IS, "uniprot/P03034")],
+            annotations=[(BQB.IS_VERSION_OF, "obo.go/GO:0030163")],
         ),
         Reaction(
             sid="Reaction10",
@@ -216,7 +225,7 @@ model = Model(
                 "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PZ, n))",
                 None,
             ),
-            annotations=[(BQM.IS, "uniprot/P03034")],
+            annotations=[(BQB.IS_VERSION_OF, "obo.go/GO:0006351")],
         ),
         Reaction(
             sid="Reaction11",
@@ -228,7 +237,7 @@ model = Model(
                 "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PX, n))",
                 None,
             ),
-            annotations=[(BQM.IS, "uniprot/P03034")],
+            annotations=[(BQB.IS_VERSION_OF, "obo.go/GO:0006351")],
         ),
         Reaction(
             sid="Reaction12",
@@ -240,7 +249,7 @@ model = Model(
                 "a0_tr + (a_tr * power(KM, n)) / (power(KM, n) + power(PY, n))",
                 None,
             ),
-            annotations=[(BQM.IS, "uniprot/P03034")],
+            annotations=[(BQB.IS_VERSION_OF, "obo.go/GO:0006351")],
         ),
     ],
 )

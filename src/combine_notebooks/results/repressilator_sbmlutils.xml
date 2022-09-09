@@ -16,6 +16,7 @@
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000290"/>
+                  <rdf:li rdf:resource="https://identifiers.org/GO:0005623"/>
                 </rdf:Bag>
               </bqbiol:is>
             </rdf:Description>
@@ -97,9 +98,19 @@
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000250"/>
-                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P04483"/>
                 </rdf:Bag>
               </bqbiol:is>
+              <bqbiol:isVersionOf>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="https://identifiers.org/CHEBI:33699"/>
+                  <rdf:li rdf:resource="https://identifiers.org/kegg.compound/C00046"/>
+                </rdf:Bag>
+              </bqbiol:isVersionOf>
+              <bqbiol:encodes>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P04483"/>
+                </rdf:Bag>
+              </bqbiol:encodes>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -111,9 +122,19 @@
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000250"/>
-                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P03034"/>
                 </rdf:Bag>
               </bqbiol:is>
+              <bqbiol:isVersionOf>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="https://identifiers.org/CHEBI:33699"/>
+                  <rdf:li rdf:resource="https://identifiers.org/kegg.compound/C00046"/>
+                </rdf:Bag>
+              </bqbiol:isVersionOf>
+              <bqbiol:encodes>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P03034"/>
+                </rdf:Bag>
+              </bqbiol:encodes>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -285,11 +306,11 @@
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000179"/>
                 </rdf:Bag>
               </bqbiol:is>
-              <bqmodel:is>
+              <bqbiol:isVersionOf>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P03034"/>
+                  <rdf:li rdf:resource="https://identifiers.org/GO:0006402"/>
                 </rdf:Bag>
-              </bqmodel:is>
+              </bqbiol:isVersionOf>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -315,11 +336,11 @@
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000179"/>
                 </rdf:Bag>
               </bqbiol:is>
-              <bqmodel:is>
+              <bqbiol:isVersionOf>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P03034"/>
+                  <rdf:li rdf:resource="https://identifiers.org/GO:0006402"/>
                 </rdf:Bag>
-              </bqmodel:is>
+              </bqbiol:isVersionOf>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -345,11 +366,11 @@
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000179"/>
                 </rdf:Bag>
               </bqbiol:is>
-              <bqmodel:is>
+              <bqbiol:isVersionOf>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P03034"/>
+                  <rdf:li rdf:resource="https://identifiers.org/GO:0006402"/>
                 </rdf:Bag>
-              </bqmodel:is>
+              </bqbiol:isVersionOf>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -375,11 +396,11 @@
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000184"/>
                 </rdf:Bag>
               </bqbiol:is>
-              <bqmodel:is>
+              <bqbiol:isVersionOf>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P03034"/>
+                  <rdf:li rdf:resource="https://identifiers.org/GO:0006412"/>
                 </rdf:Bag>
-              </bqmodel:is>
+              </bqbiol:isVersionOf>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -408,11 +429,11 @@
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000184"/>
                 </rdf:Bag>
               </bqbiol:is>
-              <bqmodel:is>
+              <bqbiol:isVersionOf>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P03034"/>
+                  <rdf:li rdf:resource="https://identifiers.org/GO:0006412"/>
                 </rdf:Bag>
-              </bqmodel:is>
+              </bqbiol:isVersionOf>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -441,11 +462,11 @@
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000184"/>
                 </rdf:Bag>
               </bqbiol:is>
-              <bqmodel:is>
+              <bqbiol:isVersionOf>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P03034"/>
+                  <rdf:li rdf:resource="https://identifiers.org/GO:0006412"/>
                 </rdf:Bag>
-              </bqmodel:is>
+              </bqbiol:isVersionOf>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -474,11 +495,11 @@
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000179"/>
                 </rdf:Bag>
               </bqbiol:is>
-              <bqmodel:is>
+              <bqbiol:isVersionOf>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P03034"/>
+                  <rdf:li rdf:resource="https://identifiers.org/GO:0030163"/>
                 </rdf:Bag>
-              </bqmodel:is>
+              </bqbiol:isVersionOf>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -504,11 +525,11 @@
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000179"/>
                 </rdf:Bag>
               </bqbiol:is>
-              <bqmodel:is>
+              <bqbiol:isVersionOf>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P03034"/>
+                  <rdf:li rdf:resource="https://identifiers.org/GO:0030163"/>
                 </rdf:Bag>
-              </bqmodel:is>
+              </bqbiol:isVersionOf>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -534,11 +555,11 @@
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000179"/>
                 </rdf:Bag>
               </bqbiol:is>
-              <bqmodel:is>
+              <bqbiol:isVersionOf>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P03034"/>
+                  <rdf:li rdf:resource="https://identifiers.org/GO:0030163"/>
                 </rdf:Bag>
-              </bqmodel:is>
+              </bqbiol:isVersionOf>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -564,11 +585,11 @@
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000183"/>
                 </rdf:Bag>
               </bqbiol:is>
-              <bqmodel:is>
+              <bqbiol:isVersionOf>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P03034"/>
+                  <rdf:li rdf:resource="https://identifiers.org/GO:0006351"/>
                 </rdf:Bag>
-              </bqmodel:is>
+              </bqbiol:isVersionOf>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -621,11 +642,11 @@
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000183"/>
                 </rdf:Bag>
               </bqbiol:is>
-              <bqmodel:is>
+              <bqbiol:isVersionOf>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P03034"/>
+                  <rdf:li rdf:resource="https://identifiers.org/GO:0006351"/>
                 </rdf:Bag>
-              </bqmodel:is>
+              </bqbiol:isVersionOf>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
@@ -678,11 +699,11 @@
                   <rdf:li rdf:resource="https://identifiers.org/SBO:0000184"/>
                 </rdf:Bag>
               </bqbiol:is>
-              <bqmodel:is>
+              <bqbiol:isVersionOf>
                 <rdf:Bag>
-                  <rdf:li rdf:resource="https://identifiers.org/uniprot/P03034"/>
+                  <rdf:li rdf:resource="https://identifiers.org/GO:0006351"/>
                 </rdf:Bag>
-              </bqmodel:is>
+              </bqbiol:isVersionOf>
             </rdf:Description>
           </rdf:RDF>
         </annotation>
