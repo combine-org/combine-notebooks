@@ -4,22 +4,17 @@
 # See on libsbgn-python.
 
 # <codecell>
-import tempfile
 from pathlib import Path
 
 import IPython
 
-# import libsbgn and important SBGN types
 import libsbgnpy.libsbgn as libsbgn
-import libsbml
 from IPython.core.display import HTML
 from IPython.display import Image
 from libsbgnpy.libsbgnTypes import ArcClass, GlyphClass, Language, Orientation
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import PythonLexer
-
-from combine_notebooks import RESULTS_DIR
 
 
 # <codecell>
@@ -35,10 +30,10 @@ def pprint_xml(xml_str):
     )
 
 
-def create_repressilator(sbgn_path: Path) -> libsbgn.map:
-    """Create repressilator using SBGN."""
+def create_repressilator(sbgn_path: Path) -> libsbgn.sbgn:
+    """Create repressilator SBGN using libsbgn."""
     # create empty sbgn
-    sbgn = libsbgn.sbgn()
+    sbgn: libsbgn.sbgn = libsbgn.sbgn()
 
     # create map, set language and set in sbgn
     map = libsbgn.map()
@@ -468,23 +463,21 @@ def create_repressilator(sbgn_path: Path) -> libsbgn.map:
     a.set_end(libsbgn.endType(y="143.0", x="543.0"))
     map.add_arc(a)
 
-    # write SBGN to file
-    # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
-    # RESULTS_DIR: Path = RESOURCES_DIR / "results"
-
-    f_out = str(RESULTS_DIR / "repressilator_sbgn.sbgn")
+    f_out = str(sbgn_path)
     sbgn.write_file(f_out)
 
     # render SBGN
     from libsbgnpy import render
 
-    f_png = str(RESULTS_DIR / "libsbgn_image.png")
+
+    f_png: str = str(sbgn_path.parent / f"{sbgn_path.stem}.png")
     render.render_sbgn(sbgn, image_file=f_png, file_format="png")
     Image(f_png, width=300)
-    return map
+    return sbgn
 
 
 # <codecell>
 if __name__ == "__main__":
-
-    doc: libsbgn.map = create_repressilator()
+    from combine_notebooks import RESULTS_DIR
+    RESULTS_DIR
+    sbgn: libsbgn.sbgn = create_repressilator(sbgn_path=RESULTS_DIR / "repressilator.sbgn")

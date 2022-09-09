@@ -19,7 +19,6 @@ from pathlib import Path
 import pybiopax
 from pybiopax.api import model_to_owl_str
 
-# from combine_notebooks import RESOURCES_DIR
 from pybiopax.biopax import (
     BioSource,
     CellularLocationVocabulary,
@@ -39,7 +38,7 @@ from pybiopax.biopax.model import (
 
 
 # <codecell>
-def create_repressilator(biopax_path: Path) -> None:
+def create_repressilator(biopax_path: Path) -> BioPaxModel:
     """Create repressilator using biopax."""
     objects = []
     """
@@ -657,34 +656,18 @@ def create_repressilator(biopax_path: Path) -> None:
     )
     owl_str: str = model_to_owl_str(model)
 
-    with open(RESULTS_DIR / "biopax.owl", "w") as f_biopax:
+    with open(biopax_path, "w") as f_biopax:
         f_biopax.write(owl_str)
 
     print("-" * 80)
     print(owl_str)
     print("-" * 80)
 
-    # FIXME: validation
+    return model
 
 
 # <codecell>
 if __name__ == "__main__":
-    # print(model)
-    # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
-    # RESULTS_DIR: Path = RESOURCES_DIR / "results"
     from combine_notebooks import RESULTS_DIR
 
     create_repressilator(biopax_path=RESULTS_DIR / "repressilator_biopax.owl")
-
-
-# if True:
-#     # Reading a model
-#     model1 = pybiopax.model_from_owl_file(str(RESOURCES_DIR / "BIOMD0000000012-biopax3.owl"))
-#     # biopax = pybiopax.BiochemicalReaction()
-#     print(model1)
-
-#     for obj_key, obj in model1.objects.items():
-#         print("-" * 80)
-#         print(obj_key)
-#         print(obj)
-#         print(obj.__dict__)

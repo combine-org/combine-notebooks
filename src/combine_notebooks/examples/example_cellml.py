@@ -18,7 +18,7 @@ import libsbml
 from combine_notebooks.cellml_utilities import print_model
 
 
-def create_model(cellml_path: Path) -> libcellml.Model:
+def create_repressilator(cellml_path: Path) -> libcellml.Model:
     """Create CellML repressilator and save to Path."""
     model = libcellml.Model()
     model.setName("repressilator")
@@ -651,9 +651,6 @@ def validate_model(model: libcellml.Model) -> None:
 if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
 
-    # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
-    # RESULTS_DIR: Path = RESOURCES_DIR / "results"
-
     cellml_path: Path = RESULTS_DIR / "repressilator.cellml"
-    model = create_model(cellml_path)
+    model = create_repressilator(cellml_path)
     validate_model(model)

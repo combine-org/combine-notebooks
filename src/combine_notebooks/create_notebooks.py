@@ -16,6 +16,10 @@ def create_notebooks(input_dir: Path, output_dir: Path) -> List[Path]:
     for module_path in module_paths:
         if "__init__" in str(module_path):
             continue
+        if "example_neuroml" in str(module_path):
+            continue
+        if "example_sbol" in str(module_path):
+            continue
 
         with open(module_path) as f_module:
             text = f_module.read()
@@ -39,6 +43,7 @@ def create_notebooks(input_dir: Path, output_dir: Path) -> List[Path]:
 
 
 if __name__ == "__main__":
-    from combine_notebooks import NOTEBOOK_DIR, EXAMPLE_DIR
+    from combine_notebooks import EXAMPLE_DIR, NOTEBOOK_DIR
+
     notebook_paths = create_notebooks(input_dir=EXAMPLE_DIR, output_dir=NOTEBOOK_DIR)
     print(notebook_paths)
