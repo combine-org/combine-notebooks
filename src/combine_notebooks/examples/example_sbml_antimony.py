@@ -62,7 +62,7 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
             -> X; a0_tr +a_tr *KM^n/(KM^n +PZ ^n);
             -> Y; a0_tr +a_tr *KM^n/(KM^n +PX ^n);
             -> Z; a0_tr +a_tr *KM^n/(KM^n +PY ^n);
-            
+
             # annotations
             cell identity "http://identifiers.org/SBO:0000290"
             cell identity "http://identifiers.org/GO:0005623"
@@ -114,7 +114,7 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
             _J10 identity "http://identifiers.org/GO:0006351"
             _J11 identity "http://identifiers.org/SBO:0000184"
             _J11 identity "http://identifiers.org/GO:0006351"
-            
+
         end
     """
     print(model)

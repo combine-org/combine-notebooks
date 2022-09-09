@@ -35,7 +35,7 @@ def print_model(model, include_maths=False):
 
 
 def print_component_to_terminal(component, c, spacer, include_maths=False) -> None:
-    """Function prints document to terminal."""
+    """Print document to terminal."""
     local = "    "
     # Print this component
     print(f"{spacer}[{c}]: '{component.name()}'", end="")

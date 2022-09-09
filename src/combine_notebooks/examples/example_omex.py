@@ -18,7 +18,7 @@ from pymetadata.omex import EntryFormat, ManifestEntry, Omex
 
 
 def create_omex(omex_path: Path, results_dir: Path):
-    """Creates OMEX archive of resources."""
+    """Create OMEX archive of resources."""
     omex = Omex()
     omex.add_entry(
         entry=ManifestEntry(

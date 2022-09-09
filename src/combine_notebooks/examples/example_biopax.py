@@ -40,25 +40,20 @@ from pybiopax.biopax.model import (
 def create_repressilator(biopax_path: Path) -> BioPaxModel:
     """Create repressilator using biopax."""
     objects = []
-    """
-    <bp:Protein rdf:about="PX">
-     <bp:xref rdf:resource="http://identifiers.org/uniprot/P03023" />
-     <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">LacI protein</bp:displayName>
-    </bp:Protein>    
-    Protein(LacI protein)
-    {'_controller_of': set(), 'xref': [<pybiopax.biopax.util.UnificationXref object at 0x7fe1eb423160>], 
-    'display_name': 'LacI protein', 'standard_name': None, '_name': [], 'evidence': [], 'uid': 'PX', 'comment': [], 'availability': None, 'data_source': [], '_participant_of': set(), 'feature': [], 'not_feature': [], 'member_physical_entity': [], 'cellular_location': None, '_component_of': set(), '_member_physical_entity_of': {PhysicalEntity(PX), PhysicalEntity(PX), PhysicalEntity(PX)}, 'entity_reference': None} 
-    """
-    # p1 = Protein(uid="PX", display_name="LacI protein")
-    # objects.append(p1)
 
-    """
-    <bp:PhysicalEntity rdf:about="RIGHT_0_conversion_Reaction5_PY">
-     <bp:cellularLocation rdf:resource="cell" />
-     <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">PY</bp:displayName>
-     <bp:memberPhysicalEntity rdf:resource="PY" />
-    </bp:PhysicalEntity>
-    """
+    # <bp:Protein rdf:about="PX">
+    #  <bp:xref rdf:resource="http://identifiers.org/uniprot/P03023" />
+    #  <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">LacI protein</bp:displayName>
+    # </bp:Protein>
+    # Protein(LacI protein)
+    # {'_controller_of': set(), 'xref': [<pybiopax.biopax.util.UnificationXref object at 0x7fe1eb423160>],
+    # 'display_name': 'LacI protein', 'standard_name': None, '_name': [], 'evidence': [], 'uid': 'PX', 'comment': [], 'availability': None, 'data_source': [], '_participant_of': set(), 'feature': [], 'not_feature': [], 'member_physical_entity': [], 'cellular_location': None, '_component_of': set(), '_member_physical_entity_of': {PhysicalEntity(PX), PhysicalEntity(PX), PhysicalEntity(PX)}, 'entity_reference': None}
+    #
+    # <bp:PhysicalEntity rdf:about="RIGHT_0_conversion_Reaction5_PY">
+    #  <bp:cellularLocation rdf:resource="cell" />
+    #  <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">PY</bp:displayName>
+    #  <bp:memberPhysicalEntity rdf:resource="PY" />
+    # </bp:PhysicalEntity>
 
     p1 = PhysicalEntity(
         uid="RIGHT_0_conversion_Reaction5_PY",
@@ -68,12 +63,10 @@ def create_repressilator(biopax_path: Path) -> BioPaxModel:
     )
     objects.append(p1)
 
-    # '''
     # <bp:Stoichiometry rdf:about="LEFT_0_conversion_Reaction2_Y_STOICHIOMETRY">
     #  <bp:physicalEntity rdf:resource="LEFT_0_conversion_Reaction2_Y" />
     #  <bp:stoichiometricCoefficient rdf:datatype = "http://www.w3.org/2001/XMLSchema#float">1.0</bp:stoichiometricCoefficient>
     # </bp:Stoichiometry>
-    # '''
     s1 = Stoichiometry(
         uid="LEFT_0_conversion_Reaction2_Y_STOICHIOMETRY",
         physical_entity="LEFT_0_conversion_Reaction2_Y",
