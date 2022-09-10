@@ -28,6 +28,7 @@ def pprint_xml(xml_str: str) -> None:
         )
     )
 
+
 # <codecell>
 def create_repressilator(sbgn_path: Path) -> libsbgn.sbgn:
     """Create repressilator SBGN using libsbgn."""

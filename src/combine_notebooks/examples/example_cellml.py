@@ -18,6 +18,7 @@ import libsbml
 
 from combine_notebooks.cellml_utilities import print_model
 
+
 # <codecell>
 def create_repressilator(cellml_path: Path) -> libcellml.Model:
     """Create CellML repressilator and save to Path."""
@@ -625,6 +626,7 @@ def create_repressilator(cellml_path: Path) -> libcellml.Model:
 
     return model
 
+
 # <codecell>
 def validate_model(model: libcellml.Model) -> None:
     """Validate existing model."""
@@ -647,6 +649,7 @@ def validate_model(model: libcellml.Model) -> None:
         print("     URL: {}".format(issue.url()))
         if reference != "":
             print("    See section {} in the CellML specification.".format(reference))
+
 
 # <codecell>
 if __name__ == "__main__":
