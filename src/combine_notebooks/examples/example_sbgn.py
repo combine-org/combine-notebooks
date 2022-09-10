@@ -1,7 +1,7 @@
 # <markdowncell>
 # Create the repressilator from libsbgn.
 #
-# See on libsbgn-python.
+# See on libsbgn-python: https://github.com/matthiaskoenig/libsbgn-python
 
 # <codecell>
 from pathlib import Path
@@ -28,7 +28,7 @@ def pprint_xml(xml_str: str) -> None:
         )
     )
 
-
+# <codecell>
 def create_repressilator(sbgn_path: Path) -> libsbgn.sbgn:
     """Create repressilator SBGN using libsbgn."""
     # create empty sbgn
@@ -208,16 +208,16 @@ def create_repressilator(sbgn_path: Path) -> libsbgn.sbgn:
     g.add_port(libsbgn.port(y="198.0", x="473.0", id="glyph7.1"))
     map.add_glyph(g)
 
-    """
-    <glyph id="glyph20" class="nucleic acid feature">
-        <label text="Laclm"/>
-        <bbox y="120.5" x="437.0" h="45.0" w="72.0"/>
-        <glyph id="glyph20a" class="unit of information">
-            <label text="ct:mRNA"/>
-            <bbox y="111.75" x="441.25" h="17.5" w="63.5"/>
-        </glyph>
-    </glyph>
-    """
+    # """
+    # <glyph id="glyph20" class="nucleic acid feature">
+    #     <label text="Laclm"/>
+    #     <bbox y="120.5" x="437.0" h="45.0" w="72.0"/>
+    #     <glyph id="glyph20a" class="unit of information">
+    #         <label text="ct:mRNA"/>
+    #         <bbox y="111.75" x="441.25" h="17.5" w="63.5"/>
+    #     </glyph>
+    # </glyph>
+    # """
 
     g = libsbgn.glyph(class_=GlyphClass.NUCLEIC_ACID_FEATURE, id="glyph20")
     g.set_label(libsbgn.label(text="Laclm"))

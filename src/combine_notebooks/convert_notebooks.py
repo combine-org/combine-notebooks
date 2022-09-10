@@ -43,7 +43,7 @@ def create_notebooks(input_dir: Path, output_dir: Path) -> List[Path]:
 
 
 if __name__ == "__main__":
-    from combine_notebooks import EXAMPLE_DIR, NOTEBOOK_DIR
+    from src.combine_notebooks import EXAMPLE_DIR, NOTEBOOK_DIR
 
     notebook_paths = create_notebooks(input_dir=EXAMPLE_DIR, output_dir=NOTEBOOK_DIR)
     print(notebook_paths)
