@@ -49,7 +49,7 @@ The following standards are demonstrated
 - Simulation Experiment Description Markup Language (`SED-ML <https://sed-ml.org/>`__): Used for encoding experiments. SED-ML allows defining the models to use, the experimental tasks to run, and which results to produce. It is a computer-readable format for representing the models of biological processes.
 - `CellML <https://www.cellml.org/>`__: Used to store and exchange computer-based mathematical models.
 - Synthetic Biology Open Language (`SBOL <https://sbolstandard.org/>`__): Used for description and the exchange of synthetic biological parts, devices, and systems.
-- [NeuroML](`NeuroML <https://neuroml.org/>`__): Used for XML based description language that provides a common data format for defining and exchanging descriptions of neuronal cell and network models.
+- `NeuroML <https://neuroml.org/>`__: Used for XML based description language that provides a common data format for defining and exchanging descriptions of neuronal cell and network models.
 
 Setup/Installation
 ------------------
