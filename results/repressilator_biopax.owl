@@ -1,0 +1,424 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rdf:RDF xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bp="http://www.biopax.org/release/biopax-level3.owl#" xml:base="http://www.biopax.org/release/biopax-level3.owl#">
+  <owl:Ontology rdf:about="">
+ <owl:imports rdf:resource="http://www.biopax.org/release/biopax-level3.owl#"/>
+  </owl:Ontology>
+
+<bp:PhysicalEntity rdf:ID="RIGHT_0_conversion_Reaction5_PY">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PY</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PY</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:Stoichiometry rdf:ID="LEFT_0_conversion_Reaction2_Y_STOICHIOMETRY">
+ <bp:physicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction2_Y</bp:physicalEntity>
+ <bp:stoichiometricCoefficient rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:Provenance rdf:ID="datasource_1">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BioModels Database</bp:displayName>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/biomodels.db/BIOMD0000000012</bp:xref>
+</bp:Provenance>
+
+<bp:PublicationXref rdf:about="http://identifiers.org/pubmed/10659856">
+ <bp:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PubMed</bp:db>
+ <bp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10659856</bp:id>
+</bp:PublicationXref>
+
+<bp:Provenance rdf:ID="datasource_2">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BioModels Database</bp:displayName>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/biomodels.db/MODEL6615351360</bp:xref>
+</bp:Provenance>
+
+<bp:UnificationXref rdf:about="http://identifiers.org/biomodels.db/BIOMD0000000012">
+ <bp:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BioModels Database</bp:db>
+ <bp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BIOMD0000000012</bp:id>
+</bp:UnificationXref>
+
+<bp:UnificationXref rdf:about="http://identifiers.org/obo.go/GO:0006402">
+ <bp:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene Ontology</bp:db>
+ <bp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GO:0006402</bp:id>
+</bp:UnificationXref>
+
+<bp:Stoichiometry rdf:ID="LEFT_0_conversion_Reaction7_PX_STOICHIOMETRY">
+ <bp:physicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction7_PX</bp:physicalEntity>
+ <bp:stoichiometricCoefficient rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:Control rdf:ID="control_Reaction4_X_0">
+ <bp:controlType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">INHIBITION</bp:controlType>
+ <bp:controlled rdf:datatype="http://www.w3.org/2001/XMLSchema#string">conversion_Reaction4</bp:controlled>
+ <bp:controller rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PEP0_control_Reaction4X</bp:controller>
+</bp:Control>
+
+<bp:Stoichiometry rdf:ID="RIGHT_0_conversion_Reaction6_PZ_STOICHIOMETRY">
+ <bp:physicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction6_PZ</bp:physicalEntity>
+ <bp:stoichiometricCoefficient rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:PhysicalEntity rdf:ID="PEP0_control_Reaction4X">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">X</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">X</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:UnificationXref rdf:about="http://identifiers.org/obo.go/GO:0030163">
+ <bp:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene Ontology</bp:db>
+ <bp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GO:0030163</bp:id>
+</bp:UnificationXref>
+
+<bp:Stoichiometry rdf:ID="RIGHT_0_conversion_Reaction12_Z_STOICHIOMETRY">
+ <bp:physicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction12_Z</bp:physicalEntity>
+ <bp:stoichiometricCoefficient rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:PhysicalEntity rdf:ID="LEFT_0_conversion_Reaction7_PX">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PX</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PX</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:Stoichiometry rdf:ID="RIGHT_0_conversion_Reaction11_Y_STOICHIOMETRY">
+ <bp:physicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction11_Y</bp:physicalEntity>
+ <bp:stoichiometricCoefficient rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:CellularLocationVocabulary rdf:ID="cell">
+ <bp:term rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:term>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/obo.go/GO:0005623</bp:xref>
+</bp:CellularLocationVocabulary>
+
+<bp:BiochemicalReaction rdf:ID="conversion_Reaction12">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">transcription of CI</bp:displayName>
+ <bp:participantStoichiometry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction12_Z_STOICHIOMETRY</bp:participantStoichiometry>
+ <bp:right rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction12_Z</bp:right>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/obo.go/GO:0006351</bp:xref>
+</bp:BiochemicalReaction>
+
+<bp:BiochemicalReaction rdf:ID="conversion_Reaction11">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">transcription of TetR</bp:displayName>
+ <bp:participantStoichiometry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction11_Y_STOICHIOMETRY</bp:participantStoichiometry>
+ <bp:right rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction11_Y</bp:right>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/obo.go/GO:0006351</bp:xref>
+</bp:BiochemicalReaction>
+
+<bp:BiochemicalReaction rdf:ID="conversion_Reaction10">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">transcription of LacI</bp:displayName>
+ <bp:participantStoichiometry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction10_X_STOICHIOMETRY</bp:participantStoichiometry>
+ <bp:right rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction10_X</bp:right>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/obo.go/GO:0006351</bp:xref>
+</bp:BiochemicalReaction>
+
+<bp:PhysicalEntity rdf:ID="LEFT_0_conversion_Reaction9_PZ">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PZ</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PZ</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:UnificationXref rdf:about="http://identifiers.org/kegg.compound/C00046">
+ <bp:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string">KEGG Compound</bp:db>
+ <bp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C00046</bp:id>
+</bp:UnificationXref>
+
+<bp:UnificationXref rdf:about="http://identifiers.org/obo.go/GO:0005623">
+ <bp:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene Ontology</bp:db>
+ <bp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GO:0005623</bp:id>
+</bp:UnificationXref>
+
+<bp:PhysicalEntity rdf:ID="LEFT_0_conversion_Reaction8_PY">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PY</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PY</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:UnificationXref rdf:about="http://identifiers.org/chebi/CHEBI:33699">
+ <bp:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ChEBI</bp:db>
+ <bp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CHEBI:33699</bp:id>
+</bp:UnificationXref>
+
+<bp:Protein rdf:ID="PX">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LacI protein</bp:displayName>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/uniprot/P03023</bp:xref>
+</bp:Protein>
+
+<bp:Protein rdf:ID="PY">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TetR protein</bp:displayName>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/uniprot/P04483</bp:xref>
+</bp:Protein>
+
+<bp:Stoichiometry rdf:ID="RIGHT_0_conversion_Reaction10_X_STOICHIOMETRY">
+ <bp:physicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction10_X</bp:physicalEntity>
+ <bp:stoichiometricCoefficient rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:Protein rdf:ID="PZ">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cI protein</bp:displayName>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/uniprot/P03034</bp:xref>
+</bp:Protein>
+
+<bp:BiochemicalReaction rdf:ID="conversion_Reaction2">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">degradation of TetR transcripts</bp:displayName>
+ <bp:left rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction2_Y</bp:left>
+ <bp:participantStoichiometry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction2_Y_STOICHIOMETRY</bp:participantStoichiometry>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/obo.go/GO:0006402</bp:xref>
+</bp:BiochemicalReaction>
+
+<bp:Stoichiometry rdf:ID="RIGHT_0_conversion_Reaction4_PX_STOICHIOMETRY">
+ <bp:physicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction4_PX</bp:physicalEntity>
+ <bp:stoichiometricCoefficient rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:PhysicalEntity rdf:ID="LEFT_0_conversion_Reaction3_Z">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Z</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Z</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:BiochemicalReaction rdf:ID="conversion_Reaction3">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">degradation of CI transcripts</bp:displayName>
+ <bp:left rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction3_Z</bp:left>
+ <bp:participantStoichiometry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction3_Z_STOICHIOMETRY</bp:participantStoichiometry>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/obo.go/GO:0006402</bp:xref>
+</bp:BiochemicalReaction>
+
+<bp:BiochemicalReaction rdf:ID="conversion_Reaction4">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">translation of LacI</bp:displayName>
+ <bp:participantStoichiometry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction4_PX_STOICHIOMETRY</bp:participantStoichiometry>
+ <bp:right rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction4_PX</bp:right>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/obo.go/GO:0006412</bp:xref>
+</bp:BiochemicalReaction>
+
+<bp:BiochemicalReaction rdf:ID="conversion_Reaction5">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">translation of TetR</bp:displayName>
+ <bp:participantStoichiometry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction5_PY_STOICHIOMETRY</bp:participantStoichiometry>
+ <bp:right rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction5_PY</bp:right>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/obo.go/GO:0006412</bp:xref>
+</bp:BiochemicalReaction>
+
+<bp:PhysicalEntity rdf:ID="LEFT_0_conversion_Reaction2_Y">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Y</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Y</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:BiochemicalReaction rdf:ID="conversion_Reaction6">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">translation of CI</bp:displayName>
+ <bp:participantStoichiometry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction6_PZ_STOICHIOMETRY</bp:participantStoichiometry>
+ <bp:right rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction6_PZ</bp:right>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/obo.go/GO:0006412</bp:xref>
+</bp:BiochemicalReaction>
+
+<bp:BiochemicalReaction rdf:ID="conversion_Reaction7">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">degradation of LacI</bp:displayName>
+ <bp:left rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction7_PX</bp:left>
+ <bp:participantStoichiometry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction7_PX_STOICHIOMETRY</bp:participantStoichiometry>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/obo.go/GO:0030163</bp:xref>
+</bp:BiochemicalReaction>
+
+<bp:Stoichiometry rdf:ID="LEFT_0_conversion_Reaction9_PZ_STOICHIOMETRY">
+ <bp:physicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction9_PZ</bp:physicalEntity>
+ <bp:stoichiometricCoefficient rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:BiochemicalReaction rdf:ID="conversion_Reaction8">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">degradation of TetR</bp:displayName>
+ <bp:left rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction8_PY</bp:left>
+ <bp:participantStoichiometry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction8_PY_STOICHIOMETRY</bp:participantStoichiometry>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/obo.go/GO:0030163</bp:xref>
+</bp:BiochemicalReaction>
+
+<bp:BiochemicalReaction rdf:ID="conversion_Reaction9">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">degradation of CI</bp:displayName>
+ <bp:left rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction9_PZ</bp:left>
+ <bp:participantStoichiometry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction9_PZ_STOICHIOMETRY</bp:participantStoichiometry>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/obo.go/GO:0030163</bp:xref>
+</bp:BiochemicalReaction>
+
+<bp:UnificationXref rdf:about="http://identifiers.org/taxonomy/562">
+ <bp:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Taxonomy</bp:db>
+ <bp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">562</bp:id>
+</bp:UnificationXref>
+
+<bp:Stoichiometry rdf:ID="LEFT_0_conversion_Reaction1_X_STOICHIOMETRY">
+ <bp:physicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction1_X</bp:physicalEntity>
+ <bp:stoichiometricCoefficient rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:PhysicalEntity rdf:ID="RIGHT_0_conversion_Reaction4_PX">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PX</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PX</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:UnificationXref rdf:about="http://identifiers.org/uniprot/P03034">
+ <bp:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UniProt Knowledgebase</bp:db>
+ <bp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">P03034</bp:id>
+</bp:UnificationXref>
+
+<bp:PhysicalEntity rdf:ID="PEP0_control_Reaction10PZ">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PZ</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PZ</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:Stoichiometry rdf:ID="LEFT_0_conversion_Reaction3_Z_STOICHIOMETRY">
+ <bp:physicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction3_Z</bp:physicalEntity>
+ <bp:stoichiometricCoefficient rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:PhysicalEntity rdf:ID="RIGHT_0_conversion_Reaction10_X">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">X</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">X</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:BioSource rdf:ID="biosource_1">
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/taxonomy/562</bp:xref>
+</bp:BioSource>
+
+<bp:PhysicalEntity rdf:ID="RIGHT_0_conversion_Reaction11_Y">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Y</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Y</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:PhysicalEntity rdf:ID="RIGHT_0_conversion_Reaction12_Z">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Z</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Z</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:Stoichiometry rdf:ID="LEFT_0_conversion_Reaction8_PY_STOICHIOMETRY">
+ <bp:physicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction8_PY</bp:physicalEntity>
+ <bp:stoichiometricCoefficient rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:PhysicalEntity rdf:ID="RIGHT_0_conversion_Reaction6_PZ">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PZ</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PZ</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:PhysicalEntity rdf:ID="PEP0_control_Reaction6Z">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Z</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Z</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:PhysicalEntity rdf:ID="PEP0_control_Reaction11PX">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PX</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PX</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:Rna rdf:ID="Y">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TetR mRNA</bp:displayName>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/chebi/CHEBI:33699</bp:xref>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/kegg.compound/C00046</bp:xref>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/uniprot/P04483</bp:xref>
+</bp:Rna>
+
+<bp:Rna rdf:ID="X">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LacI mRNA</bp:displayName>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/chebi/CHEBI:33699</bp:xref>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/kegg.compound/C00046</bp:xref>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/uniprot/P03023</bp:xref>
+</bp:Rna>
+
+<bp:Stoichiometry rdf:ID="RIGHT_0_conversion_Reaction5_PY_STOICHIOMETRY">
+ <bp:physicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RIGHT_0_conversion_Reaction5_PY</bp:physicalEntity>
+ <bp:stoichiometricCoefficient rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:Rna rdf:ID="Z">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cI mRNA</bp:displayName>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/chebi/CHEBI:33699</bp:xref>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/kegg.compound/C00046</bp:xref>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/uniprot/P03034</bp:xref>
+</bp:Rna>
+
+<bp:Control rdf:ID="control_Reaction6_Z_0">
+ <bp:controlType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">INHIBITION</bp:controlType>
+ <bp:controlled rdf:datatype="http://www.w3.org/2001/XMLSchema#string">conversion_Reaction6</bp:controlled>
+ <bp:controller rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PEP0_control_Reaction6Z</bp:controller>
+</bp:Control>
+
+<bp:Control rdf:ID="control_Reaction12_PY_0">
+ <bp:controlType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">INHIBITION</bp:controlType>
+ <bp:controlled rdf:datatype="http://www.w3.org/2001/XMLSchema#string">conversion_Reaction12</bp:controlled>
+ <bp:controller rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PEP0_control_Reaction12PY</bp:controller>
+</bp:Control>
+
+<bp:PhysicalEntity rdf:ID="PEP0_control_Reaction12PY">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PY</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PY</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:UnificationXref rdf:about="http://identifiers.org/biomodels.db/MODEL6615351360">
+ <bp:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BioModels Database</bp:db>
+ <bp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MODEL6615351360</bp:id>
+</bp:UnificationXref>
+
+<bp:UnificationXref rdf:about="http://identifiers.org/uniprot/P03023">
+ <bp:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UniProt Knowledgebase</bp:db>
+ <bp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">P03023</bp:id>
+</bp:UnificationXref>
+
+<bp:Control rdf:ID="control_Reaction10_PZ_0">
+ <bp:controlType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">INHIBITION</bp:controlType>
+ <bp:controlled rdf:datatype="http://www.w3.org/2001/XMLSchema#string">conversion_Reaction10</bp:controlled>
+ <bp:controller rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PEP0_control_Reaction10PZ</bp:controller>
+</bp:Control>
+
+<bp:UnificationXref rdf:about="http://identifiers.org/obo.go/GO:0006412">
+ <bp:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene Ontology</bp:db>
+ <bp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GO:0006412</bp:id>
+</bp:UnificationXref>
+
+<bp:UnificationXref rdf:about="http://identifiers.org/obo.go/GO:0040029">
+ <bp:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene Ontology</bp:db>
+ <bp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GO:0040029</bp:id>
+</bp:UnificationXref>
+
+<bp:UnificationXref rdf:about="http://identifiers.org/obo.go/GO:0006351">
+ <bp:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gene Ontology</bp:db>
+ <bp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GO:0006351</bp:id>
+</bp:UnificationXref>
+
+<bp:Control rdf:ID="control_Reaction5_Y_0">
+ <bp:controlType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">INHIBITION</bp:controlType>
+ <bp:controlled rdf:datatype="http://www.w3.org/2001/XMLSchema#string">conversion_Reaction5</bp:controlled>
+ <bp:controller rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PEP0_control_Reaction5Y</bp:controller>
+</bp:Control>
+
+<bp:PhysicalEntity rdf:ID="LEFT_0_conversion_Reaction1_X">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">X</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">X</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:PhysicalEntity rdf:ID="PEP0_control_Reaction5Y">
+ <bp:cellularLocation rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cell</bp:cellularLocation>
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Y</bp:displayName>
+ <bp:memberPhysicalEntity rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Y</bp:memberPhysicalEntity>
+</bp:PhysicalEntity>
+
+<bp:Control rdf:ID="control_Reaction11_PX_0">
+ <bp:controlType rdf:datatype="http://www.w3.org/2001/XMLSchema#string">INHIBITION</bp:controlType>
+ <bp:controlled rdf:datatype="http://www.w3.org/2001/XMLSchema#string">conversion_Reaction11</bp:controlled>
+ <bp:controller rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PEP0_control_Reaction11PX</bp:controller>
+</bp:Control>
+
+<bp:BiochemicalReaction rdf:ID="conversion_Reaction1">
+ <bp:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">degradation of LacI transcripts</bp:displayName>
+ <bp:left rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction1_X</bp:left>
+ <bp:participantStoichiometry rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LEFT_0_conversion_Reaction1_X_STOICHIOMETRY</bp:participantStoichiometry>
+ <bp:xref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://identifiers.org/obo.go/GO:0006402</bp:xref>
+</bp:BiochemicalReaction>
+
+<bp:UnificationXref rdf:about="http://identifiers.org/uniprot/P04483">
+ <bp:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UniProt Knowledgebase</bp:db>
+ <bp:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">P04483</bp:id>
+</bp:UnificationXref>
+</rdf:RDF>

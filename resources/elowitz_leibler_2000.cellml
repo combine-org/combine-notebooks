@@ -1,0 +1,708 @@
+<?xml version='1.0' encoding='utf-8'?>
+<model xmlns="http://www.cellml.org/cellml/1.0#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqs="http://www.cellml.org/bqs/1.0#" xmlns:cellml="http://www.cellml.org/cellml/1.0#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:ns7="http://www.cellml.org/metadata/simulation/1.0#" name="elowitz_leibler_2000_version01" cmeta:id="elowitz_leibler_2000_version01">
+	<documentation xmlns="http://cellml.org/tmp-documentation">
+		<article>
+			<articleinfo>
+				<title>A synthetic oscillatory network of transcriptional regulators. </title>
+				<author>
+					<firstname>Jeelean</firstname>
+					<surname>Lim</surname>
+					<affiliation>
+						<shortaffil>Bioengineering Institute, University of Auckland</shortaffil>
+					</affiliation>
+				</author>
+			</articleinfo>
+			<section id="sec_status">
+				<title>Model Status</title>
+				<para>
+            This CellML version of the model has been checked PCEnv and the model runs to replicate the original published results as depicted in figure 1c of the paper.  The units have been checked and are consistent. 
+          </para>
+			</section>
+			<sect1 id="sec_structure">
+				<title>Model Structure</title>
+				<para>
+ABSTRACT:  Networks of interacting biomolecules carry out many essential functions in living cells, but the 'design principles' underlying the
+functioning of such intracellular networks remain poorly understood, despite intensive efforts including quantitative analysis of relatively simple systems. Here we present a complementary approach to this problem: the design and construction of a synthetic network to implement a particular function.
+				</para>
+				<para>
+We used three transcriptional repressor systems that are not part of any natural biological clock to build an oscillating network, termed
+the repressilator, in Escherichia coli. The network periodically induces the synthesis of green fluorescent protein as a readout of
+its state in individual cells. The resulting oscillations, with typical periods of hours, are slower than the cell-division cycle, so the
+state of the oscillator has to be transmitted from generation to generation. This artificial clock displays noisy behaviour, possibly
+because of stochastic fluctuations of its components. Such 'rational network design' may lead both to the engineering of
+new cellular behaviours and to an improved understanding of naturally occurring networks.
+				</para>
+				<para>
+The complete original paper reference is cited below:
+				</para>
+				<para>
+					<ulink url="http://www.nature.com/nature/journal/v403/n6767/full/403335a0.html">A synthetic oscillatory network of transcriptional regulators</ulink>, Michael B. Elowitz and Stanislas Leibler, 2000, <ulink url="http://www.nature.com/nature/index.html">
+						<emphasis>	Nature: International Weekly Journal of Science</emphasis>
+					</ulink>, 403, 335-338. (A <ulink url="http://www.nature.com/nature/journal/v403/n6767/pdf/403335a0.pdf">PDF version</ulink> of the article is available to subscribers on the journal website.)  <ulink url="http://www.ncbi.nlm.nih.gov/pubmed/10659856">PubMed ID: 10659856</ulink>
+				</para>
+				
+				<informalfigure float="0" id="fig_reaction_diagram">
+					<mediaobject>
+						<imageobject>
+							<objectinfo>
+								<title>figure 1a</title>
+							</objectinfo>
+							<imagedata fileref="elowitz_2000.png"/>
+						</imageobject>
+					</mediaobject>
+					<caption>The repressilator network.</caption>
+				</informalfigure>
+			</sect1>
+		</article>
+	</documentation>   
+	
+	<units name="minute">
+      <unit units="second" multiplier="60"/>
+   </units>
+   <units name="first_order_rate_constant">
+      <unit units="minute" exponent="-1"/>
+   </units>
+   <component name="environment">
+      <variable units="minute" public_interface="out" name="time" cmeta:id="environment_time"/>
+   </component>
+   <component name="parameters">
+      <variable units="dimensionless" public_interface="out" name="n" initial_value="2"/>
+      <variable units="dimensionless" public_interface="out" name="alpha_0" initial_value="0.216"/>
+      <variable units="dimensionless" public_interface="out" name="alpha" initial_value="216"/>
+      <variable units="dimensionless" public_interface="out" name="beta" initial_value="0.2"/>
+      <variable units="dimensionless" public_interface="out" name="K_m" initial_value="40"/>
+      <variable units="dimensionless" public_interface="out" name="efficiency" initial_value="20"/>
+      <variable units="minute" public_interface="out" name="mRNA_halflife" initial_value="2"/>
+      <variable units="minute" public_interface="out" name="t_ave"/>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+         <apply>
+            <eq/>
+            <ci>t_ave</ci>
+            <apply>
+               <divide/>
+               <ci>mRNA_halflife</ci>
+               <apply>
+                  <ln/>
+                  <cn cellml:units="dimensionless">2</cn>
+               </apply>
+            </apply>
+         </apply>
+      </math>
+   </component>
+   <component name="M_lacl">
+      <variable units="dimensionless" public_interface="out" name="M_lacl" initial_value="5"/>
+      <variable units="dimensionless" public_interface="in" name="alpha"/>
+      <variable units="dimensionless" public_interface="in" name="P_cl"/>
+      <variable units="dimensionless" public_interface="in" name="n"/>
+      <variable units="dimensionless" public_interface="in" name="alpha_0"/>
+      <variable units="dimensionless" public_interface="in" name="K_m"/>
+      <variable units="dimensionless" public_interface="in" name="efficiency"/>
+      <variable units="minute" public_interface="in" name="t_ave"/>
+      <variable units="minute" public_interface="in" name="time"/>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+         <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>time</ci>
+          </bvar>
+          <ci>M_lacl</ci>
+        </apply>
+        <apply>
+          <minus/>
+          <apply>
+            <times/>
+            <apply>
+              <divide/>
+              <ci>K_m</ci>
+              <apply>
+                <times/>
+                <ci>efficiency</ci>
+                <ci>t_ave</ci>
+              </apply>
+            </apply>
+            <apply>
+              <plus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci>alpha</ci>
+                  <apply>
+                    <power/>
+                    <ci>K_m</ci>
+                    <ci>n</ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <power/>
+                    <ci>K_m</ci>
+                    <ci>n</ci>
+                  </apply>
+                  <apply>
+                    <power/>
+                    <ci>P_cl</ci>
+                    <ci>n</ci>
+                  </apply>
+                </apply>
+              </apply>
+              <ci>alpha_0</ci>
+            </apply>
+          </apply>
+          <apply>
+            <divide/>
+            <ci>M_lacl</ci>
+            <ci>t_ave</ci>
+          </apply>
+        </apply>
+      </apply>
+      </math>
+   </component>
+   <component name="M_tetR">
+      <variable units="dimensionless" public_interface="out" name="M_tetR" initial_value="0"/>
+      <variable units="dimensionless" public_interface="in" name="alpha"/>
+      <variable units="dimensionless" public_interface="in" name="P_lacl"/>
+      <variable units="dimensionless" public_interface="in" name="n"/>
+      <variable units="dimensionless" public_interface="in" name="alpha_0"/>
+      <variable units="dimensionless" public_interface="in" name="K_m"/>
+      <variable units="dimensionless" public_interface="in" name="efficiency"/>
+      <variable units="minute" public_interface="in" name="t_ave"/>
+      <variable units="minute" public_interface="in" name="time"/>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+         <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>time</ci>
+          </bvar>
+          <ci>M_tetR</ci>
+        </apply>
+        <apply>
+          <minus/>
+          <apply>
+            <times/>
+            <apply>
+              <divide/>
+              <ci>K_m</ci>
+              <apply>
+                <times/>
+                <ci>efficiency</ci>
+                <ci>t_ave</ci>
+              </apply>
+            </apply>
+            <apply>
+              <plus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci>alpha</ci>
+                  <apply>
+                    <power/>
+                    <ci>K_m</ci>
+                    <ci>n</ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <power/>
+                    <ci>K_m</ci>
+                    <ci>n</ci>
+                  </apply>
+                  <apply>
+                    <power/>
+                    <ci>P_lacl</ci>
+                    <ci>n</ci>
+                  </apply>
+                </apply>
+              </apply>
+              <ci>alpha_0</ci>
+            </apply>
+          </apply>
+          <apply>
+            <divide/>
+            <ci>M_tetR</ci>
+            <ci>t_ave</ci>
+          </apply>
+        </apply>
+      </apply>
+      </math>
+   </component>
+   <component name="M_cl">
+      <variable units="dimensionless" public_interface="out" name="M_cl" initial_value="15"/>
+      <variable units="dimensionless" public_interface="in" name="alpha"/>
+      <variable units="dimensionless" public_interface="in" name="P_tetR"/>
+      <variable units="dimensionless" public_interface="in" name="n"/>
+      <variable units="dimensionless" public_interface="in" name="alpha_0"/>
+      <variable units="dimensionless" public_interface="in" name="K_m"/>
+      <variable units="dimensionless" public_interface="in" name="efficiency"/>
+      <variable units="minute" public_interface="in" name="t_ave"/>
+      <variable units="minute" public_interface="in" name="time"/>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+         <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>time</ci>
+          </bvar>
+          <ci>M_cl</ci>
+        </apply>
+        <apply>
+          <minus/>
+          <apply>
+            <times/>
+            <apply>
+              <divide/>
+              <ci>K_m</ci>
+              <apply>
+                <times/>
+                <ci>efficiency</ci>
+                <ci>t_ave</ci>
+              </apply>
+            </apply>
+            <apply>
+              <plus/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci>alpha</ci>
+                  <apply>
+                    <power/>
+                    <ci>K_m</ci>
+                    <ci>n</ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <power/>
+                    <ci>K_m</ci>
+                    <ci>n</ci>
+                  </apply>
+                  <apply>
+                    <power/>
+                    <ci>P_tetR</ci>
+                    <ci>n</ci>
+                  </apply>
+                </apply>
+              </apply>
+              <ci>alpha_0</ci>
+            </apply>
+          </apply>
+          <apply>
+            <divide/>
+            <ci>M_cl</ci>
+            <ci>t_ave</ci>
+          </apply>
+        </apply>
+      </apply>
+      </math>
+   </component>
+   <component name="P_lacl">
+      <variable units="dimensionless" public_interface="out" cmeta:id="P_lacl_P_lacl" name="P_lacl" initial_value="0"/>
+      <variable units="dimensionless" public_interface="in" name="beta"/>
+      <variable units="dimensionless" public_interface="in" name="M_lacl"/>
+      <variable units="minute" public_interface="in" name="t_ave"/>
+      <variable units="dimensionless" public_interface="in" name="K_m"/>
+      <variable units="dimensionless" public_interface="in" name="efficiency"/>
+      <variable units="minute" public_interface="in" name="time"/>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+         <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>time</ci>
+          </bvar>
+          <ci>P_lacl</ci>
+        </apply>
+        <apply>
+          <times/>
+          <ci>beta</ci>
+          <apply>
+            <minus/>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci>M_lacl</ci>
+                <ci>efficiency</ci>
+              </apply>
+              <ci>t_ave</ci>
+            </apply>
+            <apply>
+              <divide/>
+              <ci>P_lacl</ci>
+              <ci>t_ave</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      </math>
+   </component>
+   <component name="P_tetR">
+      <variable units="dimensionless" public_interface="out" cmeta:id="P_tetR_P_tetR" name="P_tetR" initial_value="0"/>
+      <variable units="dimensionless" public_interface="in" name="beta"/>
+      <variable units="dimensionless" public_interface="in" name="M_tetR"/>
+      <variable units="minute" public_interface="in" name="t_ave"/>
+      <variable units="dimensionless" public_interface="in" name="K_m"/>
+      <variable units="dimensionless" public_interface="in" name="efficiency"/>
+      <variable units="minute" public_interface="in" name="time"/>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+         <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>time</ci>
+          </bvar>
+          <ci>P_tetR</ci>
+        </apply>
+        <apply>
+          <times/>
+          <ci>beta</ci>
+          <apply>
+            <minus/>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci>M_tetR</ci>
+                <ci>efficiency</ci>
+              </apply>
+              <ci>t_ave</ci>
+            </apply>
+            <apply>
+              <divide/>
+              <ci>P_tetR</ci>
+              <ci>t_ave</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      </math>
+   </component>
+   <component name="P_cl">
+      <variable units="dimensionless" public_interface="out" cmeta:id="P_cl_P_cl" name="P_cl" initial_value="0"/>
+      <variable units="dimensionless" public_interface="in" name="beta"/>
+      <variable units="dimensionless" public_interface="in" name="M_cl"/>
+      <variable units="minute" public_interface="in" name="t_ave"/>
+      <variable units="dimensionless" public_interface="in" name="K_m"/>
+      <variable units="dimensionless" public_interface="in" name="efficiency"/>
+      <variable units="minute" public_interface="in" name="time"/>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+         <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>time</ci>
+          </bvar>
+          <ci>P_cl</ci>
+        </apply>
+        <apply>
+          <times/>
+          <ci>beta</ci>
+          <apply>
+            <minus/>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci>M_cl</ci>
+                <ci>efficiency</ci>
+              </apply>
+              <ci>t_ave</ci>
+            </apply>
+            <apply>
+              <divide/>
+              <ci>P_cl</ci>
+              <ci>t_ave</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      </math>
+   </component>
+   <connection>
+      <map_components component_2="environment" component_1="M_lacl"/>
+      <map_variables variable_2="time" variable_1="time"/>
+   </connection>
+   <connection>
+      <map_components component_2="environment" component_1="M_tetR"/>
+      <map_variables variable_2="time" variable_1="time"/>
+   </connection>
+   <connection>
+      <map_components component_2="environment" component_1="M_cl"/>
+      <map_variables variable_2="time" variable_1="time"/>
+   </connection>
+   <connection>
+      <map_components component_2="environment" component_1="P_lacl"/>
+      <map_variables variable_2="time" variable_1="time"/>
+   </connection>
+   <connection>
+      <map_components component_2="environment" component_1="P_tetR"/>
+      <map_variables variable_2="time" variable_1="time"/>
+   </connection>
+   <connection>
+      <map_components component_2="environment" component_1="P_cl"/>
+      <map_variables variable_2="time" variable_1="time"/>
+   </connection>
+   <connection>
+      <map_components component_2="parameters" component_1="M_lacl"/>
+      <map_variables variable_2="alpha" variable_1="alpha"/>
+      <map_variables variable_2="n" variable_1="n"/>
+      <map_variables variable_2="alpha_0" variable_1="alpha_0"/>
+      <map_variables variable_2="K_m" variable_1="K_m"/>
+      <map_variables variable_2="efficiency" variable_1="efficiency"/>
+      <map_variables variable_2="t_ave" variable_1="t_ave"/>
+   </connection>
+   <connection>
+      <map_components component_2="P_cl" component_1="M_lacl"/>
+      <map_variables variable_2="P_cl" variable_1="P_cl"/>
+   </connection>
+   <connection>
+      <map_components component_2="parameters" component_1="M_tetR"/>
+      <map_variables variable_2="alpha" variable_1="alpha"/>
+      <map_variables variable_2="n" variable_1="n"/>
+      <map_variables variable_2="alpha_0" variable_1="alpha_0"/>
+      <map_variables variable_2="K_m" variable_1="K_m"/>
+      <map_variables variable_2="efficiency" variable_1="efficiency"/>
+      <map_variables variable_2="t_ave" variable_1="t_ave"/>
+   </connection>
+   <connection>
+      <map_components component_2="P_lacl" component_1="M_tetR"/>
+      <map_variables variable_2="P_lacl" variable_1="P_lacl"/>
+   </connection>
+   <connection>
+      <map_components component_2="parameters" component_1="M_cl"/>
+      <map_variables variable_2="alpha" variable_1="alpha"/>
+      <map_variables variable_2="n" variable_1="n"/>
+      <map_variables variable_2="alpha_0" variable_1="alpha_0"/>
+      <map_variables variable_2="K_m" variable_1="K_m"/>
+      <map_variables variable_2="efficiency" variable_1="efficiency"/>
+      <map_variables variable_2="t_ave" variable_1="t_ave"/>
+   </connection>
+   <connection>
+      <map_components component_2="P_tetR" component_1="M_cl"/>
+      <map_variables variable_2="P_tetR" variable_1="P_tetR"/>
+   </connection>
+   <connection>
+      <map_components component_2="parameters" component_1="P_lacl"/>
+      <map_variables variable_2="beta" variable_1="beta"/>
+      <map_variables variable_2="K_m" variable_1="K_m"/>
+      <map_variables variable_2="efficiency" variable_1="efficiency"/>
+      <map_variables variable_2="t_ave" variable_1="t_ave"/>
+   </connection>
+   <connection>
+      <map_components component_2="M_lacl" component_1="P_lacl"/>
+      <map_variables variable_2="M_lacl" variable_1="M_lacl"/>
+   </connection>
+   <connection>
+      <map_components component_2="parameters" component_1="P_tetR"/>
+      <map_variables variable_2="beta" variable_1="beta"/>
+      <map_variables variable_2="K_m" variable_1="K_m"/>
+      <map_variables variable_2="efficiency" variable_1="efficiency"/>
+      <map_variables variable_2="t_ave" variable_1="t_ave"/>
+   </connection>
+   <connection>
+      <map_components component_2="M_tetR" component_1="P_tetR"/>
+      <map_variables variable_2="M_tetR" variable_1="M_tetR"/>
+   </connection>
+   <connection>
+      <map_components component_2="parameters" component_1="P_cl"/>
+      <map_variables variable_2="beta" variable_1="beta"/>
+      <map_variables variable_2="K_m" variable_1="K_m"/>
+      <map_variables variable_2="efficiency" variable_1="efficiency"/>
+      <map_variables variable_2="t_ave" variable_1="t_ave"/>
+   </connection>
+   <connection>
+      <map_components component_2="M_cl" component_1="P_cl"/>
+      <map_variables variable_2="M_cl" variable_1="M_cl"/>
+   </connection>
+
+
+<rdf:RDF>
+  <rdf:Seq rdf:about="rdf:#b2580771-3d93-444e-8d5a-db9999613968">
+    <rdf:li rdf:resource="rdf:#9e898850-c5a2-461b-9584-d94855ab32b0"/>
+    <rdf:li rdf:resource="rdf:#5ea3d065-d02f-43a7-991c-bbe34683252a"/>
+  </rdf:Seq>
+  <rdf:Description rdf:about="rdf:#2ee4d0e7-b929-4aed-81b5-74df96efb2f5">
+    <vCard:Given>Jeelean</vCard:Given>
+    <vCard:Family>Lim</vCard:Family>
+    <vCard:Other/>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#3ee320fe-afa0-4755-84cc-dc3eecf46b85">
+    <vCard:Given>Jeelean</vCard:Given>
+    <vCard:Family>Lim</vCard:Family>
+    <vCard:Other/>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#3c94a769-926c-4e59-a684-d6ed38d74248">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="rdf:#4dcf1a53-0289-4dff-bd7b-8c3e22c998e6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#749bcd4c-fcb9-441d-9556-70ddb768ae59">
+    <ns7:endingValue>1000</ns7:endingValue>
+    <ns7:nonstandard-pointDensity>5000</ns7:nonstandard-pointDensity>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#4d94b05a-1d1b-4fab-8c37-49564d4da663">
+    <vCard:ORG rdf:resource="rdf:#060abf81-bd0c-4b73-b9be-c4912fa3e7b0"/>
+    <vCard:EMAIL rdf:resource="rdf:#4a83a6c0-afe2-44e1-9ce5-26f23b244a3b"/>
+    <vCard:N rdf:resource="rdf:#2ee4d0e7-b929-4aed-81b5-74df96efb2f5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#e847c364-c547-4ea3-90a6-74651f87076e">
+    <dc:title>Nature</dc:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#b39e71ea-cfc3-49cd-8b65-02e7a6b7803f">
+    <ns7:boundIntervals rdf:resource="rdf:#b53551ef-d704-452a-93a3-9711ab8e0a6e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#37a57e9b-eb21-4114-82cc-b4ef0968d537">
+    <dcterms:W3CDTF>2009-04-02T00:00:00+00:00</dcterms:W3CDTF>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#de33f12b-2277-433b-af86-9e9eb3f8415e">
+    <vCard:N rdf:resource="rdf:#94de0bfd-040b-4ca5-be36-73b99342170b"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#57508ef0-4752-4666-a2f1-093040a5d14a">
+    <vCard:FN>Jeelean Lim</vCard:FN>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#d1b7777b-e190-4f61-8903-b5a0e1b147c6">
+    <dc:creator rdf:resource="rdf:#e6ac3732-45ab-4ce5-a37d-4998e339b83d"/>
+    <rdf:value>This is the CellML description of Elowitz and Leibler's mathematical model on the synthetic oscillatory network of transcriptional regulators</rdf:value>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#65bf166e-d0d4-49f0-b24b-d0a0329f9dbe">
+    <dc:creator rdf:resource="rdf:#57508ef0-4752-4666-a2f1-093040a5d14a"/>
+    <rdf:value>This CellML version of the model runs in PCEnv to replicate the original published results as depicted in figure 1c of the paper.  The units have been checked and are consistent. &#13;
+The original published equations were scaled and modified with reference to the same model on the Biomodels database.</rdf:value>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#54405762-6ff7-45dd-9971-70a24df2a29c">
+    <dcterms:modified rdf:resource="rdf:#9c526716-b7e6-4545-992f-8b12eb25a4e2"/>
+    <rdf:value>There was an error in rescaling previously:
+m in the equations in box 1 is not rescaled to the mRNA divided by the translation efficiency, M/eff,  but is just M*eff/K_m, with the efficiency taken in units of rescaled protein p = P/K_m.
+The 2 forms of the differential equations are therefore:
+dM_i/dt = K_m/(eff*tavg) * alpha * Km^n/(Km^n+P_j^n) + alpha0 - M_i/tavg
+and
+dPi/dt = beta*(Mi*eff/tavg - Pi/tavg)
+
+Rescaled protein numbers were also used for the alphas:
+beta = proteindecay/mRNAdecay = rnahalflife/proteinhalflife = 0.2
+and
+alpha0 = number of maximal rescaled proteins per cell in steady state under full repression:
+with a0 = leaky promotor strength = 5*10^-4 mRNA per second
+max. translation = eff*a0
+protein decay = Pi/average_protein_lifetime
+in steady state: max. translation = protein decay =&gt;
+P_max = eff*a0*average_protein_lifetime(in seconds) = 20*5*10^(-4)*10/ln(2)*60 = 8.656
+alpha0 = p_max = P_max/K_m =  0.216
+and for the completely repressor free state:
+a = fully induced promotor strength = 0.5 mRNAs per second
+P_max= 20*0.5*10/ln(2)*60 = 8656.2
+p_max =  216.4 = alpha + alpha0
+alpha = 216.2
+
+These corrections seem to give more sensible results. The protein numbers are still the same, but the mRNA numbers are only about 1/15th of the proteins.</rdf:value>
+    <cmeta:modifier rdf:resource="rdf:#de33f12b-2277-433b-af86-9e9eb3f8415e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#c65a24e1-3f78-4c50-a07e-2b1742a262ea">
+    <dcterms:modified rdf:resource="rdf:#691bdbd5-ca71-4340-917a-b405731dc4ec"/>
+    <rdf:value>Corrected end value for session</rdf:value>
+    <cmeta:modifier rdf:resource="rdf:#97108009-8509-415c-9b2a-f0896a7dcc77"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#09697110-21e8-4233-895c-700ca0083c7d">
+    <dc:creator rdf:resource="rdf:#b2580771-3d93-444e-8d5a-db9999613968"/>
+    <dc:title>A Synthetic Oscillatory Network of Transciptional Regulators</dc:title>
+    <bqs:volume>403</bqs:volume>
+    <bqs:first_page>335</bqs:first_page>
+    <bqs:Journal rdf:resource="rdf:#e847c364-c547-4ea3-90a6-74651f87076e"/>
+    <dcterms:issued rdf:resource="rdf:#b5b985a2-a130-4512-9870-de4dd30c6477"/>
+    <bqs:last_page>338</bqs:last_page>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#9e898850-c5a2-461b-9584-d94855ab32b0">
+    <rdf:type rdf:resource="http://www.cellml.org/bqs/1.0#Person"/>
+    <vCard:N rdf:resource="rdf:#bcfd3d01-61a4-4a2a-827c-5a8c0c7955f5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#7d80b29d-0c34-4859-a4ba-bddcabe17068">
+    <ns7:endingValue>1000</ns7:endingValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="#elowitz_leibler_2000_version01">
+    <ns7:simulation rdf:resource="rdf:#b39e71ea-cfc3-49cd-8b65-02e7a6b7803f"/>
+    <bqs:reference rdf:resource="rdf:#df8699cc-7e2a-45bf-8c24-5716655edfbd"/>
+<bqs:reference rdf:parseType="Resource">
+  <dc:subject rdf:parseType="Resource">
+    <bqs:subject_type>keyword</bqs:subject_type>
+    <rdf:value>
+      <rdf:Bag>
+        <rdf:li>synthetic biology</rdf:li>
+        <rdf:li>gene regulation</rdf:li>
+      </rdf:Bag>
+    </rdf:value>
+  </dc:subject>
+</bqs:reference>
+    <cmeta:comment rdf:resource="rdf:#d1b7777b-e190-4f61-8903-b5a0e1b147c6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#9c526716-b7e6-4545-992f-8b12eb25a4e2">
+    <dcterms:W3CDTF>2009-04-28T11:49:59+12:00</dcterms:W3CDTF>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#97108009-8509-415c-9b2a-f0896a7dcc77">
+    <vCard:N rdf:resource="rdf:#3ee320fe-afa0-4755-84cc-dc3eecf46b85"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#df8699cc-7e2a-45bf-8c24-5716655edfbd">
+    <bqs:Pubmed_id>10659856</bqs:Pubmed_id>
+    <bqs:JournalArticle rdf:resource="rdf:#09697110-21e8-4233-895c-700ca0083c7d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#b5b985a2-a130-4512-9870-de4dd30c6477">
+    <dcterms:W3CDTF>2000-01-20 00:00</dcterms:W3CDTF>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#bcfd3d01-61a4-4a2a-827c-5a8c0c7955f5">
+    <vCard:Given>Michael</vCard:Given>
+    <vCard:Family>Elowitz</vCard:Family>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#691bdbd5-ca71-4340-917a-b405731dc4ec">
+    <dcterms:W3CDTF>2009-04-30T12:38:21+12:00</dcterms:W3CDTF>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#94de0bfd-040b-4ca5-be36-73b99342170b">
+    <vCard:Given>Lukas</vCard:Given>
+    <vCard:Family>Endler</vCard:Family>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#060abf81-bd0c-4b73-b9be-c4912fa3e7b0">
+    <vCard:Orgname>The University of Auckland</vCard:Orgname>
+    <vCard:Orgunit>Auckland Bioengineering Institute</vCard:Orgunit>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#881a6e20-500c-407f-a513-a85585e2f626">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="rdf:#37b1aec5-2095-433a-8707-b539a19ffb4f"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#3011d7bb-94cf-4408-84b1-4bd980d141f4">
+    <vCard:Given>Stanislas</vCard:Given>
+    <vCard:Family>Leibler</vCard:Family>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#4a83a6c0-afe2-44e1-9ce5-26f23b244a3b">
+    <rdf:type rdf:resource="http://imc.org/vCard/3.0#internet"/>
+    <rdf:value>jlim063@aucklanduni.ac.nz</rdf:value>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#e6ac3732-45ab-4ce5-a37d-4998e339b83d">
+    <vCard:FN>Jeelean Lim</vCard:FN>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <dc:publisher/>
+    <cmeta:comment rdf:resource="rdf:#65bf166e-d0d4-49f0-b24b-d0a0329f9dbe"/>
+    <dcterms:created rdf:resource="rdf:#37a57e9b-eb21-4114-82cc-b4ef0968d537"/>
+    <dc:creator rdf:resource="rdf:#4d94b05a-1d1b-4fab-8c37-49564d4da663"/>
+    <cmeta:modification rdf:resource="rdf:#c65a24e1-3f78-4c50-a07e-2b1742a262ea"/>
+    <cmeta:modification rdf:resource="rdf:#54405762-6ff7-45dd-9971-70a24df2a29c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#d18f09e1-7879-4c3e-8428-c38a6753252e">
+    <ns7:boundIntervals rdf:resource="rdf:#35dab71e-42ba-4828-a2ee-7b795747d007"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="rdf:#5ea3d065-d02f-43a7-991c-bbe34683252a">
+    <rdf:type rdf:resource="http://www.cellml.org/bqs/1.0#Person"/>
+    <vCard:N rdf:resource="rdf:#3011d7bb-94cf-4408-84b1-4bd980d141f4"/>
+  </rdf:Description>
+</rdf:RDF>
+</model>
