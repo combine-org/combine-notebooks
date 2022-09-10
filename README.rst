@@ -5,8 +5,8 @@
 combine-notebooks - COMBINE jupyter notebooks in python
 =======================================================
 
-.. image:: https://github.com/matthiaskoenig/combine-notebooks/workflows/CI-CD/badge.svg
-   :target: https://github.com/matthiaskoenig/combine-notebooks/workflows/CI-CD
+.. image:: https://github.com/combine-org/combine-notebooks/workflows/CI-CD/badge.svg
+   :target: https://github.com/combine-org/combine-notebooks/workflows/CI-CD
    :alt: GitHub Actions CI/CD Status
 
 .. image:: https://img.shields.io/pypi/v/combine-notebooks.svg
@@ -20,10 +20,6 @@ combine-notebooks - COMBINE jupyter notebooks in python
 .. image:: https://img.shields.io/pypi/l/combine-notebooks.svg
    :target: http://opensource.org/licenses/LGPL-3.0
    :alt: GNU Lesser General Public License 3
-
-.. image:: https://codecov.io/gh/matthiaskoenig/combine-notebooks/branch/develop/graph/badge.svg
-   :target: https://codecov.io/gh/matthiaskoenig/combine-notebooks
-   :alt: Codecov
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
    :target: https://github.com/ambv/black
