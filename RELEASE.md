@@ -8,7 +8,7 @@
 
 * test installation in virtualenv from pypi
 ```
-mkvirtualenv test --python=python3.9
+mkvirtualenv test --python=python3.10
 (test) pip install pymetadata
 ```
 
