@@ -1,4 +1,4 @@
-.. image:: https://github.com/combine-org/combine-notebooks/raw/libsbml-notebook/docs/images/combine.png
+.. image:: https://raw.githubusercontent.com/combine-org/combine-notebooks/main/docs/images/combine.png
    :align: left
    :alt: COMBINE logo
 
@@ -52,8 +52,8 @@ Setup/Installation
 
 To work with the notebooks create a virtual environment and install the dependencies::
 
-    mkvirtualenv combine_notebooks --python=python3.9
-    pip install -e .[development] --upgrade
+    mkvirtualenv combine_notebooks --python=python3.10
+    (combine_notebooks) pip install -e .[development] --upgrade
 
 
 After changes ensure code formatting via::
@@ -65,8 +65,28 @@ Tests can be run via pytest and tox. To run all tests use::
 
     tox -p
 
-To run individual tests use the following targets `flake8`, `mypy`, `py38`, `py39`::
+To run individual tests use the following targets `flake8`, `mypy`, `py38`, `py39`, `py310`::
 
     tox -e flake8
+
+
+Notebooks
+---------
+To run the notebooks install a notebook environment::
+
+    pip install jupyterlab
+
+Register the created virtual environment `combine_notebooks` as jupyter kernel::
+
+    ipython kernel install --user --name=combine_notebooks
+
+Or alternatively install the package in an existing virtual environment to get all the dependencies. I.e.::
+
+    pip install combine-notebooks
+
+Start the notebooks::
+
+    cd ./notebooks
+    jupyter lab
 
 © 2022 Matthias König & Aditya Singhal
