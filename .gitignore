@@ -1,3 +1,4 @@
+# development files
 .idea
 .DS_Store
 wheels
@@ -6,4 +7,9 @@ __pycache__
 .eggs
 .tox
 coverage.xml
+
+# distribution
 src/combine_notebooks.egg-info/
+
+# notebook files
+notebooks/.ipynb_checkpoints
