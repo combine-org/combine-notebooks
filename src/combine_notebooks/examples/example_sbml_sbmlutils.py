@@ -132,18 +132,46 @@ model = Model(
     ],
     rules=[
         AssignmentRule(
-            variable="kd_mRNA", sid="kd_mRNA", value="ln(2) / tau_mRNA", name="kd_MRNA", sboTerm=None
+            variable="kd_mRNA", 
+            sid="kd_mRNA", 
+            value="ln(2) / tau_mRNA", 
+            name="kd_MRNA", 
+            sboTerm=None,
         ),
         AssignmentRule(
-            variable="t_ave", sid="t_ave", value="tau_mRNA / ln(2)", name="t_ave", sboTerm=None
+            variable="t_ave", 
+            sid="t_ave", 
+            value="tau_mRNA / ln(2)", 
+            name="t_ave", 
+            sboTerm=None,
         ),
-        AssignmentRule(variable="k_tl", sid="k_tl", value="eff / t_ave", name="k_tl", sboTerm=None),
         AssignmentRule(
-            variable="kd_prot", sid="kd_prot", value="ln(2) / tau_prot", name="kd_prot", sboTerm=None
+            variable="k_tl", 
+            sid="k_tl", 
+            value="eff / t_ave", 
+            name="k_tl", 
+            sboTerm=None,
         ),
-        AssignmentRule(variable="a0_tr", sid="a0_tr", value="ps_0 * 60", name="a0_tr", sboTerm=None),
         AssignmentRule(
-            variable="a_tr", sid="a_tr", value="(ps_a - ps_0) * 60", name="a_tr", sboTerm=None
+            variable="kd_prot", 
+            sid="kd_prot", 
+            value="ln(2) / tau_prot", 
+            name="kd_prot", 
+            sboTerm=None,
+        ),
+        AssignmentRule(
+            variable="a0_tr", 
+            sid="a0_tr", 
+            value="ps_0 * 60", 
+            name="a0_tr", 
+            sboTerm=None,
+        ),
+        AssignmentRule(
+            variable="a_tr", 
+            sid="a_tr", 
+            value="(ps_a - ps_0) * 60", 
+            name="a_tr", 
+            sboTerm=None,
         ),
     ],
     reactions=[
