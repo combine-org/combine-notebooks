@@ -1,6 +1,10 @@
 name: CI-CD
 
-on: [push]
+on:
+  push:
+    branches: [ master, development, experimental, test* ]
+  pull_request:
+    branches: [ master, development, experimental, test* ]
 jobs:
   test:
     runs-on: ${{ matrix.os }}
