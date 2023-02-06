@@ -132,18 +132,46 @@ model = Model(
     ],
     rules=[
         AssignmentRule(
-            sid="kd_mRNA", value="ln(2) / tau_mRNA", name="kd_MRNA", sboTerm=None
+            variable="kd_mRNA",
+            sid="kd_mRNA",
+            value="ln(2) / tau_mRNA",
+            name="kd_MRNA",
+            sboTerm=None,
         ),
         AssignmentRule(
-            sid="t_ave", value="tau_mRNA / ln(2)", name="t_ave", sboTerm=None
+            variable="t_ave",
+            sid="t_ave",
+            value="tau_mRNA / ln(2)",
+            name="t_ave",
+            sboTerm=None,
         ),
-        AssignmentRule(sid="k_tl", value="eff / t_ave", name="k_tl", sboTerm=None),
         AssignmentRule(
-            sid="kd_prot", value="ln(2) / tau_prot", name="kd_prot", sboTerm=None
+            variable="k_tl",
+            sid="k_tl",
+            value="eff / t_ave",
+            name="k_tl",
+            sboTerm=None,
         ),
-        AssignmentRule(sid="a0_tr", value="ps_0 * 60", name="a0_tr", sboTerm=None),
         AssignmentRule(
-            sid="a_tr", value="(ps_a - ps_0) * 60", name="a_tr", sboTerm=None
+            variable="kd_prot",
+            sid="kd_prot",
+            value="ln(2) / tau_prot",
+            name="kd_prot",
+            sboTerm=None,
+        ),
+        AssignmentRule(
+            variable="a0_tr",
+            sid="a0_tr",
+            value="ps_0 * 60",
+            name="a0_tr",
+            sboTerm=None,
+        ),
+        AssignmentRule(
+            variable="a_tr",
+            sid="a_tr",
+            value="(ps_a - ps_0) * 60",
+            name="a_tr",
+            sboTerm=None,
         ),
     ],
     reactions=[
@@ -273,11 +301,8 @@ model = Model(
 def create_repressilator(sbml_path: Path) -> FactoryResult:
     """Create the repressilator model in the results_dir."""
     results = create_model(
-        models=model,
-        output_dir=sbml_path.parent,
-        filename=sbml_path.name,
-        tmp=False,
-        units_consistency=False,
+        model=model,
+        filepath=sbml_path,
         sbml_level=2,
         sbml_version=3,
     )
