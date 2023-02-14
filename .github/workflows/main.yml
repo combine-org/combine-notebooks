@@ -2,9 +2,9 @@ name: CI-CD
 
 on:
   push:
-    branches: [ master, development, experimental, test* ]
+    branches: [ master, development, experimental, test*, precommit ]
   pull_request:
-    branches: [ master, development, experimental, test* ]
+    branches: [ master, development, experimental, test*, precommit ]
 jobs:
 
   pre-commit:
