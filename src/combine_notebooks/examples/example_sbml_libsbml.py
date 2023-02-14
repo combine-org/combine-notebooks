@@ -579,3 +579,35 @@ if __name__ == "__main__":
     doc: libsbml.SBMLDocument = create_repressilator(
         sbml_path=RESULTS_DIR / "repressilator_libsbml.xml"
     )
+
+# <codecell>
+if __name__ == "__main__":
+    import tellurium as te
+
+    from combine_notebooks import RESULTS_DIR
+
+    # Load the SBML file
+    sbml_path = RESULTS_DIR / "repressilator_libsbml.xml"
+    sbml_str = ""
+    with open(sbml_path) as sbml_file:
+        sbml_str = sbml_file.read()
+    model = te.loadSBMLModel(sbml_str)
+
+    # Run the SBML file
+    result = model.simulate(0, 600, 2000)
+    model.plot(result)
+
+
+# <codecell>
+if __name__ == "__main__":
+    from basico import *
+
+    from combine_notebooks import RESULTS_DIR
+
+    # Load the SBML model
+    sbml_path = RESULTS_DIR / "repressilator_libsbml.xml"
+    sbml = load_model(sbml_path)
+
+    # Use pandas syntax for indexing and plotting
+    tc = run_time_course(model=sbml, duration=600)
+    tc.plot()
