@@ -67,7 +67,7 @@ def add_species(
     purposes of the model, (b) participate in reactions, and (c) are located in a
     specific compartment.
     """
-    s: libsbml.Species = model.Createpecies()
+    s: libsbml.Species = model.CreateSpecies()
     s.setId(id)
     s.setMetaId(meta_id)
     s.setCompartment(compartment)
