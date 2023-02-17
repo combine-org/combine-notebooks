@@ -1,17 +1,18 @@
+"""Helper functions for constructing SBML model."""
+
 import libsbml
 
 
 def run_if_not_none(function, value):
-    """
-    Runs a setter method if and only if the given value is not None.
-    """
+    """Run a setter method if and only if the given value is not None."""
     if value is not None:
         function(value)
 
 
 def create_annotation(qualifier_type, biological_qualifier_type, resource):
     """
-    Creates an annotation, but this will not be automatically be added to a model.
+    Create an annotation, but this will not be automatically be added to a model.
+
     Annotations can be used for adding metadata to models and model component.
     """
     cv: libsbml.CVTerm = libsbml.CVTerm()
@@ -23,7 +24,9 @@ def create_annotation(qualifier_type, biological_qualifier_type, resource):
 
 def add_annotation_resource(cv, biological_qualifier_type, resource):
     """
-    Adds a resource to an existing annotation.  See
+    Add a resource to an existing annotation.
+
+    See
     https://registry.identifiers.org/registry for available resources.
     """
     cv.setBiologicalQualifierType(biological_qualifier_type)
@@ -33,7 +36,9 @@ def add_annotation_resource(cv, biological_qualifier_type, resource):
 
 def add_compartment(model, id, size, meta_id, sbo_term):
     """
-    Creates a compartment and adds to an existing model.  A compartment in SBML
+    Create a compartment and adds to an existing model.
+
+    A compartment in SBML
     represents a bounded space in which species are located.
     """
     c: libsbml.Compartment = model.createCompartment()
@@ -55,12 +60,14 @@ def add_species(
     has_only_substance_units,
 ):
     """
-    Creates a species and adds to an existing model.  A species in SBML refers to a pool
+    Create a species and adds to an existing model.
+
+    A species in SBML refers to a pool
     of entities that (a) are considered indistinguishable from each other for the
     purposes of the model, (b) participate in reactions, and (c) are located in a
     specific compartment.
     """
-    s: libsbml.Species = model.createSpecies()
+    s: libsbml.Species = model.Createpecies()
     s.setId(id)
     s.setMetaId(meta_id)
     s.setCompartment(compartment)
@@ -73,7 +80,9 @@ def add_species(
 
 def add_parameters(model, id, name, constant, sbo_term=None, value=None):
     """
-    Creates a parameters and adds to an existing model.  A Parameter is used in SBML to
+    Create a parameters and adds to an existing model.
+
+    A Parameter is used in SBML to
     define a symbol associated with a value; this symbol can then be used in
     mathematical formulas in a model.
     """
@@ -87,7 +96,9 @@ def add_parameters(model, id, name, constant, sbo_term=None, value=None):
 
 def add_assignment_rule(model, variable, l3_formaula):
     """
-    Creates an assignment rule and adds to an existing model.  An assignment rule is used
+    Create an assignment rule and adds to an existing model.
+
+    An assignment rule is used
     to express equations that set the values of variables.
     """
     a: libsbml.AssignmentRule = model.createAssignmentRule()
@@ -110,8 +121,10 @@ def add_reactions(
     kinetic_sbo_term,
 ):
     """
-    Creates a reactions and a corresponding resource. These are then added to an existing
-    model.  A reaction represents any transformation, transport or binding process,
+    Create a reactions and a corresponding resource.
+
+    These are then added to an existing model.
+    A reaction represents any transformation, transport or binding process,
     typically a chemical reaction, that can change the quantity of one or more species.
     """
     r: libsbml.Reaction = model.createReaction()
@@ -132,25 +145,19 @@ def add_reactions(
 
 
 def add_reactant_to_reaction(r, species):
-    """
-    Add a reactant to a pre defined reaction.
-    """
+    """Add a reactant to a pre defined reaction."""
     species_ref: libsbml.SpeciesReference = r.createReactant()
     species_ref.setSpecies(species)  # assign reactant species
 
 
 def add_product_to_reaction(r, species):
-    """
-    Add a product_ to a pre defined reaction.
-    """
+    """Add a product_ to a pre defined reaction."""
     species_ref = r.createProduct()
     species_ref.setSpecies(species)  # assign product species
 
 
 def add_modifier_to_reaction(r, species, sbo_term):
-    """
-    Add a modifier to a pre defined reaction.
-    """
+    """Add a modifier to a pre defined reaction."""
     species_ref = r.createModifier()
     species_ref.setSpecies(species)
     species_ref.setSBOTerm(sbo_term)
