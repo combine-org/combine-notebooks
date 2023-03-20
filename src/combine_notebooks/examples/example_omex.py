@@ -1,20 +1,20 @@
-# <markdowncell>
+# %% [markdown]
 
 # Example for creating a COMBINE archive.
 
-# <codecell>
+# %%
 from pathlib import Path
 
 from pymetadata.console import console
 from pymetadata.omex import EntryFormat, ManifestEntry, Omex
 
 
-# <markdowncell>
+# %% [markdown]
 
 # Creating an empty archive and adding entry for SBML.
 
 
-# <codecell>
+# %%
 
 
 def create_omex(omex_path: Path, results_dir: Path) -> None:
