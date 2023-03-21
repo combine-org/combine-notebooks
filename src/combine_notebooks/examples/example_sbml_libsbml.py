@@ -3,150 +3,15 @@
 
 # See on biomodels.
 
-# Add project directory to system path so that all project files can be imported
-import os
-import sys
-
 # https://github.com/sbmlteam/libsbml
 # %%
 from pathlib import Path
 
 import libsbml
 
-
-module_path = os.path.abspath(os.path.join(".."))
-if module_path not in sys.path:
-    sys.path.append(module_path + "\\src\\")
-
+from combine_notebooks.helper_functions.utils import *
 from combine_notebooks.validation.validation_sbml import validate_sbml
 
-
-# %% [markdown]
-
-# # Helper Functions
-
-# %%
-
-
-def create_annotation(qualifier_type, biological_qualifier_type, resource):
-    cv: libsbml.CVTerm = libsbml.CVTerm()
-    cv.setQualifierType(qualifier_type)
-    cv.setBiologicalQualifierType(biological_qualifier_type)
-    cv.addResource(resource)
-    return cv
-
-
-def add_annotation_resource(cv, biological_qualifier_type, resource):
-    cv.setBiologicalQualifierType(biological_qualifier_type)
-    cv.addResource(resource)
-    return cv
-
-
-def add_compartment(model, id, size, meta_id, sbo_term):
-    c: libsbml.Compartment = model.createCompartment()
-    c.setId(id)
-    c.setSize(size)
-    c.setMetaId(meta_id)
-    c.setSBOTerm(sbo_term)
-    return c
-
-
-def add_species(
-    model,
-    id,
-    meta_id,
-    compartment,
-    name,
-    sbo_term,
-    initial_amount,
-    has_only_substance_units,
-):
-    s: libsbml.Species = model.createSpecies()
-    s.setId(id)
-    s.setMetaId(meta_id)
-    s.setCompartment(compartment)
-    s.setName(name)
-    s.setSBOTerm(sbo_term)
-    s.setInitialAmount(initial_amount)
-    s.setHasOnlySubstanceUnits(has_only_substance_units)
-    return s
-
-
-def add_parameters(model, id, name, constant, sbo_term=None, value=None):
-    p: libsbml.Parameter = model.createParameter()
-    p.setId(id)
-    p.setName(name)
-    p.setConstant(constant)
-    if sbo_term is not None:
-        p.setSBOTerm(sbo_term)
-    if value is not None:
-        p.setValue(value)
-
-
-def add_assignment_rule(model, variable, l3_formaula):
-    a: libsbml.AssignmentRule = model.createAssignmentRule()
-    a.setVariable(variable)
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(l3_formaula, model)
-    a.setMath(math_ast)
-
-
-def add_reactions(
-    model,
-    id,
-    meta_id,
-    sbo_term,
-    name,
-    reversible,
-    qualifier_type,
-    biological_qualifier_type,
-    resource,
-    l3_formaula,
-    kinetic_sbo_term,
-):
-    r: libsbml.Reaction = model.createReaction()
-    r.setId(id),  # set reaction id
-    r.setMetaId(meta_id)
-    r.setSBOTerm(sbo_term)
-    r.setName(name)
-    r.setReversible(reversible)
-    # set annotation
-    r_cv: libsbml.CVTerm = libsbml.CVTerm()
-    r_cv.setQualifierType(qualifier_type)
-    r_cv.setBiologicalQualifierType(biological_qualifier_type)
-    r_cv.addResource(resource)
-    r.addCVTerm(r_cv)
-
-    math_ast: libsbml.ASTNode = libsbml.parseL3FormulaWithModel(l3_formaula, model)
-    kinetic_law = r.createKineticLaw()
-    if kinetic_sbo_term is not None:
-        kinetic_law.setSBOTerm(kinetic_sbo_term)
-    kinetic_law.setMath(math_ast)
-    return r
-
-
-def add_reactant_to_reaction(r, species):
-    species_ref: libsbml.SpeciesReference = r.createReactant()
-    species_ref.setSpecies(species)  # assign reactant species
-
-
-def add_product_to_reaction(r, species):
-    species_ref = r.createProduct()
-    species_ref.setSpecies(species)  # assign product species
-
-
-def add_modifier_to_reaction(r, species, sbo_term):
-    species_ref = r.createModifier()
-    species_ref.setSpecies(species)
-    species_ref.setSBOTerm(sbo_term)
-
-
-# %% [markdown]
-
-# # Create SBML Model
-
-# The following code builds a repressilator model in SBML.  To do this libSBML is used.  The repressilator is a genetic regulatory network consisting of at least one feedback loop with at least three genes, each expressing a protein that represses the next gene in the loop.  See the diagram below for a graphic respresentation of what we are building.
-
-# <img src="https://raw.githubusercontent.com/combine-org/combine-notebooks/main/results/repressilator_sbgn.png" width="40%" height="40%" />
 
 # %%
 
