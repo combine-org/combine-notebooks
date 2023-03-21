@@ -1,4 +1,4 @@
-# <markdowncell>
+# %% [markdown]
 # Create repressilator using SED-ML
 
 # SED-ML encodes in a computer-readable exchange format the information required by MIASE to enable reproduction of simulation experiments.
