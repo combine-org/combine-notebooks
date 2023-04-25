@@ -309,21 +309,3 @@ if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
 
     create_repressilator(sedml_path=RESULTS_DIR / "repressilator_sedml.xml")
-
-# <codecell>
-if __name__ == "__main__":
-    import tempfile
-
-    import tellurium as te
-
-    from combine_notebooks import RESULTS_DIR
-
-    # Load the SED-ML into memory
-    workingDir = tempfile.mkdtemp(suffix="_sedml")
-    sedml_path = RESULTS_DIR / "repressilator_sedml.xml"
-    sedml_str = ""
-    with open(sedml_path) as sedml_file:
-        sedml_str = sedml_file.read()
-
-    # execute SED-ML using Tellurium
-    te.executeSEDML(sedml_str, workingDir=workingDir)

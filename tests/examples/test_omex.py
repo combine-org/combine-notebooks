@@ -2,7 +2,7 @@
 from pathlib import Path
 
 from combine_notebooks.combine_files import create_combine_files
-from combine_notebooks.examples.example_omex import create_omex
+from combine_notebooks.examples.repressilator.example_omex import create_omex
 
 
 def test_create_repressilator_omex(tmp_path: Path) -> None:
