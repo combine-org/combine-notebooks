@@ -1,1 +1,1 @@
-"""COMBINE repressilator example for each standard."""
+"""COMBINE examples."""
