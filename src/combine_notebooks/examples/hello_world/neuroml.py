@@ -21,15 +21,14 @@
 # %%
 # #%pip install pyneuroml neuromllite NEURON
 
-import neuroml.writers as writers
-import numpy as np
-
 # %%
 from neuroml import NeuroMLDocument
-from neuroml.utils import component_factory, validate_neuroml2
+import neuroml.writers as writers
+from neuroml.utils import component_factory
+from neuroml.utils import validate_neuroml2
 from pyneuroml import pynml
 from pyneuroml.lems import LEMSSimulation
-
+import numpy as np
 
 # %% [markdown]
 # ## Declaring the NeuroML model
@@ -52,18 +51,8 @@ nml_doc.info(True)
 # %%
 izh0 = nml_doc.add(
     "Izhikevich2007Cell",
-    id="izh2007RS0",
-    v0="-60mV",
-    C="100pF",
-    k="0.7nS_per_mV",
-    vr="-60mV",
-    vt="-40mV",
-    vpeak="35mV",
-    a="0.03per_ms",
-    b="-2nS",
-    c="-50.0mV",
-    d="100pA",
-)
+    id="izh2007RS0", v0="-60mV", C="100pF", k="0.7nS_per_mV", vr="-60mV",
+    vt="-40mV", vpeak="35mV", a="0.03per_ms", b="-2nS", c="-50.0mV", d="100pA")
 izh0.info(True)
 nml_doc.info(show_contents=True)
 
@@ -87,10 +76,8 @@ net.info()
 # %%
 pg = nml_doc.add(
     "PulseGenerator",
-    id="pulseGen_%i" % 0,
-    delay="0ms",
-    duration="1000ms",
-    amplitude="0.07 nA",
+    id="pulseGen_%i" % 0, delay="0ms", duration="1000ms",
+    amplitude="0.07 nA"
 )
 exp_input = net.add("ExplicitInput", target="%s[%i]" % (pop0.id, 0), input=pg.id)
 
@@ -98,7 +85,7 @@ exp_input = net.add("ExplicitInput", target="%s[%i]" % (pop0.id, 0), input=pg.id
 # ### Write the NeuroML model to a file
 
 # %%
-nml_file = "izhikevich2007_single_cell_network.nml"
+nml_file = 'izhikevich2007_single_cell_network.nml'
 writers.NeuroMLWriter.write(nml_doc, nml_file)
 print("Written network file to: " + nml_file)
 
@@ -116,9 +103,8 @@ validate_neuroml2(nml_file)
 
 # %%
 simulation_id = "example-single-izhikevich2007cell-sim"
-simulation = LEMSSimulation(
-    sim_id=simulation_id, duration=1000, dt=0.1, simulation_seed=123
-)
+simulation = LEMSSimulation(sim_id=simulation_id,
+                            duration=1000, dt=0.1, simulation_seed=123)
 simulation.assign_simulation_target(net.id)
 simulation.include_neuroml2_file(nml_file)
 
@@ -128,8 +114,10 @@ simulation.include_neuroml2_file(nml_file)
 # Here, we record the neuron's membrane potential to the specified data file.
 
 # %%
-simulation.create_output_file("output0", "%s.v.dat" % simulation_id)
-simulation.add_column_to_output_file("output0", "IzhPop0[0]", "IzhPop0[0]/v")
+simulation.create_output_file(
+    "output0", "%s.v.dat" % simulation_id
+)
+simulation.add_column_to_output_file("output0", 'IzhPop0[0]', 'IzhPop0[0]/v')
 
 # %% [markdown]
 # ### Save the simulation to a file
@@ -153,12 +141,9 @@ pynml.run_lems_with_jneuroml(
 # using the pynml generate_plot utility function.
 data_array = np.loadtxt("%s.v.dat" % simulation_id)
 pynml.generate_plot(
-    [data_array[:, 0]],
-    [data_array[:, 1]],
-    "Membrane potential",
-    show_plot_already=True,
-    xaxis="time (s)",
-    yaxis="membrane potential (V)",
+    [data_array[:, 0]], [data_array[:, 1]],
+    "Membrane potential", show_plot_already=True,
+    xaxis="time (s)", yaxis="membrane potential (V)"
 )
 
 # %%
