@@ -1,1 +1,1 @@
-"""COMBINE example notebooks."""
+"""COMBINE examples."""

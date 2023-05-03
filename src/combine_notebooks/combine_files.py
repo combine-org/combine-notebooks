@@ -1,20 +1,28 @@
 """Runs all the example scripts and generates all COMBINE files."""
 from pathlib import Path
 
-from combine_notebooks.examples.example_biopax import create_repressilator as biopax
-from combine_notebooks.examples.example_cellml import create_repressilator as cellml
-from combine_notebooks.examples.example_omex import create_omex
-from combine_notebooks.examples.example_sbgn import create_repressilator as sbgn
-from combine_notebooks.examples.example_sbml_antimony import (
+from combine_notebooks.examples.repressilator.example_biopax import (
+    create_repressilator as biopax,
+)
+from combine_notebooks.examples.repressilator.example_cellml import (
+    create_repressilator as cellml,
+)
+from combine_notebooks.examples.repressilator.example_omex import create_omex
+from combine_notebooks.examples.repressilator.example_sbgn import (
+    create_repressilator as sbgn,
+)
+from combine_notebooks.examples.repressilator.example_sbml_antimony import (
     create_repressilator as sbml_antimony,
 )
-from combine_notebooks.examples.example_sbml_libsbml import (
+from combine_notebooks.examples.repressilator.example_sbml_libsbml import (
     create_repressilator as sbml_libsbml,
 )
-from combine_notebooks.examples.example_sbml_sbmlutils import (
+from combine_notebooks.examples.repressilator.example_sbml_sbmlutils import (
     create_repressilator as sbml_sbmlutils,
 )
-from combine_notebooks.examples.example_sedml import create_repressilator as sedml
+from combine_notebooks.examples.repressilator.example_sedml import (
+    create_repressilator as sedml,
+)
 
 
 def create_combine_files(output_dir: Path) -> None:

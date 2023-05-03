@@ -6,4 +6,6 @@ __version__ = "0.1.4"
 BASE_DIR: Path = Path(__file__).parent.parent.parent
 RESULTS_DIR: Path = BASE_DIR / "results"
 NOTEBOOK_DIR: Path = BASE_DIR / "notebooks"
-EXAMPLE_DIR: Path = Path(__file__).parent / "examples"
+HELLO_WORLD_DIR: Path = Path(__file__).parent / "examples/hello_world"
+REPRESSILATOR_DIR: Path = Path(__file__).parent / "examples/repressilator"
+

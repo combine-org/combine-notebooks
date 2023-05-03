@@ -2,10 +2,20 @@ name: CI-CD
 
 on:
   push:
-    branches: [ master, development, experimental, test* ]
+    branches: [ master, development, experimental, test*, precommit ]
   pull_request:
-    branches: [ master, development, experimental, test* ]
+    branches: [ master, development, experimental, test*, precommit ]
 jobs:
+
+  pre-commit:
+      name: Format
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v2
+      - uses: pre-commit/action@v2.0.0
+        with:
+          extra_args: --hook-stage manual --all-files
   test:
     runs-on: ${{ matrix.os }}
     strategy:
