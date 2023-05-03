@@ -1,28 +1,17 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: percent
-#       format_version: '1.3'
-#       jupytext_version: 1.14.5
-#   kernelspec:
-#     display_name: Python 3
-#     language: python
-#     name: python3
-# ---
+# <markdowncell>
 
-# %% [markdown]
 # https://libcellml.org/documentation/v0.4.0/user/tutorials/hh_tutorial1/index
 
-# %%
-from libcellml import Analyser, Component, Model, Printer, Units, Validator, Variable, cellmlElementTypeAsString
-from utilities import print_issues, print_model, get_issue_level_from_enum
+# <codecell>
 
-# %% [markdown]
+from libcellml import Analyser, Component, Model, Printer, Units, Validator, Variable, cellmlElementTypeAsString
+from combine_notebooks.cellml_utilities import print_model
+
+# <markdowncell>
+
 # Setup the model
 
-# %%
+# <codecell>
 #  Setup useful things.
 math_header = '<math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">\n'
 math_footer = '</math>'
@@ -52,11 +41,11 @@ model.addComponent(gate)
 # check it is what you'd expect.
 print_model(model)
 
+# <markdowncell>
 
-# %% [markdown]
 # Create the gateEquations component
 
-# %%
+# <codecell>
 
 # Create a gateEquations component and name it 'gateEquations'.
 gateEquations = Component('gateEquations')
@@ -98,22 +87,21 @@ print_model(model, True)
 #  Once the mathematics has been added to the component, and the component to the 
 #  model, we can make use of the diagnostic messages within the Validator class
 #  to tell us what else needs to be done.  
+# <markdowncell>
 
-# %% [markdown]
 # Validate the model
 
-# %%
+# <codecell>
+
 # Create a Validator instance, and pass it your model for processing using the 
 # validateModel function.  
 validator = Validator()
 validator.validateModel(model)
-print_issues(validator)
+# <markdowncell>
 
-
-# %% [markdown]
 # Add the variables
 
-# %%
+# <codecell>
 # Create items for the missing variables and add them to the gateEquations component.
 # You will need to be sure to give them names which match exactly those reported by the
 # validator, or are present in the MathML string.  
@@ -126,12 +114,11 @@ gateEquations.addVariable(Variable('X'))
 # Note that you can use the helper function print_issues(validator) to print your
 # issues to the screen instead of repeating the code from 3.b.
 validator.validateModel(model)
-print_issues(validator)
+# <markdowncell>
 
-# %% [markdown]
 # Add the units
 
-# %%
+# <codecell>
 #  The validator has reported that the four variables are missing units attributes.  
 #  In this example none of the units exist yet, so we need to create all of them. 
 #  The variables' units should be:
@@ -160,24 +147,18 @@ gateEquations.variable('X').setUnits('dimensionless')
 
 # Validate again, and expect no errors.
 validator.validateModel(model)
-print_issues(validator)
 
 # Print the model to the terminal and include the optional second argument of true
 # to include the MathML.
 print_model(model, True)
+# <markdowncell>
 
-# %% [markdown]
 # Analyse the model
 
-# %%
+# <codecell>
 # Create an Analyser item and submit the model for processing. 
 analyser = Analyser()
 analyser.analyseModel(model)
-
-# Just like the Validator class, the Analyser class keeps track of issues. 
-# Retrieve these and print to the terminal. Expect errors related to 
-# un-computed variables and missing initial values.
-print_issues(analyser)
 
 # In order to avoid hard-coding values here, we will need to connect to external 
 # values to initialise the X variable and provide the value for alpha_X and beta_X.
@@ -217,7 +198,6 @@ Variable.addEquivalence(gateEquations.variable('alpha_X'), gateParameters.variab
 Variable.addEquivalence(gateEquations.variable('beta_X'), gateParameters.variable('beta'))
 
 validator.validateModel(model)
-print_issues(validator)
 
 # Set the variable interface type according to the recommendation from the validator.
 # This can either be done individually using the Variable::setInterfaceType() function, or 
@@ -226,15 +206,14 @@ print_issues(validator)
 model.fixVariableInterfaces()
 
 validator.validateModel(model)
-print_issues(validator)
 
 analyser.analyseModel(model)
-print_issues(analyser)
 
-# %% [markdown]
+# <markdowncell>
+
 # Sanity check
 
-# %%
+# <codecell>
 # Print the model to the terminal using the helper function print_model.
 print_model(model)
 
@@ -261,20 +240,23 @@ Variable.addEquivalence(gate.variable('t'), gateEquations.variable('t'))
 Variable.addEquivalence(gate.variable('X'), gateEquations.variable('X'))
 
 validator.validateModel(model)
-print_issues(validator)
 analyser.analyseModel(model)
-print_issues(analyser)
+# <markdowncell>
 
-# %% [markdown]
 # Serialise and output the model
 
-# %%
+# <codecell>
+from combine_notebooks import RESULTS_DIR
+from pathlib import Path
+
+cellml_path: Path = RESULTS_DIR / 'hello_world_cellml.cellml'
+
 # Create a Printer instance and use it to serialise the model.  This creates a string
 # containing the CellML-formatted version of the model.  Write this to a file called
-# 'cellml.cellml'.
+# 'hello_world_cellml.cellml'.
 printer = Printer()
-write_file = open('cellml.cellml', 'w')
+write_file = open(cellml_path, 'w')
 write_file.write(printer.printModel(model))
 write_file.close()
 
-print('The created model has been written to GateModel.cellml')
+print('The created model has been written to hello_world_cellml.cellml')

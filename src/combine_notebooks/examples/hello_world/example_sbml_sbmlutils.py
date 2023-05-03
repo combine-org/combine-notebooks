@@ -1,52 +1,41 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: percent
-#       format_version: '1.3'
-#       jupytext_version: 1.14.5
-#   kernelspec:
-#     display_name: Python 3
-#     language: python
-#     name: python3
-# ---
-
-# %% [markdown]
+# <markdowncell>
 # Here we show how to create a basic SBML model using basiCO, and simulating it. We start as usual by importing basiCO.
 
-# %%
+# <codecell>
 from basico import *
 
-# %% [markdown]
+# <markdowncell>
 # Lets create a new model, passing along the name that we want to give it.
 
-# %%
+# <codecell>
 new_model(name="New Model") 
 
-# %% [markdown]
+# <markdowncell>
 # Now we add a basic reaction of a metabolite A degrading.  
 
-# %%
+# <codecell>
 add_reaction('r1', 'A -> ')
 
-# %% [markdown]
+# <markdowncell>
 # We export the model to an sbml format and print it.
 
-# %%
-save_model('sbml.xml', type='sbml')
-xml = open('sbml.xml').read()
+# <codecell>
+from combine_notebooks import RESULTS_DIR
+
+sbml_file = str(RESULTS_DIR) + '/hello_world_sbml.xml'
+save_model(sbml_file, type='sbml')
+xml = open(sbml_file).read()
 print(xml)
 
-# %% [markdown]
+# <markdowncell>
 # To change the initial concentration, we use set_species, and specify which property we want to change.
 
-# %%
+# <codecell>
 set_species('A', initial_concentration=10)
 get_species().initial_concentration
 
-# %%
+# <codecell>
 result = run_time_course(duration=50)
 result.plot()
 
-# %%
+
