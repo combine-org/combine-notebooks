@@ -13,6 +13,7 @@ from pymetadata.omex import EntryFormat, ManifestEntry, Omex
 
 # Creating an empty archive and adding entry for SBML.
 
+
 # <codecell>
 def create_omex(omex_path: Path, results_dir: Path) -> None:
     """Create OMEX archive of resources."""
@@ -73,15 +74,16 @@ def create_omex(omex_path: Path, results_dir: Path) -> None:
 
     console.print(omex)
     omex.to_omex(omex_path)
-    
+
+
 # <codecell>
 
 if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
 
-    create_omex(omex_path=RESULTS_DIR / "combine_hello_world.omex", results_dir=RESULTS_DIR)
+    create_omex(
+        omex_path=RESULTS_DIR / "combine_hello_world.omex", results_dir=RESULTS_DIR
+    )
 
-        # <markdowncell>
+    # <markdowncell>
 # -
-
-

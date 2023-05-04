@@ -1,7 +1,7 @@
-
 # <codecell>
 
 from pathlib import Path
+
 import IPython
 import libsbgnpy.libsbgn as libsbgn
 from IPython.core.display import HTML
@@ -10,9 +10,12 @@ from libsbgnpy.libsbgnTypes import ArcClass, GlyphClass, Language, Orientation
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import PythonLexer
+
 from combine_notebooks import RESULTS_DIR
 
+
 # <codecell>
+
 
 def pprint_xml(xml_str: str) -> None:
     """Create highlighted xml."""
@@ -92,6 +95,7 @@ map.add_arc(a)
 
 from combine_notebooks import RESULTS_DIR
 
+
 sbgn_path = str(RESULTS_DIR) + "/hello_world_sbgn.sbgn"
 f_out = sbgn_path
 sbgn.write_file(f_out)
@@ -99,9 +103,7 @@ sbgn.write_file(f_out)
 # render SBGN
 from libsbgnpy import render
 
-f_png: str = str(RESULTS_DIR) + '/hello_world_sbgn.png'
+
+f_png: str = str(RESULTS_DIR) + "/hello_world_sbgn.png"
 render.render_sbgn(sbgn, image_file=f_png, file_format="png")
 Image(f_png, width=300)
-
-
-

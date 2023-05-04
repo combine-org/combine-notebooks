@@ -1,7 +1,9 @@
 # <codecell>
 
 from pathlib import Path
+
 import libsedml
+
 
 # <markdowncell>
 
@@ -15,7 +17,7 @@ doc = libsedml.SedDocument(1, 4)
 model = doc.createModel()
 model.setId("model1")
 model.setSource("model1.xml")
-model.setLanguage("urn:sedml:language:sbml") 
+model.setLanguage("urn:sedml:language:sbml")
 
 # <markdowncell>
 
@@ -87,7 +89,9 @@ dg.setName("[A]")
 var = dg.createVariable()
 var.setId("p1_A_1_task1")
 var.setName("[A]")
-var.setTarget("/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;A&apos;]")
+var.setTarget(
+    "/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;A&apos;]"
+)
 var.setTaskReference("task1")
 var.setTerm("KISAO:0000838")
 dg.setMath(libsedml.parseFormula("p1_A_1_task1"))
@@ -118,7 +122,7 @@ curve.setYDataReference("A_1_task1")
 
 # <codecell>
 
-style : libsedml.SedStyle = doc.createStyle()
+style: libsedml.SedStyle = doc.createStyle()
 style.setId("style1")
 line = style.createLineStyle()
 line.setType("solid")
@@ -131,7 +135,7 @@ marker.setType("none")
 
 from combine_notebooks import RESULTS_DIR
 
-sedml_file = str(RESULTS_DIR) + '/hello_world_sedml.sedml'
+
+sedml_file = str(RESULTS_DIR) + "/hello_world_sedml.sedml"
 
 libsedml.writeSedML(doc, sedml_file)
-
