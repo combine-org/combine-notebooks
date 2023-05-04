@@ -1,7 +1,7 @@
 """Test SBGN functionality."""
 from pathlib import Path
 
-from combine_notebooks.examples.repressilator import example_sbgn
+from combine_notebooks.examples import example_sbgn
 
 
 def test_create_repressilator_libsbgn(tmp_path: Path) -> None:
