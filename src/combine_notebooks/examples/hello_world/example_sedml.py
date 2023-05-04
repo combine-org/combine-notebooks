@@ -1,37 +1,30 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: percent
-#       format_version: '1.3'
-#       jupytext_version: 1.14.5
-#   kernelspec:
-#     display_name: Python 3
-#     language: python
-#     name: python3
-# ---
+# <codecell>
 
-# %%
 from pathlib import Path
+
 import libsedml
 
-# %% [markdown]
+
+# <markdowncell>
+
 # ## Declaring the SED-ML model
 
- # %%
- # create the document
+# <codecell>
+
+# create the document
 doc = libsedml.SedDocument(1, 4)
 # create a first model referencing an sbml file
 model = doc.createModel()
 model.setId("model1")
 model.setSource("model1.xml")
-model.setLanguage("urn:sedml:language:sbml") 
+model.setLanguage("urn:sedml:language:sbml")
 
-# %% [markdown]
+# <markdowncell>
+
 # Simulators
 
-# %%
+# <codecell>
+
 # create simulation
 tc = doc.createUniformTimeCourse()
 tc.setId("sim1")
@@ -61,22 +54,23 @@ alg_par4.setName("Max Internal Steps")
 alg_par4.setKisaoID("KISAO:0000415")
 alg_par4.setValue("100000")
 
+# <markdowncell>
 
-# %% [markdown]
 # Task
 
-# %%
+# <codecell>
+
 # create a task that uses the simulation and the model above
 task = doc.createTask()
 task.setId("task1")
 task.setModelReference("model1")
 task.setSimulationReference("sim1")
 
+# <markdowncell>
 
-# %% [markdown]
 # Data generators
 
-# %%
+# <codecell>
 # add a DataGenerator to hold the output for time
 dg = doc.createDataGenerator()
 dg.setId("_1_task1")
@@ -95,17 +89,20 @@ dg.setName("[A]")
 var = dg.createVariable()
 var.setId("p1_A_1_task1")
 var.setName("[A]")
-var.setTarget("/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;A&apos;]")
+var.setTarget(
+    "/sbml:sbml/sbml:model/sbml:listOfSpecies/sbml:species[@id=&apos;A&apos;]"
+)
 var.setTaskReference("task1")
 var.setTerm("KISAO:0000838")
 dg.setMath(libsedml.parseFormula("p1_A_1_task1"))
 
 
+# <markdowncell>
 
-# %% [markdown]
 # Outputs
 
-# %%
+# <codecell>
+
 # add a 2d plot
 plot = doc.createPlot2D()
 plot.setId("plot_1_task1")
@@ -119,11 +116,13 @@ curve.setStyle("style1")
 curve.setXDataReference("_1_task1")
 curve.setYDataReference("A_1_task1")
 
-# %% [markdown]
+# <markdowncell>
+
 # Styles
 
-# %%
-style : libsedml.SedStyle = doc.createStyle()
+# <codecell>
+
+style: libsedml.SedStyle = doc.createStyle()
 style.setId("style1")
 line = style.createLineStyle()
 line.setType("solid")
@@ -132,6 +131,11 @@ marker = style.createMarkerStyle()
 marker.setType("none")
 
 
-# %%
-libsedml.writeSedML(doc, str('sedml_path.sedml'))
+# <codecell>
 
+from combine_notebooks import RESULTS_DIR
+
+
+sedml_file = str(RESULTS_DIR) + "/hello_world_sedml.sedml"
+
+libsedml.writeSedML(doc, sedml_file)

@@ -8,4 +8,3 @@ RESULTS_DIR: Path = BASE_DIR / "results"
 NOTEBOOK_DIR: Path = BASE_DIR / "notebooks"
 HELLO_WORLD_DIR: Path = Path(__file__).parent / "examples/hello_world"
 REPRESSILATOR_DIR: Path = Path(__file__).parent / "examples/repressilator"
-
