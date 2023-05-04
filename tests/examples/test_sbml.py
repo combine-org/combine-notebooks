@@ -3,7 +3,7 @@ from pathlib import Path
 
 from sbmlutils.factory import FactoryResult
 
-from combine_notebooks.examples.repressilator import (
+from combine_notebooks.examples import (
     example_sbml_antimony,
     example_sbml_libsbml,
     example_sbml_sbmlutils,

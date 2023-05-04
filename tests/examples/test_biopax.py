@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 from pybiopax.biopax.model import BioPaxModel
 
-from combine_notebooks.examples.repressilator import example_biopax
+from combine_notebooks.examples import example_biopax
 
 
 def test_create_repressilator_biopax(tmp_path: Path) -> None:
