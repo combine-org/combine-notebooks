@@ -1,20 +1,20 @@
-# <markdowncell>
+# %% [markdown]
 # Biological Pathway Exchange (BioPAX) is a standard language that aims to enable integration, exchange, visualization and analysis of biological pathway data. Specifically, BioPAX supports data exchange between pathway data groups and thus reduces the complexity of interchange between data formats by providing an accepted standard format for pathway data. It is an open and collaborative effort by the community of researchers, software developers, and institutions. BioPAX is defined in OWL DL and is represented in the RDF/XML format. For more details, see Demir E et al. 2010. The BioPAX community standard for pathway data sharing, Nature Biotechnology. 28(9).
-# <markdowncell>
+# %% [markdown]
 # http://www.biopax.org/
 # Specification: http://www.biopax.org/release/biopax-level3-documentation.pdf
 # https://pypi.org/project/pybiopax/
 # https://github.com/indralab/pybiopax
-# <markdowncell>
+# %% [markdown]
 # For the reactions you need probably the `BiochemicalReaction` and `Degradation`.
 # For the PhysicalEntities you would use `Protein` and `RNA`.
 # For the inhibition you will probably use `Modulation`.
 # Have a look at the specification and the introduction to BioPax.
-# <markdowncell>
+# %% [markdown]
 # Example for fetching information
 # https://github.com/indralab/pybiopax/blob/master/notebooks/tutorial.ipynb
 
-# <codecell>
+# %%
 
 from pathlib import Path
 
@@ -38,7 +38,7 @@ from pybiopax.biopax.model import (
 )
 
 
-# <codecell>
+# %%
 def create_repressilator(biopax_path: Path) -> BioPaxModel:
     """Create repressilator using biopax."""
     objects = []
@@ -660,7 +660,7 @@ def create_repressilator(biopax_path: Path) -> BioPaxModel:
     return model
 
 
-# <codecell>
+# %%
 if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
 

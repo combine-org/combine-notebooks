@@ -56,6 +56,10 @@ To work with the notebooks create a virtual environment and install the dependen
     (combine_notebooks) pip install -e .[development] --upgrade
 
 
+To setup pre-commit hooks (optional) run the following command::
+
+    pre-commit install
+
 After changes ensure code formatting via::
 
     ./fcode.sh
