@@ -1,8 +1,8 @@
-# %% [markdown]
+# <markdowncell>
 # Example script for creating SBML repressilator with sbmlutils.
 
 # https://github.com/matthiaskoenig/libsbgn-python
-# %%
+# <codecell>
 from pathlib import Path
 
 from sbmlutils.factory import (
@@ -23,7 +23,7 @@ from sbmlutils.metadata import BQB
 from combine_notebooks import RESULTS_DIR
 
 
-# %%
+# <codecell>
 model = Model(
     "repressilator_sbmlutils",
     units=Units,
@@ -132,34 +132,34 @@ model = Model(
     ],
     rules=[
         AssignmentRule(
-            variable="",
+            variable="kd_mRNA",
             sid="kd_mRNA",
             value="ln(2) / tau_mRNA",
             name="kd_MRNA",
             sboTerm=None,
         ),
         AssignmentRule(
-            variable="",
+            variable="t_ave",
             sid="t_ave",
             value="tau_mRNA / ln(2)",
             name="t_ave",
             sboTerm=None,
         ),
         AssignmentRule(
-            variable="", sid="k_tl", value="eff / t_ave", name="k_tl", sboTerm=None
+            variable="k_tl", sid="k_tl", value="eff / t_ave", name="k_tl", sboTerm=None
         ),
         AssignmentRule(
-            variable="",
+            variable="kd_prot",
             sid="kd_prot",
             value="ln(2) / tau_prot",
             name="kd_prot",
             sboTerm=None,
         ),
         AssignmentRule(
-            variable="", sid="a0_tr", value="ps_0 * 60", name="a0_tr", sboTerm=None
+            variable="a0_tr", sid="a0_tr", value="ps_0 * 60", name="a0_tr", sboTerm=None
         ),
         AssignmentRule(
-            variable="",
+            variable="a_tr",
             sid="a_tr",
             value="(ps_a - ps_0) * 60",
             name="a_tr",
@@ -287,24 +287,21 @@ model = Model(
     ],
 )
 
-# %%
+# <codecell>
 
 
 def create_repressilator(sbml_path: Path) -> FactoryResult:
     """Create the repressilator model in the results_dir."""
     results = create_model(
-        models=model,
-        output_dir=sbml_path.parent,
-        filename=sbml_path.name,
-        tmp=False,
-        units_consistency=False,
+        model=model,
+        filepath=sbml_path,
         sbml_level=2,
         sbml_version=3,
     )
     return results
 
 
-# %%
+# <codecell>
 if __name__ == "__main__":
     # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
     # RESULTS_DIR: Path = RESOURCES_DIR / "results"
