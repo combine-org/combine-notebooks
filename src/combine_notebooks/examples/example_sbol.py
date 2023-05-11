@@ -1,15 +1,38 @@
-"""
-https://github.com/combine-org/combine-notebooks/issues/5
-"""
+"""https://github.com/combine-org/combine-notebooks/issues/5."""
 import getpass
 
 import loica as lc
+import numpy as np
 import sbol3
 from flapjack import Flapjack
 from sbol_utilities import component
 
 
 # %matplotlib inline
+
+
+def gompertz_growth_rate(t, y0, ymax, um, m):
+    """Define a growth rate decays exponentially as the population approaches it maximum."""
+    A = np.log(ymax / y0)
+    gr = um * np.exp(
+        (np.exp(1) * um * (m - t)) / A - np.exp((np.exp(1) * um * (m - t)) / A + 1) + 2
+    )
+    return gr
+
+
+def gompertz(t, y0, ymax, um, m):
+    """Define a sigmoid function which describes growth as being slowest at the start."""
+    A = np.log(ymax / y0)
+    log_rel_od = A * np.exp(-np.exp((((um * np.exp(1)) / A) * (m - t)) + 1))
+    od = y0 * np.exp(log_rel_od)
+    return od
+
+
+user = input()
+passwd = getpass.getpass()
+fj = Flapjack("flapjack.rudge-lab.org:8000")  # Web Instance
+# fj = Flapjack(url_base='localhost:8000') #Local Instance
+fj.log_in(username=user, password=passwd)
 
 dna = fj.get("dna", name="Rep")
 if len(dna) == 0:
@@ -56,10 +79,12 @@ biomass_signal = fj.get("signal", name="OD")
 
 
 def growth_rate(t):
+    """Return growth rate."""
     return gompertz_growth_rate(t, 0.01, 1, 1, 1)
 
 
 def biomass(t):
+    """Return biomass."""
     return gompertz(t, 0.01, 1, 1, 1)
 
 

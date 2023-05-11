@@ -1,15 +1,19 @@
 """Helper functions for constructing SBML model."""
 
+from typing import Callable, Optional
+
 import libsbml
 
 
-def run_if_not_none(function, value):
+def run_if_not_none(function: Callable, value: object) -> None:
     """Run a setter method if and only if the given value is not None."""
     if value is not None:
         function(value)
 
 
-def create_annotation(qualifier_type, biological_qualifier_type, resource):
+def create_annotation(
+    qualifier_type: int, biological_qualifier_type: int, resource: str
+) -> libsbml.CVTerm:
     """
     Create an annotation, but this will not be automatically be added to a model.
 
@@ -22,7 +26,9 @@ def create_annotation(qualifier_type, biological_qualifier_type, resource):
     return cv
 
 
-def add_annotation_resource(cv, biological_qualifier_type, resource):
+def add_annotation_resource(
+    cv: libsbml.CVTerm, biological_qualifier_type: int, resource: str
+) -> libsbml.CVTerm:
     """
     Add a resource to an existing annotation.
 
@@ -34,7 +40,9 @@ def add_annotation_resource(cv, biological_qualifier_type, resource):
     return cv
 
 
-def add_compartment(model, id, size, meta_id, sbo_term):
+def add_compartment(
+    model: libsbml.Model, id: str, size: float, meta_id: str, sbo_term: str
+) -> libsbml.Compartment:
     """
     Create a compartment and adds to an existing model.
 
@@ -50,15 +58,15 @@ def add_compartment(model, id, size, meta_id, sbo_term):
 
 
 def add_species(
-    model,
-    id,
-    meta_id,
-    compartment,
-    name,
-    sbo_term,
-    initial_amount,
-    has_only_substance_units,
-):
+    model: libsbml.Model,
+    id: str,
+    meta_id: str,
+    compartment: str,
+    name: str,
+    sbo_term: str,
+    initial_amount: int,
+    has_only_substance_units: bool,
+) -> libsbml.Species:
     """
     Create a species and adds to an existing model.
 
@@ -78,7 +86,14 @@ def add_species(
     return s
 
 
-def add_parameters(model, id, name, constant, sbo_term=None, value=None):
+def add_parameters(
+    model: libsbml.Model,
+    id: str,
+    name: str,
+    constant: bool,
+    sbo_term: Optional[str] = None,
+    value: Optional[float] = None,
+) -> None:
     """
     Create a parameters and adds to an existing model.
 
@@ -94,7 +109,7 @@ def add_parameters(model, id, name, constant, sbo_term=None, value=None):
     run_if_not_none(p.setValue, value)
 
 
-def add_assignment_rule(model, variable, l3_formaula):
+def add_assignment_rule(model: libsbml.Model, variable: str, l3_formaula: str) -> None:
     """
     Create an assignment rule and adds to an existing model.
 
@@ -108,18 +123,18 @@ def add_assignment_rule(model, variable, l3_formaula):
 
 
 def add_reactions(
-    model,
-    id,
-    meta_id,
-    sbo_term,
-    name,
-    reversible,
-    qualifier_type,
-    biological_qualifier_type,
-    resource,
-    l3_formaula,
-    kinetic_sbo_term,
-):
+    model: libsbml.Model,
+    id: str,
+    meta_id: str,
+    sbo_term: str,
+    name: str,
+    reversible: bool,
+    qualifier_type: int,
+    biological_qualifier_type: int,
+    resource: str,
+    l3_formaula: str,
+    kinetic_sbo_term: Optional[str],
+) -> libsbml.Reaction:
     """
     Create a reactions and a corresponding resource.
 
@@ -144,19 +159,19 @@ def add_reactions(
     return r
 
 
-def add_reactant_to_reaction(r, species):
+def add_reactant_to_reaction(r: libsbml.Reaction, species: str) -> None:
     """Add a reactant to a pre defined reaction."""
     species_ref: libsbml.SpeciesReference = r.createReactant()
     species_ref.setSpecies(species)  # assign reactant species
 
 
-def add_product_to_reaction(r, species):
+def add_product_to_reaction(r: libsbml.Reaction, species: str) -> None:
     """Add a product_ to a pre defined reaction."""
     species_ref = r.createProduct()
     species_ref.setSpecies(species)  # assign product species
 
 
-def add_modifier_to_reaction(r, species, sbo_term):
+def add_modifier_to_reaction(r: libsbml.Reaction, species: str, sbo_term: str) -> None:
     """Add a modifier to a pre defined reaction."""
     species_ref = r.createModifier()
     species_ref.setSpecies(species)
