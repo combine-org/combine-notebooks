@@ -146,11 +146,7 @@ model = Model(
             sboTerm=None,
         ),
         AssignmentRule(
-            variable="k_tl",
-            sid="k_tl",
-            value="eff / t_ave",
-            name="k_tl",
-            sboTerm=None,
+            variable="k_tl", sid="k_tl", value="eff / t_ave", name="k_tl", sboTerm=None
         ),
         AssignmentRule(
             variable="kd_prot",
@@ -160,11 +156,7 @@ model = Model(
             sboTerm=None,
         ),
         AssignmentRule(
-            variable="a0_tr",
-            sid="a0_tr",
-            value="ps_0 * 60",
-            name="a0_tr",
-            sboTerm=None,
+            variable="a0_tr", sid="a0_tr", value="ps_0 * 60", name="a0_tr", sboTerm=None
         ),
         AssignmentRule(
             variable="a_tr",

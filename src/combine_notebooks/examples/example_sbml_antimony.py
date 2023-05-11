@@ -1,10 +1,10 @@
-# <markdowncell>
+# %% [markdown]
 # Create repressilator with antimony.
 
 # http://antimony.sourceforge.net/
 # https://tellurium.readthedocs.io/en/latest/antimony.html
 
-# <codecell>
+# %%
 from pathlib import Path
 
 import antimony
@@ -13,7 +13,7 @@ import libsbml
 from combine_notebooks.validation.validation_sbml import validate_sbml
 
 
-# <codecell>
+# %%
 def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     """Create repressilator with antimony."""
     model: str = """
@@ -136,7 +136,7 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     return doc
 
 
-# <codecell>
+# %%
 if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
 
