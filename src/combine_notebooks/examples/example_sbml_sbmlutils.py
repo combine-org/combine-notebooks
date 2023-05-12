@@ -306,4 +306,4 @@ if __name__ == "__main__":
     # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
     # RESULTS_DIR: Path = RESOURCES_DIR / "results"
 
-    create_repressilator(sbml_path=RESULTS_DIR / "repressilator_sbmlutils.xml")
+    create_repressilator(sbml_path=RESULTS_DIR / "repressilator_sbml_sbmlutils.xml")

@@ -140,4 +140,4 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
 if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
 
-    create_repressilator(sbml_path=RESULTS_DIR / "repressilator_antimony.xml")
+    create_repressilator(sbml_path=RESULTS_DIR / "repressilator_sbml_antimony.xml")
