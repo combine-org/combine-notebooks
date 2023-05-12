@@ -10,6 +10,8 @@
 #
 # Issues: https://github.com/cellml/libcellml/issues/1017
 
+import os
+
 # %%
 from pathlib import Path
 
@@ -621,6 +623,7 @@ def create_repressilator(cellml_path: Path) -> libcellml.Model:
     print(serialised_model)
     print("-" * 80)
 
+    os.makedirs(os.path.dirname(cellml_path), exist_ok=True)
     with open(cellml_path, "w") as f_cellml:
         f_cellml.write(serialised_model)
 

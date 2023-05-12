@@ -3,6 +3,8 @@
 #
 # See on libsbgn-python: https://github.com/matthiaskoenig/libsbgn-python
 
+import os
+
 # %%
 from pathlib import Path
 
@@ -464,6 +466,7 @@ def create_repressilator(sbgn_path: Path) -> libsbgn.sbgn:
     map.add_arc(a)
 
     f_out = str(sbgn_path)
+    os.makedirs(os.path.dirname(f_out), exist_ok=True)
     sbgn.write_file(f_out)
 
     # render SBGN

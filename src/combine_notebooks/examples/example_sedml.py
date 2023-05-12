@@ -3,6 +3,8 @@
 
 # SED-ML encodes in a computer-readable exchange format the information required by MIASE to enable reproduction of simulation experiments.
 
+import os
+
 # https://sed-ml.org/
 # %%
 from pathlib import Path
@@ -300,6 +302,7 @@ def create_repressilator(sedml_path: Path) -> libsedml.SedDocument:
     curve.setYDataReference("dg_2_1_0")
 
     # write doc
+    os.makedirs(os.path.dirname(str(sedml_path)), exist_ok=True)
     libsedml.writeSedML(doc, str(sedml_path))
     return doc
 
