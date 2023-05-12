@@ -484,5 +484,5 @@ if __name__ == "__main__":
 
     RESULTS_DIR
     sbgn: libsbgn.sbgn = create_repressilator(
-        sbgn_path=RESULTS_DIR / "repressilator.sbgn"
+        sbgn_path=RESULTS_DIR / "repressilator_sbgn.sbgn"
     )
