@@ -4,9 +4,8 @@
 # http://antimony.sourceforge.net/
 # https://tellurium.readthedocs.io/en/latest/antimony.html
 
-import os
-
 # %%
+import os
 from pathlib import Path
 
 import antimony

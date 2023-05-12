@@ -3,9 +3,9 @@
 #
 # See on libsbgn-python: https://github.com/matthiaskoenig/libsbgn-python
 
-import os
 
 # %%
+import os
 from pathlib import Path
 
 import IPython

@@ -3,10 +3,10 @@
 
 # See on biomodels.
 
-import os
 
 # https://github.com/sbmlteam/libsbml
 # %%
+import os
 from pathlib import Path
 
 import libsbml

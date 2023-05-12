@@ -3,10 +3,10 @@
 
 # SED-ML encodes in a computer-readable exchange format the information required by MIASE to enable reproduction of simulation experiments.
 
-import os
 
 # https://sed-ml.org/
 # %%
+import os
 from pathlib import Path
 
 import libsedml

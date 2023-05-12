@@ -1,10 +1,10 @@
 # <markdowncell>
 # Example script for creating SBML repressilator with sbmlutils.
 
-import os
 
 # https://github.com/matthiaskoenig/libsbgn-python
 # <codecell>
+import os
 from pathlib import Path
 
 from sbmlutils.factory import (
