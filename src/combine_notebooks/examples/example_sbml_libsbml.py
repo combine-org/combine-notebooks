@@ -3,8 +3,10 @@
 
 # See on biomodels.
 
+
 # https://github.com/sbmlteam/libsbml
 # %%
+import os
 from pathlib import Path
 
 import libsbml
@@ -341,6 +343,7 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     print("-" * 80)
 
     # write to file
+    os.makedirs(os.path.dirname(str(sbml_path)), exist_ok=True)
     libsbml.writeSBMLToFile(doc, str(sbml_path))
 
     # validate file
@@ -356,5 +359,5 @@ if __name__ == "__main__":
     # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
     # RESULTS_DIR: Path = RESOURCES_DIR / "results"
     doc: libsbml.SBMLDocument = create_repressilator(
-        sbml_path=RESULTS_DIR / "repressilator_libsbml.xml"
+        sbml_path=RESULTS_DIR / "repressilator_sbml_libsbml.xml"
     )
