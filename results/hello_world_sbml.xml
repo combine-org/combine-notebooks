@@ -1,31 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created by libAntimony version v2.13.2 with libSBML version 5.19.5. -->
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" level="3" version="1">
-  <model metaid="myModel" id="myModel">
+  <model substanceUnits="mole" timeUnits="second" extentUnits="mole">
+    <listOfUnitDefinitions>
+      <unitDefinition id="per_second">
+        <listOfUnits>
+          <unit kind="second" exponent="-1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
     <listOfCompartments>
-      <compartment sboTerm="SBO:0000410" id="default_compartment" spatialDimensions="3" size="1" constant="true"/>
+      <compartment id="c1" spatialDimensions="3" size="1" units="litre" constant="true"/>
     </listOfCompartments>
     <listOfSpecies>
-      <species id="S1" compartment="default_compartment" initialConcentration="10" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="S2" compartment="default_compartment" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="S1" compartment="c1" initialAmount="5" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="S2" compartment="c1" initialAmount="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
-      <parameter id="k1" value="1" constant="true"/>
+      <parameter id="k" value="1" units="per_second" constant="true"/>
     </listOfParameters>
     <listOfReactions>
-      <reaction id="_J0" reversible="true" fast="false">
+      <reaction id="r1" reversible="false" fast="false">
         <listOfReactants>
-          <speciesReference species="S1" stoichiometry="1" constant="true"/>
+          <speciesReference species="S1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="S2" stoichiometry="1" constant="true"/>
+          <speciesReference species="S2" constant="true"/>
         </listOfProducts>
         <kineticLaw>
           <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
               <times/>
-              <ci> k1 </ci>
+              <ci> k </ci>
               <ci> S1 </ci>
+              <ci> c1 </ci>
             </apply>
           </math>
         </kineticLaw>

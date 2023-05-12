@@ -16,6 +16,7 @@
 
 # %%
 
+import os
 from pathlib import Path
 
 import pybiopax
@@ -649,6 +650,7 @@ def create_repressilator(biopax_path: Path) -> BioPaxModel:
         xml_base="http://www.biopax.org/release/biopax-level3.owl#",
     )
     owl_str: str = model_to_owl_str(model)
+    os.makedirs(os.path.dirname(biopax_path), exist_ok=True)
 
     with open(biopax_path, "w") as f_biopax:
         f_biopax.write(owl_str)

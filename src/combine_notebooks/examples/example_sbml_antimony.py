@@ -5,6 +5,7 @@
 # https://tellurium.readthedocs.io/en/latest/antimony.html
 
 # %%
+import os
 from pathlib import Path
 
 import antimony
@@ -131,6 +132,7 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
     validate_sbml(doc)
 
     # write SBML
+    os.makedirs(os.path.dirname(str(sbml_path)), exist_ok=True)
     libsbml.writeSBMLToFile(doc, str(sbml_path))
 
     return doc
@@ -140,4 +142,4 @@ def create_repressilator(sbml_path: Path) -> libsbml.SBMLDocument:
 if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
 
-    create_repressilator(sbml_path=RESULTS_DIR / "repressilator_antimony.xml")
+    create_repressilator(sbml_path=RESULTS_DIR / "repressilator_sbml_antimony.xml")

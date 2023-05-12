@@ -1,8 +1,10 @@
 # <markdowncell>
 # Example script for creating SBML repressilator with sbmlutils.
 
+
 # https://github.com/matthiaskoenig/libsbgn-python
 # <codecell>
+import os
 from pathlib import Path
 
 from sbmlutils.factory import (
@@ -306,4 +308,6 @@ if __name__ == "__main__":
     # RESOURCES_DIR: Path = Path(__file__).parent / "resources"
     # RESULTS_DIR: Path = RESOURCES_DIR / "results"
 
-    create_repressilator(sbml_path=RESULTS_DIR / "repressilator_sbmlutils.xml")
+    sbml_path = RESULTS_DIR / "repressilator_sbml_sbmlutils.xml"
+    os.makedirs(os.path.dirname(str(sbml_path)), exist_ok=True)
+    create_repressilator(sbml_path=sbml_path)
