@@ -13,3 +13,6 @@ src/combine_notebooks.egg-info/
 
 # notebook files
 notebooks/.ipynb_checkpoints
+/notebooks/LEMS_example-single-izhikevich2007cell-sim.xml
+/notebooks/example-single-izhikevich2007cell-sim.v.dat
+/notebooks/hello_world_neuroml.nml

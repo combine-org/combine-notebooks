@@ -1,9 +1,11 @@
-# <markdowncell>
+# %% [markdown]
 # Create the repressilator from libsbgn.
 #
 # See on libsbgn-python: https://github.com/matthiaskoenig/libsbgn-python
 
-# <codecell>
+
+# %%
+import os
 from pathlib import Path
 
 import IPython
@@ -16,7 +18,7 @@ from pygments.formatters import HtmlFormatter
 from pygments.lexers import PythonLexer
 
 
-# <codecell>
+# %%
 def pprint_xml(xml_str: str) -> None:
     """Create highlighted xml."""
     IPython.display.display(
@@ -29,7 +31,7 @@ def pprint_xml(xml_str: str) -> None:
     )
 
 
-# <codecell>
+# %%
 def create_repressilator(sbgn_path: Path) -> libsbgn.sbgn:
     """Create repressilator SBGN using libsbgn."""
     # create empty sbgn
@@ -464,6 +466,7 @@ def create_repressilator(sbgn_path: Path) -> libsbgn.sbgn:
     map.add_arc(a)
 
     f_out = str(sbgn_path)
+    os.makedirs(os.path.dirname(f_out), exist_ok=True)
     sbgn.write_file(f_out)
 
     # render SBGN
@@ -475,11 +478,11 @@ def create_repressilator(sbgn_path: Path) -> libsbgn.sbgn:
     return sbgn
 
 
-# <codecell>
+# %%
 if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
 
     RESULTS_DIR
     sbgn: libsbgn.sbgn = create_repressilator(
-        sbgn_path=RESULTS_DIR / "repressilator.sbgn"
+        sbgn_path=RESULTS_DIR / "repressilator_sbgn.sbgn"
     )

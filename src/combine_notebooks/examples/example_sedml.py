@@ -1,16 +1,18 @@
-# <markdowncell>
+# %% [markdown]
 # Create repressilator using SED-ML
 
 # SED-ML encodes in a computer-readable exchange format the information required by MIASE to enable reproduction of simulation experiments.
 
+
 # https://sed-ml.org/
-# <codecell>
+# %%
+import os
 from pathlib import Path
 
 import libsedml
 
 
-# <codecell>
+# %%
 
 
 def create_repressilator(sedml_path: Path) -> libsedml.SedDocument:
@@ -300,11 +302,12 @@ def create_repressilator(sedml_path: Path) -> libsedml.SedDocument:
     curve.setYDataReference("dg_2_1_0")
 
     # write doc
+    os.makedirs(os.path.dirname(str(sedml_path)), exist_ok=True)
     libsedml.writeSedML(doc, str(sedml_path))
     return doc
 
 
-# <codecell>
+# %%
 if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
 

@@ -1,16 +1,18 @@
-# <markdowncell>
+# %% [markdown]
 # Example script for creating SBML repressilator with cellml.
-# <markdowncell>
+# %% [markdown]
 # https://www.cellml.org/getting-started/tutorials/COR-tutorial
 # https://models.physiomeproject.org/exposure/bee9fb9df261ba69b51897f2e49b1691/elowitz_leibler_2000.cellml/view?searchterm=repressilator
 #
 # https://libcellml.org/documentation/v0.2.0/user/tutorials/tutorial3/index
-# <markdowncell>
+# %% [markdown]
 # opencor: https://opencor.ws/downloads/index.html
 #
 # Issues: https://github.com/cellml/libcellml/issues/1017
 
-# <codecell>
+
+# %%
+import os
 from pathlib import Path
 
 import libcellml
@@ -19,7 +21,7 @@ import libsbml
 from combine_notebooks.cellml_utilities import print_model
 
 
-# <codecell>
+# %%
 def create_repressilator(cellml_path: Path) -> libcellml.Model:
     """Create CellML repressilator and save to Path."""
     model = libcellml.Model()
@@ -621,13 +623,14 @@ def create_repressilator(cellml_path: Path) -> libcellml.Model:
     print(serialised_model)
     print("-" * 80)
 
+    os.makedirs(os.path.dirname(cellml_path), exist_ok=True)
     with open(cellml_path, "w") as f_cellml:
         f_cellml.write(serialised_model)
 
     return model
 
 
-# <codecell>
+# %%
 def validate_model(model: libcellml.Model) -> None:
     """Validate existing model."""
     # Validation
@@ -651,10 +654,10 @@ def validate_model(model: libcellml.Model) -> None:
             print("    See section {} in the CellML specification.".format(reference))
 
 
-# <codecell>
+# %%
 if __name__ == "__main__":
     from combine_notebooks import RESULTS_DIR
 
-    cellml_path: Path = RESULTS_DIR / "repressilator.cellml"
+    cellml_path: Path = RESULTS_DIR / "repressilator_cellml.cellml"
     model = create_repressilator(cellml_path)
     validate_model(model)

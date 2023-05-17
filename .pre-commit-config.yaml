@@ -1,0 +1,98 @@
+repos:
+
+- repo: https://github.com/PyCQA/isort
+  rev: 5.12.0
+  hooks:
+  - id: isort
+    files: 'src/combine_notebooks/*'
+    
+- repo: https://github.com/psf/black
+  rev: 23.1.0
+  hooks:
+  - id: black
+    files: 'src/combine_notebooks/*'
+
+- repo: https://github.com/PyCQA/isort
+  rev: 5.12.0
+  hooks:
+  - id: isort
+    files: 'tests/*'
+
+- repo: https://github.com/psf/black
+  rev: 23.1.0
+  hooks:
+  - id: black
+    files: 'tests/*'
+    
+- repo: https://github.com/mwouts/jupytext
+  rev: v1.14.0
+  hooks:
+  - id: jupytext
+    name: jupytext
+    entry: jupytext --to .ipynb --output notebooks/example_biopax.ipynb --update src/combine_notebooks/examples/example_biopax.py
+    always_run: true
+    pass_filenames: false
+
+- repo: https://github.com/mwouts/jupytext
+  rev: v1.14.0
+  hooks:
+  - id: jupytext
+    name: jupytext
+    entry: jupytext --to .ipynb --output notebooks/example_cellml.ipynb --update src/combine_notebooks/examples/example_cellml.py
+    always_run: true
+    pass_filenames: false
+
+- repo: https://github.com/mwouts/jupytext
+  rev: v1.14.0
+  hooks:
+  - id: jupytext
+    name: jupytext
+    entry: jupytext --to .ipynb --output notebooks/example_omex.ipynb --update src/combine_notebooks/examples/example_omex.py
+    always_run: true
+    pass_filenames: false
+    
+- repo: https://github.com/mwouts/jupytext
+  rev: v1.14.0
+  hooks:
+  - id: jupytext
+    name: jupytext
+    entry: jupytext --to .ipynb --output notebooks/example_sbgn.ipynb --update src/combine_notebooks/examples/example_sbgn.py
+    always_run: true
+    pass_filenames: false
+    
+- repo: https://github.com/mwouts/jupytext
+  rev: v1.14.0
+  hooks:
+  - id: jupytext
+    name: jupytext
+    entry: jupytext --to .ipynb --output notebooks/example_sbml_antimony.ipynb --update src/combine_notebooks/examples/example_sbml_antimony.py
+    always_run: true
+    pass_filenames: false
+
+- repo: https://github.com/mwouts/jupytext
+  rev: v1.14.0
+  hooks:
+  - id: jupytext
+    name: jupytext
+    entry: jupytext --to .ipynb --output notebooks/example_sbml_libsbml.ipynb --update src/combine_notebooks/examples/example_sbml_libsbml.py
+    always_run: true
+    pass_filenames: false
+
+- repo: https://github.com/mwouts/jupytext
+  rev: v1.14.0
+  hooks:
+  - id: jupytext
+    name: jupytext
+    entry: jupytext --to .ipynb --output notebooks/example_sbml_sbmlutils.ipynb --update src/combine_notebooks/examples/example_sbml_sbmlutils.py
+    always_run: true
+    pass_filenames: false
+
+- repo: https://github.com/mwouts/jupytext
+  rev: v1.14.0
+  hooks:
+  - id: jupytext
+    name: jupytext
+    entry: jupytext --to .ipynb --output notebooks/example_sedml.ipynb --update src/combine_notebooks/examples/example_sedml.py
+    always_run: true
+    pass_filenames: false
+    

@@ -41,7 +41,7 @@ This repository contains Jupyter notebooks that showcase
 The following standards are demonstrated
 
 - Systems Biology Graphical Notation (`SBGN <https://sbgn.github.io/>`__): Used to describe visually biological knowledge.
-- Systems Biology Markup Language (`SBML <https://sbgn.github.io/>`__): Used for representing models of biological processes.
+- Systems Biology Markup Language (`SBML <https://sbml.org/>`__): Used for representing models of biological processes.
 - Simulation Experiment Description Markup Language (`SED-ML <https://sed-ml.org/>`__): Used for encoding experiments. SED-ML allows defining the models to use, the experimental tasks to run, and which results to produce. It is a computer-readable format for representing the models of biological processes.
 - `CellML <https://www.cellml.org/>`__: Used to store and exchange computer-based mathematical models.
 - Synthetic Biology Open Language (`SBOL <https://sbolstandard.org/>`__): Used for description and the exchange of synthetic biological parts, devices, and systems.
@@ -55,6 +55,10 @@ To work with the notebooks create a virtual environment and install the dependen
     mkvirtualenv combine_notebooks --python=python3.10
     (combine_notebooks) pip install -e .[development] --upgrade
 
+
+To setup pre-commit hooks (optional) run the following command::
+
+    pre-commit install
 
 After changes ensure code formatting via::
 
