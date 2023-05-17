@@ -103,51 +103,51 @@ level_as_string = {
     Issue.Level.MESSAGE: "a MESSAGE",
 }
 
-# def print_issues(item):
-#
-#     # Get the number of issues attached to the logger item.  Note that this will
-#     # return issues of all levels.  To retrieve the total number of a specific level
-#     # of issues, use the errorCount(), warningCount(), hintCount(), or messageCount() functions.
-#     number_of_issues = item.issueCount()
-#     print(f"Recorded {number_of_issues} issues", end="")
-#
-#     if number_of_issues != 0:
-#         print(":")
-#         for e in range(0, number_of_issues):
-#
-#             # Retrieve the issue at index i.  Note that this is agnostic as to the level of issue.
-#             # Specific issue levels can be retrieved using the functions item.error(e), item.warning(e)
-#             # etc, where the index must be within appropriate limits.
-#             i = item.issue(e)
-#
-#             # The level of an issue is retrieved using the level() function as an enum value.
-#             level = i.level()
-#             print(f"Issue {e} is {level_as_string[level]}:")
-#
-#             # Each issue has a descriptive text field, accessible through the description() function.
-#             print("    Description: {d}".format(
-#                 d=i.description()))
-#
-#             # Issues created by the Validator class contain a reference heading number, which indicates
-#             # the section reference within the normative specification relevant to the issue.
-#             specification = i.referenceHeading()
-#             if specification != "":
-#                 print("    See section {s} in the CellML specification.".format(
-#                     s=specification))
-#
-#             # An optional URL is given for some issues which directs the user to more detailed information.
-#             url = i.url()
-#             if url != "":
-#                 print("    More information is available at: {url}".format(
-#                     url=url))
-#
-#             # Each issue is associated with an item.  In order to properly deal with the item stored, its type is
-#             # recorded too in an enumeration.
-#             print("    Stored item type: {}".format(cellmlElementTypeAsString(i.item().type())))
-#         print()
-#     else:
-#         print("!")
-#         print()
+def print_issues(item):
+
+    # Get the number of issues attached to the logger item.  Note that this will
+    # return issues of all levels.  To retrieve the total number of a specific level
+    # of issues, use the errorCount(), warningCount(), hintCount(), or messageCount() functions.
+    number_of_issues = item.issueCount()
+    print(f"Recorded {number_of_issues} issues", end="")
+
+    if number_of_issues != 0:
+        print(":")
+        for e in range(0, number_of_issues):
+
+            # Retrieve the issue at index i.  Note that this is agnostic as to the level of issue.
+            # Specific issue levels can be retrieved using the functions item.error(e), item.warning(e)
+            # etc, where the index must be within appropriate limits.
+            i = item.issue(e)
+
+            # The level of an issue is retrieved using the level() function as an enum value.
+            level = i.level()
+            print(f"Issue {e} is {level_as_string[level]}:")
+
+            # Each issue has a descriptive text field, accessible through the description() function.
+            print("    Description: {d}".format(
+                d=i.description()))
+
+            # Issues created by the Validator class contain a reference heading number, which indicates
+            # the section reference within the normative specification relevant to the issue.
+            specification = i.referenceHeading()
+            if specification != "":
+                print("    See section {s} in the CellML specification.".format(
+                    s=specification))
+
+            # An optional URL is given for some issues which directs the user to more detailed information.
+            url = i.url()
+            if url != "":
+                print("    More information is available at: {url}".format(
+                    url=url))
+
+            # Each issue is associated with an item.  In order to properly deal with the item stored, its type is
+            # recorded too in an enumeration.
+            print("    Stored item type: {}".format(cellmlElementTypeAsString(i.item().type())))
+        print()
+    else:
+        print("!")
+        print()
 
 
 # def print_component_only_to_terminal(component, spacer):
