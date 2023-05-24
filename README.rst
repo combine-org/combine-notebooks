@@ -5,8 +5,8 @@
 combine-notebooks - COMBINE jupyter notebooks in python
 =======================================================
 
-.. image:: https://github.com/combine-org/combine-notebooks/workflows/CI-CD/badge.svg
-   :target: https://github.com/combine-org/combine-notebooks/workflows/CI-CD
+.. image:: https://github.com/combine-org/combine-notebooks/actions/workflows/main.yml/badge.svg
+   :target: https://github.com/combine-org/combine-notebooks/actions/workflows/main.yml
    :alt: GitHub Actions CI/CD Status
 
 .. image:: https://img.shields.io/pypi/v/combine-notebooks.svg
