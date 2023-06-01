@@ -104,10 +104,8 @@ level_as_string = {
 }
 
 
-def print_issues(item):
-    # Get the number of issues attached to the logger item.  Note that this will
-    # return issues of all levels.  To retrieve the total number of a specific level
-    # of issues, use the errorCount(), warningCount(), hintCount(), or messageCount() functions.
+def print_issues(item: libcellml.validator.Validator) -> None:
+    """Get the number of issues attached to the logger item."""
     number_of_issues = item.issueCount()
     print(f"Recorded {number_of_issues} issues", end="")
 
