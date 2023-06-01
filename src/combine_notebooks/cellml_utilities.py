@@ -143,11 +143,7 @@ def print_issues(item):
 
             # Each issue is associated with an item.  In order to properly deal with the item stored, its type is
             # recorded too in an enumeration.
-            print(
-                "    Stored item type: {}".format(
-                    str(i.item().type())
-                )
-            )
+            print("    Stored item type: {}".format(str(i.item().type())))
         print()
     else:
         print("!")
