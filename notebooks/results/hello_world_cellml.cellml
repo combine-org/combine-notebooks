@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model xmlns="http://www.cellml.org/cellml/2.0#" name="tutorial_1_model" id="tutorial_1_model_id_is_here">
-  <component name="i_am_a_component" id="my_component_id">
-    <variable name="a" units="dimensionless" initial_value="b" interface="public_and_private"/>
-    <variable name="b" units="dimensionless" interface="public_and_private"/>
-    <variable name="c" units="dimensionless" interface="public_and_private"/>
+<model xmlns="http://www.cellml.org/cellml/2.0#" name="tutorial_model" id="tutorial_model_id_is_here">
+  <units name="number"/>
+  <units name="per_number">
+    <unit exponent="-1" units="number"/>
+  </units>
+  <component name="cancer_cells_component" id="my_component_id">
+    <variable name="rounds_of_cell_division" units="number"/>
+    <variable name="total_cancer_cells" units="number"/>
+    <variable name="c" units="per_number"/>
     <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
       <apply>
         <eq/>
-        <ci>a</ci>
         <apply>
-          <plus/>
-          <ci>b</ci>
+          <diff/>
+          <bvar>
+            <ci>rounds_of_cell_division</ci>
+          </bvar>
+          <ci>total_cancer_cells</ci>
+        </apply>
+        <apply>
+          <times/>
           <ci>c</ci>
+          <ci>total_cancer_cells</ci>
         </apply>
       </apply>
     </math>
