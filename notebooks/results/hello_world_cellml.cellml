@@ -14,14 +14,14 @@
         <apply>
           <diff/>
           <bvar>
-            <ci>rounds_of_cell_division</ci>
+            <ci>total_cancer_cells</ci>
           </bvar>
-          <ci>total_cancer_cells</ci>
+          <ci>rounds_of_cell_division</ci>
         </apply>
         <apply>
           <times/>
           <ci>c</ci>
-          <ci>total_cancer_cells</ci>
+          <ci>rounds_of_cell_division</ci>
         </apply>
       </apply>
     </math>
