@@ -39,39 +39,39 @@
         <glyph class="outcome" id="glyph7">
             <bbox w="6." h="6." x="192." y="225."/>
         </glyph>
-        <arc class="assignment" id="arc0">
+        <arc class="assignment" id="arc0" source="glyph4" target="glyph2">
             <start x="195." y="35."/>
             <end x="195." y="114."/>
         </arc>
-        <arc class="assignment" id="arc1">
+        <arc class="assignment" id="arc1" source="glyph5" target="glyph2">
             <start x="195." y="265."/>
             <end x="195." y="186."/>
         </arc>
-        <arc class="stimulation" id="arc2">
+        <arc class="stimulation" id="arc2" source="glyph0" target="arc0">
             <start x="105." y="50."/>
             <end x="193." y="50."/>
         </arc>
-        <arc class="stimulation" id="arc3">
+        <arc class="stimulation" id="arc3" source="glyph1" target="arc1">
             <start x="105." y="250."/>
             <end x="193." y="250."/>
         </arc>
-        <arc class="stimulation" id="arc4">
+        <arc class="stimulation" id="arc4" source="glyph2" target="glyph3">
             <start x="235." y="150."/>
             <end x="294." y="150."/>
         </arc>
-        <arc class="stimulation" id="arc5">
+        <arc class="stimulation" id="arc5" source="glyph7" target="arc4">
             <start x="265." y="228."/>
             <end x="265." y="155."/>
         </arc>
-        <arc class="logic arc" id="arc6">
+        <arc class="logic arc" id="arc6" source="glyph7" target="arc4">
             <start x="195." y="228."/>
             <end x="265." y="228."/>
         </arc>
-        <arc class="inhibition" id="arc7">
+        <arc class="inhibition" id="arc7" source="glyph6" target="arc4">
             <start x="265." y="73."/>
             <end x="265." y="145."/>
         </arc>
-        <arc class="logic arc" id="arc8">
+        <arc class="logic arc" id="arc8" source="glyph6" target="arc4">
             <start x="195." y="73."/>
             <end x="265." y="73."/>
         </arc>
