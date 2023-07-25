@@ -69,64 +69,60 @@
         <glyph class="macromolecule" id="glyph2">
             <label text="ubc9"/>
             <bbox w="80." h="50." x="105." y="25."/>
-            <port id="glyph8.1" x="315." y="110."/>
-            <port id="glyph8.2" x="295." y="110."/>
         </glyph>
         <glyph class="macromolecule" id="glyph6">
             <label text="erk"/>
             <bbox w="80." h="50." x="265." y="25."/>
-            <port id="glyph8.1" x="315." y="110."/>
-            <port id="glyph8.2" x="295." y="110."/>
         </glyph>
-        <arc class="catalysis" id="arc1" source="glyph2" target="glyph3">
+        <arc class="catalysis" id="arc1">
             <start x="145." y="75."/>
             <end x="145." y="99."/>
         </arc>
-        <arc class="catalysis" id="arc5" source="glyph6" target="glyph8">
+        <arc class="catalysis" id="arc5">
             <start x="305." y="75."/>
             <end x="305." y="99."/>
         </arc>
-        <arc class="production" id="arc2" source="glyph3.1" target="glyph1">
+        <arc class="production" id="arc2">
             <start x="155." y="150."/>
             <end x="183." y="135."/>
         </arc>
-        <arc class="consumption" id="arc0" source="glyph4" target="glyph3.2">
+        <arc class="consumption" id="arc0">
             <start x="105." y="135."/>
             <end x="135." y="150."/>
         </arc>
-        <arc class="production" id="arc3" source="glyph5.2" target="glyph4">
+        <arc class="production" id="arc3">
             <start x="135." y="110."/>
             <end x="106." y="125."/>
         </arc>
-        <arc class="consumption" id="arc4" source="glyph1" target="glyph5.1">
+        <arc class="consumption" id="arc4">
             <start x="185." y="125."/>
             <end x="155." y="110."/>
         </arc>
-        <arc class="consumption" id="arc7" source="glyph9" target="glyph7.1">
+        <arc class="consumption" id="arc7">
             <start x="343." y="135."/>
             <end x="315." y="150."/>
         </arc>
-        <arc class="production" id="arc2" source="glyph7.2" target="glyph1">
+        <arc class="production" id="arc6">
             <start x="295." y="150."/>
             <end x="265." y="135."/>
         </arc>
-        <arc class="consumption" id="arc8" source="glyph1" target="glyph8.2">
+        <arc class="consumption" id="arc8">
             <start x="266." y="125."/>
             <end x="295." y="110."/>
         </arc>
-        <arc class="production" id="arc9" source="glyph8.1" target="glyph9">
+        <arc class="production" id="arc9">
             <start x="315." y="110."/>
             <end x="345." y="125."/>
         </arc>
-        <arc class="production" id="arc13" source="glyph10.3" target="glyph10">
+        <arc class="production" id="arc13">
             <start x="505." y="140."/>
             <end x="505." y="175."/>
         </arc>
-        <arc class="necessary stimulation" id="arc11" source="glyph10" target="glyph11.2">
+        <arc class="necessary stimulation" id="arc11">
             <start x="395." y="130."/>
             <end x="494." y="130."/>
         </arc>
-        <arc class="consumption" id="arc12" source="glyph11.1" target="glyph12">
+        <arc class="consumption" id="arc12">
             <start x="505." y="90."/>
             <end x="505." y="120."/>
         </arc>
