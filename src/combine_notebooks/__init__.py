@@ -4,6 +4,6 @@ from pathlib import Path
 __version__ = "0.1.4"
 
 BASE_DIR: Path = Path(__file__).parent.parent.parent
-RESULTS_DIR: Path = BASE_DIR / "results"
+RESULTS_DIR: Path = BASE_DIR / "notebooks/results"
 NOTEBOOK_DIR: Path = BASE_DIR / "notebooks"
 EXAMPLE_DIR: Path = Path(__file__).parent / "examples"
