@@ -3,25 +3,6 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:sbol="http://sbols.org/v3#"
 >
-  <rdf:Description rdf:about="https://github.com/Gonza10V/geneproduct_GFP_mut3_M0050_TER1/SubComponent1">
-    <sbol:displayId>SubComponent1</sbol:displayId>
-    <rdf:type rdf:resource="http://sbols.org/v3#SubComponent"/>
-    <sbol:instanceOf rdf:resource="https://github.com/Gonza10V/GFP_mut3"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://github.com/Gonza10V/GFP_mut3_seq">
-    <sbol:displayId>GFP_mut3_seq</sbol:displayId>
-    <rdf:type rdf:resource="http://sbols.org/v3#Sequence"/>
-    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
-    <sbol:elements>atgcgtaaaggagaagaacttttcactggagttgtcccaattcttgttgaattagatggtgatgttaatgggcacaaattttctgtcagtggagagggtgaaggtgatgcaacatacggaaaacttacccttaaatttatttgcactactggaaaactacctgttccatggccaacacttgtcactactttcggttatggtgttcaatgctttgcgagatacccagatcatatgaaacagcatgactttttcaagagtgccatgcccgaaggttatgtacaggaaagaactatatttttcaaagatgacgggaactacaagacacgtgctgaagtcaagtttgaaggtgatacccttgttaatagaatcgagttaaaaggtattgattttaaagaagatggaaacattcttggacacaaattggaatacaactataactcacacaatgtatacatcatggcagacaaacaaaagaatggaatcaaagttaacttcaaaattagacacaacattgaagatggaagcgttcaactagcagaccattatcaacaaaatactccaattggcgatggccctgtccttttaccagacaaccattacctgtccacacaatctgccctttcgaaagatcccaacgaaaagcgcgaccacatggtccttcttgagtttgtaacagctgctgggattacacatggcatggatgaactatacaaa</sbol:elements>
-    <sbol:encoding rdf:resource="https://identifiers.org/edam:format_1207"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://github.com/Gonza10V/J23101_seq">
-    <sbol:displayId>J23101_seq</sbol:displayId>
-    <rdf:type rdf:resource="http://sbols.org/v3#Sequence"/>
-    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
-    <sbol:elements>tttacagctagctcagtcctaggtattatgctagc </sbol:elements>
-    <sbol:encoding rdf:resource="https://identifiers.org/edam:format_1207"/>
-  </rdf:Description>
   <rdf:Description rdf:about="https://github.com/Gonza10V/M0050">
     <sbol:displayId>M0050</sbol:displayId>
     <sbol:description>http://parts.igem.org/wiki/index.php?title=Part:BBa_M0050</sbol:description>
@@ -31,91 +12,11 @@
     <sbol:role rdf:resource="https://identifiers.org/SO:0001955"/>
     <sbol:hasSequence rdf:resource="https://github.com/Gonza10V/M0050_seq"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://github.com/Gonza10V/GFP_mut3">
-    <sbol:displayId>GFP_mut3</sbol:displayId>
-    <sbol:description>GFP mut3 Coding Sequence, no BsaI site, no stop codon</sbol:description>
-    <rdf:type rdf:resource="http://sbols.org/v3#Component"/>
-    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
-    <sbol:type rdf:resource="https://identifiers.org/SBO:0000251"/>
-    <sbol:role rdf:resource="https://identifiers.org/SO:0000316"/>
-    <sbol:hasSequence rdf:resource="https://github.com/Gonza10V/GFP_mut3_seq"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://github.com/Gonza10V/J23101">
-    <sbol:displayId>J23101</sbol:displayId>
-    <sbol:description>https://synbiohub.org/public/igem/BBa_J23101/1</sbol:description>
-    <rdf:type rdf:resource="http://sbols.org/v3#Component"/>
-    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
-    <sbol:type rdf:resource="https://identifiers.org/SBO:0000251"/>
-    <sbol:role rdf:resource="https://identifiers.org/SO:0000167"/>
-    <sbol:hasSequence rdf:resource="https://github.com/Gonza10V/J23101_seq"/>
-  </rdf:Description>
   <rdf:Description rdf:about="https://github.com/Gonza10V/RBS1_seq">
     <sbol:displayId>RBS1_seq</sbol:displayId>
     <rdf:type rdf:resource="http://sbols.org/v3#Sequence"/>
     <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
     <sbol:elements>ttgaacaccgtcTCAGGTAAGTATCAGTTGTAAatcacacaggacta</sbol:elements>
-    <sbol:encoding rdf:resource="https://identifiers.org/edam:format_1207"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://github.com/Gonza10V/TER1_seq">
-    <sbol:displayId>TER1_seq</sbol:displayId>
-    <rdf:type rdf:resource="http://sbols.org/v3#Sequence"/>
-    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
-    <sbol:elements>GTCCatttgtcctactcaggagagcgttcaccgacaaacaacagataaaacgaaaggcccagtctttcgactgagcctttcgttttatttgTAAGGCTCG</sbol:elements>
-    <sbol:encoding rdf:resource="https://identifiers.org/edam:format_1207"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://github.com/Gonza10V/operator_ptet/SubComponent1">
-    <sbol:displayId>SubComponent1</sbol:displayId>
-    <rdf:type rdf:resource="http://sbols.org/v3#SubComponent"/>
-    <sbol:instanceOf rdf:resource="https://github.com/Gonza10V/J23101"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://github.com/Gonza10V/RBS1">
-    <sbol:displayId>RBS1</sbol:displayId>
-    <sbol:description>BASIC Linker RBS1</sbol:description>
-    <rdf:type rdf:resource="http://sbols.org/v3#Component"/>
-    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
-    <sbol:type rdf:resource="https://identifiers.org/SBO:0000251"/>
-    <sbol:role rdf:resource="https://identifiers.org/SO:0000139"/>
-    <sbol:hasSequence rdf:resource="https://github.com/Gonza10V/RBS1_seq"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://github.com/Gonza10V/operator_ptet/Constraint1">
-    <sbol:displayId>Constraint1</sbol:displayId>
-    <rdf:type rdf:resource="http://sbols.org/v3#Constraint"/>
-    <sbol:restriction rdf:resource="http://sbols.org/v3#precedes"/>
-    <sbol:subject rdf:resource="https://github.com/Gonza10V/operator_ptet/SubComponent1"/>
-    <sbol:object rdf:resource="https://github.com/Gonza10V/operator_ptet/SubComponent2"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://github.com/Gonza10V/geneproduct_GFP_mut3_M0050_TER1/Constraint1">
-    <sbol:displayId>Constraint1</sbol:displayId>
-    <rdf:type rdf:resource="http://sbols.org/v3#Constraint"/>
-    <sbol:restriction rdf:resource="http://sbols.org/v3#precedes"/>
-    <sbol:subject rdf:resource="https://github.com/Gonza10V/geneproduct_GFP_mut3_M0050_TER1/SubComponent2"/>
-    <sbol:object rdf:resource="https://github.com/Gonza10V/geneproduct_GFP_mut3_M0050_TER1/SubComponent3"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://github.com/Gonza10V/operator_ptet">
-    <sbol:displayId>operator_ptet</sbol:displayId>
-    <sbol:description>LOICA Operator J23101</sbol:description>
-    <rdf:type rdf:resource="http://sbols.org/v3#Component"/>
-    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
-    <sbol:type rdf:resource="https://identifiers.org/SBO:0000251"/>
-    <sbol:role rdf:resource="https://identifiers.org/SO:0000804"/>
-    <sbol:hasFeature rdf:resource="https://github.com/Gonza10V/operator_ptet/SubComponent1"/>
-    <sbol:hasFeature rdf:resource="https://github.com/Gonza10V/operator_ptet/SubComponent2"/>
-    <sbol:hasConstraint rdf:resource="https://github.com/Gonza10V/operator_ptet/Constraint1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://github.com/Gonza10V/TER1">
-    <sbol:displayId>TER1</sbol:displayId>
-    <sbol:description>rrnB T1 terminator from Potvin-Trottier pLPT119, extra stop codon</sbol:description>
-    <rdf:type rdf:resource="http://sbols.org/v3#Component"/>
-    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
-    <sbol:type rdf:resource="https://identifiers.org/SBO:0000251"/>
-    <sbol:role rdf:resource="https://identifiers.org/SO:0000141"/>
-    <sbol:hasSequence rdf:resource="https://github.com/Gonza10V/TER1_seq"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://github.com/Gonza10V/M0050_seq">
-    <sbol:displayId>M0050_seq</sbol:displayId>
-    <rdf:type rdf:resource="http://sbols.org/v3#Sequence"/>
-    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
-    <sbol:elements>gctgctaacgacgaaaactacgctctggctgctTAAattgaacta</sbol:elements>
     <sbol:encoding rdf:resource="https://identifiers.org/edam:format_1207"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://github.com/Gonza10V/geneproduct_GFP_mut3_M0050_TER1">
@@ -130,19 +31,118 @@
     <sbol:hasFeature rdf:resource="https://github.com/Gonza10V/geneproduct_GFP_mut3_M0050_TER1/SubComponent3"/>
     <sbol:hasConstraint rdf:resource="https://github.com/Gonza10V/geneproduct_GFP_mut3_M0050_TER1/Constraint1"/>
   </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/Gonza10V/operator_ptet/Constraint1">
+    <sbol:displayId>Constraint1</sbol:displayId>
+    <rdf:type rdf:resource="http://sbols.org/v3#Constraint"/>
+    <sbol:restriction rdf:resource="http://sbols.org/v3#precedes"/>
+    <sbol:subject rdf:resource="https://github.com/Gonza10V/operator_ptet/SubComponent1"/>
+    <sbol:object rdf:resource="https://github.com/Gonza10V/operator_ptet/SubComponent2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/Gonza10V/TER1_seq">
+    <sbol:displayId>TER1_seq</sbol:displayId>
+    <rdf:type rdf:resource="http://sbols.org/v3#Sequence"/>
+    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
+    <sbol:elements>GTCCatttgtcctactcaggagagcgttcaccgacaaacaacagataaaacgaaaggcccagtctttcgactgagcctttcgttttatttgTAAGGCTCG</sbol:elements>
+    <sbol:encoding rdf:resource="https://identifiers.org/edam:format_1207"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/Gonza10V/GFP_mut3">
+    <sbol:displayId>GFP_mut3</sbol:displayId>
+    <sbol:description>GFP mut3 Coding Sequence, no BsaI site, no stop codon</sbol:description>
+    <rdf:type rdf:resource="http://sbols.org/v3#Component"/>
+    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
+    <sbol:type rdf:resource="https://identifiers.org/SBO:0000251"/>
+    <sbol:role rdf:resource="https://identifiers.org/SO:0000316"/>
+    <sbol:hasSequence rdf:resource="https://github.com/Gonza10V/GFP_mut3_seq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/Gonza10V/operator_ptet/SubComponent1">
+    <sbol:displayId>SubComponent1</sbol:displayId>
+    <rdf:type rdf:resource="http://sbols.org/v3#SubComponent"/>
+    <sbol:instanceOf rdf:resource="https://github.com/Gonza10V/J23101"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/Gonza10V/GFP_mut3_seq">
+    <sbol:displayId>GFP_mut3_seq</sbol:displayId>
+    <rdf:type rdf:resource="http://sbols.org/v3#Sequence"/>
+    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
+    <sbol:elements>atgcgtaaaggagaagaacttttcactggagttgtcccaattcttgttgaattagatggtgatgttaatgggcacaaattttctgtcagtggagagggtgaaggtgatgcaacatacggaaaacttacccttaaatttatttgcactactggaaaactacctgttccatggccaacacttgtcactactttcggttatggtgttcaatgctttgcgagatacccagatcatatgaaacagcatgactttttcaagagtgccatgcccgaaggttatgtacaggaaagaactatatttttcaaagatgacgggaactacaagacacgtgctgaagtcaagtttgaaggtgatacccttgttaatagaatcgagttaaaaggtattgattttaaagaagatggaaacattcttggacacaaattggaatacaactataactcacacaatgtatacatcatggcagacaaacaaaagaatggaatcaaagttaacttcaaaattagacacaacattgaagatggaagcgttcaactagcagaccattatcaacaaaatactccaattggcgatggccctgtccttttaccagacaaccattacctgtccacacaatctgccctttcgaaagatcccaacgaaaagcgcgaccacatggtccttcttgagtttgtaacagctgctgggattacacatggcatggatgaactatacaaa</sbol:elements>
+    <sbol:encoding rdf:resource="https://identifiers.org/edam:format_1207"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/Gonza10V/geneproduct_GFP_mut3_M0050_TER1/Constraint1">
+    <sbol:displayId>Constraint1</sbol:displayId>
+    <rdf:type rdf:resource="http://sbols.org/v3#Constraint"/>
+    <sbol:restriction rdf:resource="http://sbols.org/v3#precedes"/>
+    <sbol:subject rdf:resource="https://github.com/Gonza10V/geneproduct_GFP_mut3_M0050_TER1/SubComponent2"/>
+    <sbol:object rdf:resource="https://github.com/Gonza10V/geneproduct_GFP_mut3_M0050_TER1/SubComponent3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/Gonza10V/J23101_seq">
+    <sbol:displayId>J23101_seq</sbol:displayId>
+    <rdf:type rdf:resource="http://sbols.org/v3#Sequence"/>
+    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
+    <sbol:elements>tttacagctagctcagtcctaggtattatgctagc </sbol:elements>
+    <sbol:encoding rdf:resource="https://identifiers.org/edam:format_1207"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/Gonza10V/J23101">
+    <sbol:displayId>J23101</sbol:displayId>
+    <sbol:description>https://synbiohub.org/public/igem/BBa_J23101/1</sbol:description>
+    <rdf:type rdf:resource="http://sbols.org/v3#Component"/>
+    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
+    <sbol:type rdf:resource="https://identifiers.org/SBO:0000251"/>
+    <sbol:role rdf:resource="https://identifiers.org/SO:0000167"/>
+    <sbol:hasSequence rdf:resource="https://github.com/Gonza10V/J23101_seq"/>
+  </rdf:Description>
   <rdf:Description rdf:about="https://github.com/Gonza10V/geneproduct_GFP_mut3_M0050_TER1/SubComponent2">
     <sbol:displayId>SubComponent2</sbol:displayId>
     <rdf:type rdf:resource="http://sbols.org/v3#SubComponent"/>
     <sbol:instanceOf rdf:resource="https://github.com/Gonza10V/M0050"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://github.com/Gonza10V/operator_ptet/SubComponent2">
-    <sbol:displayId>SubComponent2</sbol:displayId>
+  <rdf:Description rdf:about="https://github.com/Gonza10V/geneproduct_GFP_mut3_M0050_TER1/SubComponent1">
+    <sbol:displayId>SubComponent1</sbol:displayId>
     <rdf:type rdf:resource="http://sbols.org/v3#SubComponent"/>
-    <sbol:instanceOf rdf:resource="https://github.com/Gonza10V/RBS1"/>
+    <sbol:instanceOf rdf:resource="https://github.com/Gonza10V/GFP_mut3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/Gonza10V/M0050_seq">
+    <sbol:displayId>M0050_seq</sbol:displayId>
+    <rdf:type rdf:resource="http://sbols.org/v3#Sequence"/>
+    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
+    <sbol:elements>gctgctaacgacgaaaactacgctctggctgctTAAattgaacta</sbol:elements>
+    <sbol:encoding rdf:resource="https://identifiers.org/edam:format_1207"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/Gonza10V/TER1">
+    <sbol:displayId>TER1</sbol:displayId>
+    <sbol:description>rrnB T1 terminator from Potvin-Trottier pLPT119, extra stop codon</sbol:description>
+    <rdf:type rdf:resource="http://sbols.org/v3#Component"/>
+    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
+    <sbol:type rdf:resource="https://identifiers.org/SBO:0000251"/>
+    <sbol:role rdf:resource="https://identifiers.org/SO:0000141"/>
+    <sbol:hasSequence rdf:resource="https://github.com/Gonza10V/TER1_seq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/Gonza10V/operator_ptet">
+    <sbol:displayId>operator_ptet</sbol:displayId>
+    <sbol:description>LOICA Operator J23101</sbol:description>
+    <rdf:type rdf:resource="http://sbols.org/v3#Component"/>
+    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
+    <sbol:type rdf:resource="https://identifiers.org/SBO:0000251"/>
+    <sbol:role rdf:resource="https://identifiers.org/SO:0000804"/>
+    <sbol:hasFeature rdf:resource="https://github.com/Gonza10V/operator_ptet/SubComponent1"/>
+    <sbol:hasFeature rdf:resource="https://github.com/Gonza10V/operator_ptet/SubComponent2"/>
+    <sbol:hasConstraint rdf:resource="https://github.com/Gonza10V/operator_ptet/Constraint1"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://github.com/Gonza10V/geneproduct_GFP_mut3_M0050_TER1/SubComponent3">
     <sbol:displayId>SubComponent3</sbol:displayId>
     <rdf:type rdf:resource="http://sbols.org/v3#SubComponent"/>
     <sbol:instanceOf rdf:resource="https://github.com/Gonza10V/TER1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/Gonza10V/RBS1">
+    <sbol:displayId>RBS1</sbol:displayId>
+    <sbol:description>BASIC Linker RBS1</sbol:description>
+    <rdf:type rdf:resource="http://sbols.org/v3#Component"/>
+    <sbol:hasNamespace rdf:resource="https://github.com/Gonza10V"/>
+    <sbol:type rdf:resource="https://identifiers.org/SBO:0000251"/>
+    <sbol:role rdf:resource="https://identifiers.org/SO:0000139"/>
+    <sbol:hasSequence rdf:resource="https://github.com/Gonza10V/RBS1_seq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/Gonza10V/operator_ptet/SubComponent2">
+    <sbol:displayId>SubComponent2</sbol:displayId>
+    <rdf:type rdf:resource="http://sbols.org/v3#SubComponent"/>
+    <sbol:instanceOf rdf:resource="https://github.com/Gonza10V/RBS1"/>
   </rdf:Description>
 </rdf:RDF>
