@@ -3,3 +3,4 @@ include README.rst
 include src/combine_notebooks/py.typed
 
 recursive-include src/combine_notebooks/resources/ *
+recursive-include src/combine_notebooks/ *
