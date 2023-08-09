@@ -1,7 +1,7 @@
 .. image:: https://raw.githubusercontent.com/combine-org/combine-notebooks/main/docs/images/combine.png
    :align: left
    :alt: COMBINE logo
-
+ 
 combine-notebooks - COMBINE jupyter notebooks in python
 =======================================================
 
