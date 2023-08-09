@@ -2,9 +2,9 @@ name: CI-CD
 
 on:
   push:
-    branches: [ main, development, experimental, test*, precommit, hello-world]
+    branches: [ main, development, experimental, test*, precommit, hello-world, binder_colab_testing]
   pull_request:
-    branches: [ main, development, experimental, test*, precommit, hello-world]
+    branches: [ main, development, experimental, test*, precommit, hello-world, binder_colab_testing]
 jobs:
 
   pre-commit:
