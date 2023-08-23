@@ -1,0 +1,1 @@
+"""SBOL Visual glyph package."""

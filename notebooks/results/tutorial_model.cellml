@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cellml.org/cellml/2.0#" name="tutorial_model" id="tutorial_model_id">
+  <units name="cell"/>
+  <units name="cell_per_second2">
+    <unit units="cell"/>
+    <unit exponent="-2" units="second"/>
+  </units>
+  <component name="cancer_cells_component">
+    <variable name="x" units="cell"/>
+    <variable name="t" units="second"/>
+    <variable name="C" units="cell_per_second2"/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>x</ci>
+        </apply>
+        <apply>
+          <times/>
+          <ci>C</ci>
+          <ci>t</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+</model>
