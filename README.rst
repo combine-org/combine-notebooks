@@ -32,7 +32,7 @@ combine-notebooks - COMBINE jupyter notebooks in python
 Project Overview
 ----------------
 This repository contains Jupyter notebooks that showcase
-`COMBINE <http://co.mbine.org/standards>`__ standards and their libraries around one common theme; the repressilator model.
+`COMBINE <http://co.mbine.org/standards>`__ standards and their libraries.  Each of the standards has a simple hello world example, or a repressilator model example, or both.
 
 .. image:: https://img.shields.io/badge/Blogger-FF5722?style=for-the-badge&logo=blogger&logoColor=white
    :target: https://combine-notebooks-gsoc-2022.blogspot.com/
@@ -40,12 +40,46 @@ This repository contains Jupyter notebooks that showcase
 
 The following standards are demonstrated
 
-- Systems Biology Graphical Notation (`SBGN <https://sbgn.github.io/>`__): Used to describe visually biological knowledge.
-- Systems Biology Markup Language (`SBML <https://sbml.org/>`__): Used for representing models of biological processes.
-- Simulation Experiment Description Markup Language (`SED-ML <https://sed-ml.org/>`__): Used for encoding experiments. SED-ML allows defining the models to use, the experimental tasks to run, and which results to produce. It is a computer-readable format for representing the models of biological processes.
-- `CellML <https://www.cellml.org/>`__: Used to store and exchange computer-based mathematical models.
-- Synthetic Biology Open Language (`SBOL <https://sbolstandard.org/>`__): Used for description and the exchange of synthetic biological parts, devices, and systems.
-- `NeuroML <https://neuroml.org/>`__: Used for XML based description language that provides a common data format for defining and exchanging descriptions of neuronal cell and network models.
+.. list-table:: 
+   :widths: 30 30 30 30
+   :header-rows: 1
+
+   * - Standard
+     - Description
+     - Basic Example
+     - Repressilator Example
+   * - Systems Biology Graphical Notation (`SBGN <https://sbgn.github.io/>`__)
+     - Used to describe visually biological knowledge.
+     - `sbgn.ipynb <https://github.com/combine-org/combine-notebooks/blob/main/notebooks/sbgn.ipynb>`__
+     - `example_sbgn.ipynb <https://github.com/combine-org/combine-notebooks/blob/main/notebooks/example_sbgn.ipynb>`__
+   * - Systems Biology Markup Language (`SBML <https://sbml.org/>`__)
+     - Used for representing models of biological processes.
+     - `sbml.ipynb <https://github.com/combine-org/combine-notebooks/blob/main/notebooks/sbml.ipynb>`__
+     - `example_sbml_libsbml.ipynb <https://github.com/combine-org/combine-notebooks/blob/main/notebooks/example_sbml_libsbml.ipynb>`__
+   * - Simulation Experiment Description Markup Language (`SED-ML <https://sed-ml.org/>`__)
+     - Used for encoding experiments. SED-ML allows defining the models to use, the experimental tasks to run, and which results to produce. It is a computer-readable format for representing the models of biological processes.
+     - `sedml.ipynb <https://github.com/combine-org/combine-notebooks/blob/main/notebooks/sedml.ipynb>`__
+     - `example_sedml.ipynb <https://github.com/combine-org/combine-notebooks/blob/main/notebooks/example_sedml.ipynb>`__
+   * - `CellML <https://www.cellml.org/>`__
+     - Used to store and exchange computer-based mathematical models.
+     - `cellml.ipynb <https://github.com/combine-org/combine-notebooks/blob/main/notebooks/cellml.ipynb>`__
+     - `example_cellml.ipynb <https://github.com/combine-org/combine-notebooks/blob/main/notebooks/example_cellml.ipynb>`__
+   * - Synthetic Biology Open Language (`SBOL <https://sbolstandard.org/>`__)
+     - Used for description and the exchange of synthetic biological parts, devices, and systems.
+     - `sbol.ipynb <https://github.com/combine-org/combine-notebooks/blob/main/notebooks/sbol.ipynb>`__
+     - \-
+   * - `NeuroML <https://neuroml.org/>`__
+     - Used for XML based description language that provides a common data format for defining and exchanging descriptions of neuronal cell and network models.
+     - `neuroml.ipynb <https://github.com/combine-org/combine-notebooks/blob/main/notebooks/neuroml.ipynb>`__
+     - \-
+   * - `COMBINE Archive <https://combinearchive.org/index/>`__
+     - Used to bundle the various documents necessary for a modelling and simulation project, and all relevant information.
+     - `omex.ipynb <https://github.com/combine-org/combine-notebooks/blob/main/notebooks/omex.ipynb>`__
+     - `example_omex.ipynb <https://github.com/combine-org/combine-notebooks/blob/main/notebooks/example_omex.ipynb>`__
+   * - Biological Pathway Exchange (`BioPAX <http://www.biopax.org/>`__)  
+     - Used to enable integration, exchange and analysis of biological pathway data. 
+     - \-
+     - `example_biopax.ipynb <https://github.com/combine-org/combine-notebooks/blob/main/notebooks/example_biopax.ipynb>`__
 
 Setup/Installation
 ------------------
