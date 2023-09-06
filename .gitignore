@@ -18,3 +18,5 @@ notebooks/.ipynb_checkpoints
 /notebooks/hello_world_neuroml.nml
 /.coverage.*
 /build/
+/.ipynb_checkpoints
+/notebooks/results/*.v.dat

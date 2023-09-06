@@ -1,0 +1,27 @@
+<Lems>
+    
+    <!-- 
+
+        This LEMS file has been automatically generated using PyNeuroML v1.0.8 (libNeuroML v0.5.2)
+
+     -->
+    
+    <!-- Specify which component to run -->
+    <Target component="SimIzhNet"/>
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <Include file="hello_world_neuroml.nml"/>
+   
+    <Simulation id="SimIzhNet" length="1000ms" step="0.1ms" target="IzhNet" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
+        
+        <OutputFile id="output0" fileName="SimIzhNet.v.dat">
+            <OutputColumn id="IzhPop0[0]" quantity="IzhPop0[0]/v"/> 
+        </OutputFile>
+        
+    </Simulation>
+
+</Lems>
