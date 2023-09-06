@@ -19,3 +19,4 @@ notebooks/.ipynb_checkpoints
 /.coverage.*
 /build/
 /.ipynb_checkpoints
+/notebooks/results/*.v.dat
