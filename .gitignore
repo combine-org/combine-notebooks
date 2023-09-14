@@ -20,3 +20,4 @@ notebooks/.ipynb_checkpoints
 /build/
 /.ipynb_checkpoints
 /notebooks/results/*.v.dat
+/notebooks/results/.ipynb_checkpoints

@@ -4,4 +4,4 @@ from setuptools import setup  # type: ignore
 
 
 if __name__ == "__main__":
-    setup(version="0.2.0", include_package_data=True)
+    setup(version="0.2.1", include_package_data=True)
