@@ -2,14 +2,18 @@ import os
 from pathlib import Path
 
 
-def determine_environment():
+def determine_environment() -> str:
+    """Work out the local environment.
+
+    This returns the working directory
+    """
     # determine if we're running on Google Colab
     try:
-        import google.colab
+        import google.colab  # type: ignore
 
         exec_env = "colab"  # we seem to be on colab
         print("Assuming this notebook is running on Google Colab")
-    except:
+    except Exception:
         exec_env = "binder"  # assume it's binder
 
     if exec_env == "colab":
